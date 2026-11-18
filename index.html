@@ -217,6 +217,18 @@ body.gaveta-aberta .btn-gaveta span:nth-child(3){transform:translateY(-6px) rota
   body.menu-recolhido .menu-lateral{width:min(84vw,300px);flex-basis:auto}
 }
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+/* cabeçalho no celular: ☰ + logo à esquerda, ícones à direita na mesma linha */
+@media (max-width:820px){
+  #tela-app .topo{column-gap:8px}
+  #tela-app .btn-gaveta{order:0}
+  #tela-app .topo .logo{order:1;margin-right:auto;min-width:0}
+  #tela-app .topo-direita{order:2;gap:6px}
+}
+@media (max-width:440px){
+  #tela-app .topo{padding-left:12px;padding-right:12px}
+  #tela-app .topo .logo-img-topo{height:28px}
+  #tela-app .topo .sair{font-size:0;padding:0 10px;min-width:40px;gap:0}
+}
 /* ===== v41: Central do gestor ===== */
 .g-abas{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 18px;padding:6px;background:var(--branco);border-radius:16px;box-shadow:0 4px 14px rgba(11,42,74,.05)}
 .g-abas button{display:flex;align-items:center;gap:7px;border:0;background:transparent;color:var(--texto-suave);font:inherit;font-weight:700;font-size:13.5px;padding:9px 14px;border-radius:12px;cursor:pointer}
@@ -268,6 +280,23 @@ body.gaveta-aberta .btn-gaveta span:nth-child(3){transform:translateY(-6px) rota
   .g-barra-linha{grid-template-columns:1fr;gap:4px}
   .g-barra-val{text-align:left}
 }
+/* ===== v41: frota com UF em destaque ===== */
+.uf-badge{display:inline-grid;place-items:center;min-width:30px;height:22px;padding:0 7px;border-radius:7px;font-size:11.5px;font-weight:900;letter-spacing:.6px;color:#fff;vertical-align:middle;box-shadow:0 2px 6px rgba(11,42,74,.18)}
+.uf-MA{background:linear-gradient(135deg,#1565C0,#0B2A4A)}
+.uf-PA{background:linear-gradient(135deg,#1E9E52,#13693A)}
+.uf-TO{background:linear-gradient(135deg,#F2A51A,#C77700)}
+.cam-base{display:inline-flex;align-items:center;gap:7px;white-space:nowrap}
+.tag-posse{display:inline-block;padding:3px 10px;border-radius:999px;font-size:12px;font-weight:800}
+.tag-posse.particular{background:var(--azul-claro);color:var(--azul)}
+.tag-posse.aluguel{background:#FFF4D6;color:#8A6200}
+.cam-ufs{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin:0 0 14px}
+.cam-uf-card{display:flex;align-items:center;gap:12px;padding:14px 16px;border-radius:16px;border:2px solid transparent;background:var(--branco);box-shadow:0 4px 14px rgba(11,42,74,.06);cursor:pointer;font:inherit;color:var(--azul-900);text-align:left;transition:transform .15s,border-color .15s}
+.cam-uf-card:hover{transform:translateY(-2px)}
+.cam-uf-card.ativo{border-color:var(--azul)}
+.cam-uf-card .uf-badge{min-width:46px;height:34px;font-size:16px;border-radius:10px}
+.cam-uf-card strong{display:block;font-size:15px}.cam-uf-card div span{font-size:12.5px;color:var(--texto-suave)}
+.cam-uf-card .uf-badge{color:#fff}
+[data-tema="escuro"] .cam-uf-card{background:#172339;color:#E6EDF7}
 .link-esqueci{display:block;margin:14px auto 0;background:none;border:0;color:var(--azul);font:inherit;font-size:13.5px;font-weight:700;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
 .link-esqueci:hover{opacity:.8}
 .ok-msg{background:#E7F5EC;color:#1B5E20;border-radius:12px;padding:12px 14px;font-size:13.5px;line-height:1.45;margin-bottom:14px}
@@ -1027,50 +1056,54 @@ decorarIcones();
 const USUARIOS = [
   { id:'u2', usuario:'admin', perfil:'admin', nome:'Contador', ativo:true }
 ];
-const CAMINHOES = [
-  { id:'c1', placa:"OIT9500", base:"S\u00e3o Lu\u00eds", tipo:"Toco", carroceria:"Ba\u00fa", marca:"Volkswagen", modelo:"13.190 CRM 4X2" },
-  { id:'c2', placa:"OJM4H77", base:"S\u00e3o Lu\u00eds", tipo:"Truck", carroceria:"Ba\u00fa", marca:"Mercedes-Benz", modelo:"Atron 2324" },
-  { id:'c3', placa:"OJF7H11", base:"S\u00e3o Lu\u00eds", tipo:"Truck", carroceria:"Aberto", marca:"Mercedes-Benz", modelo:"Atron 2324" },
-  { id:'c4', placa:"OJQ1526", base:"S\u00e3o Lu\u00eds", tipo:"Truck", carroceria:"Ba\u00fa", marca:"Mercedes-Benz", modelo:"Atron 2324" },
-  { id:'c5', placa:"OJO5745", base:"Bel\u00e9m", tipo:"Toco", carroceria:"Ba\u00fa", marca:"Mercedes-Benz", modelo:"Atron 1319" },
-  { id:'c6', placa:"OTB1976", base:"S\u00e3o Lu\u00eds", tipo:"HR", carroceria:"Furg\u00e3o", marca:"Hyundai", modelo:"HR HDB" },
-  { id:'c7', placa:"PDZ1J58", base:"S\u00e3o Lu\u00eds", tipo:"Truck", carroceria:"Sider", marca:"Mercedes-Benz", modelo:"Atego 2426" },
-  { id:'c8', placa:"PTD7G09", base:"S\u00e3o Lu\u00eds", tipo:"Truck", carroceria:"Sider", marca:"Mercedes-Benz", modelo:"Atego 2426" },
-  { id:'c9', placa:"PTD9D90", base:"S\u00e3o Lu\u00eds", tipo:"Truck", carroceria:"Sider", marca:"Mercedes-Benz", modelo:"Atego 2426" },
-  { id:'c10', placa:"PTD9E00", base:"S\u00e3o Lu\u00eds", tipo:"Truck", carroceria:"Sider", marca:"Mercedes-Benz", modelo:"Atego 2426" },
-  { id:'c11', placa:"PTG0I33", base:"S\u00e3o Lu\u00eds", tipo:"Bi-Truck", carroceria:"Sider", marca:"Mercedes-Benz", modelo:"Atego 3030 CE" },
-  { id:'c12', placa:"PTK0A38", base:"S\u00e3o Lu\u00eds", tipo:"Bi-Truck", carroceria:"Aberto", marca:"Volkswagen", modelo:"24.280 CRM 6X2" },
-  { id:'c13', placa:"PTK8C56", base:"S\u00e3o Lu\u00eds", tipo:"Bi-Truck", carroceria:"Ba\u00fa", marca:"Volkswagen", modelo:"24.280 CRM 6X2" },
-  { id:'c14', placa:"PTR9B24", base:"Aragua\u00edna", tipo:"3/4", carroceria:"Ba\u00fa", marca:"Mercedes-Benz", modelo:"Accelo 815 CE" },
-  { id:'c15', placa:"PTR9B38", base:"Aragua\u00edna", tipo:"3/4", carroceria:"Ba\u00fa", marca:"Mercedes-Benz", modelo:"Accelo 815 CE" },
-  { id:'c16', placa:"PT50C14", base:"MR", tipo:"3/4", carroceria:"Ba\u00fa", marca:"Mercedes-Benz", modelo:"Accelo 815" },
-  { id:'c17', placa:"PT51J96", base:"Bel\u00e9m", tipo:"3/4", carroceria:"Ba\u00fa", marca:"Mercedes-Benz", modelo:"Accelo 815" },
-  { id:'c18', placa:"PTX0B23", base:"Aragua\u00edna", tipo:"3/4", carroceria:"Ba\u00fa", marca:"Mercedes-Benz", modelo:"Accelo 815 CE" },
-  { id:'c19', placa:"PTX1I52", base:"S\u00e3o Lu\u00eds", tipo:"Bi-Truck", carroceria:"Ba\u00fa", marca:"Mercedes-Benz", modelo:"Atego 3030 CE" },
-  { id:'c20', placa:"PTZ7G99", base:"MR", tipo:"3/4", carroceria:"Ba\u00fa", marca:"Mercedes-Benz", modelo:"Accelo 815" },
-  { id:'c21', placa:"PTZ7H62", base:"MR", tipo:"3/4", carroceria:"Ba\u00fa", marca:"Mercedes-Benz", modelo:"Accelo 815" },
-  { id:'c22', placa:"PTZ7H63", base:"MR", tipo:"3/4", carroceria:"Ba\u00fa", marca:"Mercedes-Benz", modelo:"Accelo 815" },
-  { id:'c23', placa:"PTZ7H78", base:"MR", tipo:"3/4", carroceria:"Ba\u00fa", marca:"Mercedes-Benz", modelo:"Accelo 815" },
-  { id:'c24', placa:"PTZ7I06", base:"MR", tipo:"3/4", carroceria:"Ba\u00fa", marca:"Mercedes-Benz", modelo:"Accelo 815" },
-  { id:'c25', placa:"ROB7C54", base:"S\u00e3o Lu\u00eds", tipo:"Toco", carroceria:"Ba\u00fa", marca:"Mercedes-Benz", modelo:"Atego 1719" },
-  { id:'c26', placa:"ROB8A16", base:"S\u00e3o Lu\u00eds", tipo:"Truck", carroceria:"Ba\u00fa", marca:"Mercedes-Benz", modelo:"MB-Atego 2426" },
-  { id:'c27', placa:"ROB8A19", base:"S\u00e3o Lu\u00eds", tipo:"Truck", carroceria:"Ba\u00fa", marca:"Mercedes-Benz", modelo:"MB-Atego 2426" },
-  { id:'c28', placa:"ROC2007", base:"S\u00e3o Lu\u00eds", tipo:"Truck", carroceria:"Ba\u00fa", marca:"Mercedes-Benz", modelo:"MB-Atego 2426" },
-  { id:'c29', placa:"ROC2D79", base:"S\u00e3o Lu\u00eds", tipo:"Truck", carroceria:"Ba\u00fa", marca:"Mercedes-Benz", modelo:"MB-Atego 2426" },
-  { id:'c30', placa:"ROO2H80", base:"Aragua\u00edna", tipo:"Toco", carroceria:"Ba\u00fa", marca:"Mercedes-Benz", modelo:"Atego 1719" },
-  { id:'c31', placa:"ROO3E75", base:"Aragua\u00edna", tipo:"Toco", carroceria:"Ba\u00fa", marca:"Mercedes-Benz", modelo:"Atego 1719" },
-  { id:'c32', placa:"ROO4A57", base:"Aragua\u00edna", tipo:"Toco", carroceria:"Ba\u00fa", marca:"Mercedes-Benz", modelo:"Atego 1719" },
-  { id:'c33', placa:"ROO5G95", base:"Aragua\u00edna", tipo:"Toco", carroceria:"Ba\u00fa", marca:"Mercedes-Benz", modelo:"Atego 1719" },
-  { id:'c34', placa:"ROZ2D71", base:"S\u00e3o Lu\u00eds", tipo:"Truck", carroceria:"Ba\u00fa", marca:"Mercedes-Benz", modelo:"Atego 2429" },
-  { id:'c35', placa:"ROC2079", base:"Bel\u00e9m", tipo:"Truck", carroceria:"Ba\u00fa", marca:"Mercedes-Benz", modelo:"Atego 2429" },
-  { id:'c36', placa:"ROZJ66", base:"S\u00e3o Lu\u00eds", tipo:"Truck", carroceria:"Aberto", marca:"Mercedes-Benz", modelo:"Atego 2429" },
-  { id:'c37', placa:"ROZ3G11", base:"S\u00e3o Lu\u00eds", tipo:"Truck", carroceria:"Ba\u00fa", marca:"Mercedes-Benz", modelo:"Atego 2429" },
-  { id:'c38', placa:"UJR5C24", base:"S\u00e3o Lu\u00eds", tipo:"3/4", carroceria:"Ba\u00fa", marca:"Volkswagen", modelo:"Delivery 11180" },
-  { id:'c39', placa:"UJR5C33", base:"S\u00e3o Lu\u00eds", tipo:"3/4", carroceria:"Ba\u00fa", marca:"Volkswagen", modelo:"Delivery 11180" },
-  { id:'c40', placa:"UJR5C36", base:"S\u00e3o Lu\u00eds", tipo:"3/4", carroceria:"Ba\u00fa", marca:"Volkswagen", modelo:"Delivery 11180" },
-  { id:'c41', placa:"UJR5C38", base:"S\u00e3o Lu\u00eds", tipo:"3/4", carroceria:"Ba\u00fa", marca:"Volkswagen", modelo:"Delivery 11180" },
-  { id:'c42', placa:"UJR5C44", base:"S\u00e3o Lu\u00eds", tipo:"3/4", carroceria:"Ba\u00fa", marca:"Volkswagen", modelo:"Constellation 24280" }
+const CAMINHOES = [   /* frota atualizada em 18/11/2026 (lista enviada pelo administrador) */
+  { id:'c1', placa:'OIT9500', base:'São Luís', uf:'MA', posse:'Aluguel', tipo:'Toco', carroceria:'Baú', marca:'Volkswagen', modelo:'13.190 CRM 4X2' },
+  { id:'c2', placa:'OJM4H77', base:'São Luís', uf:'MA', posse:'Aluguel', tipo:'Truck', carroceria:'Baú', marca:'Mercedes-Benz', modelo:'Atron 2324' },
+  { id:'c3', placa:'OJP7H11', base:'São Luís', uf:'MA', posse:'Aluguel', tipo:'Truck', carroceria:'Aberto', marca:'Mercedes-Benz', modelo:'Atron 2324' },
+  { id:'c4', placa:'OJQ1526', base:'São Luís', uf:'MA', posse:'Aluguel', tipo:'Truck', carroceria:'Baú', marca:'Mercedes-Benz', modelo:'Atron 2324' },
+  { id:'c5', placa:'OJQ5745', base:'Belém', uf:'PA', posse:'Aluguel', tipo:'Toco', carroceria:'Baú', marca:'Mercedes-Benz', modelo:'Atron 1319' },
+  { id:'c6', placa:'PTB1976', base:'São Luís', uf:'MA', posse:'Particular', tipo:'HR', carroceria:'Furgão', marca:'Hyundai', modelo:'HR HDB' },
+  { id:'c7', placa:'PTD2I58', base:'São Luís', uf:'MA', posse:'Aluguel', tipo:'Truck', carroceria:'Sider', marca:'Mercedes-Benz', modelo:'Atego 2426' },
+  { id:'c8', placa:'PTD7G09', base:'São Luís', uf:'MA', posse:'Aluguel', tipo:'Truck', carroceria:'Sider', marca:'Mercedes-Benz', modelo:'Atego 2426' },
+  { id:'c9', placa:'PTD9D90', base:'São Luís', uf:'MA', posse:'Aluguel', tipo:'Truck', carroceria:'Sider', marca:'Mercedes-Benz', modelo:'Atego 2426' },
+  { id:'c10', placa:'PTD9E00', base:'São Luís', uf:'MA', posse:'Aluguel', tipo:'Truck', carroceria:'Sider', marca:'Mercedes-Benz', modelo:'Atego 2426' },
+  { id:'c11', placa:'PTG0I33', base:'São Luís', uf:'MA', posse:'Aluguel', tipo:'Bi-Truck', carroceria:'Sider', marca:'Mercedes-Benz', modelo:'Atego 3030 CE' },
+  { id:'c12', placa:'PTK0A38', base:'São Luís', uf:'MA', posse:'Particular', tipo:'Bi-Truck', carroceria:'Aberto', marca:'Volkswagen', modelo:'24.280 CRM 6X2' },
+  { id:'c13', placa:'PTK8C12', base:'São Luís', uf:'MA', posse:'Aluguel', tipo:'Bi-Truck', carroceria:'Aberto', marca:'Volkswagen', modelo:'24.280 CRM 6X2' },
+  { id:'c14', placa:'PTR9B24', base:'Araguaína', uf:'TO', posse:'Aluguel', tipo:'3/4', carroceria:'Baú', marca:'Mercedes-Benz', modelo:'Accelo 815 CE' },
+  { id:'c15', placa:'PTR9B38', base:'Araguaína', uf:'TO', posse:'Aluguel', tipo:'3/4', carroceria:'Baú', marca:'Mercedes-Benz', modelo:'Accelo 815 CE' },
+  { id:'c17', placa:'PTS1J96', base:'Belém', uf:'PA', posse:'Particular', tipo:'Truck', carroceria:'Baú', marca:'Mercedes-Benz', modelo:'' },
+  { id:'c18', placa:'PTX0B23', base:'Araguaína', uf:'TO', posse:'Aluguel', tipo:'3/4', carroceria:'Baú', marca:'Mercedes-Benz', modelo:'Accelo 815 CE' },
+  { id:'c19', placa:'PTX1I56', base:'São Luís', uf:'MA', posse:'Aluguel', tipo:'Bi-Truck', carroceria:'Baú', marca:'Mercedes-Benz', modelo:'Atego 3030 CE' },
+  { id:'c25', placa:'ROB7C54', base:'São Luís', uf:'MA', posse:'Particular', tipo:'Toco', carroceria:'Baú', marca:'Mercedes-Benz', modelo:'Atego 1719' },
+  { id:'c43', placa:'ROB7C58', base:'São Luís', uf:'MA', posse:'Particular', tipo:'Toco', carroceria:'Baú', marca:'Mercedes-Benz', modelo:'' },
+  { id:'c26', placa:'ROB8A16', base:'São Luís', uf:'MA', posse:'Particular', tipo:'Truck', carroceria:'Baú', marca:'Mercedes-Benz', modelo:'MB-Atego 2426' },
+  { id:'c27', placa:'ROB8A19', base:'São Luís', uf:'MA', posse:'Particular', tipo:'Truck', carroceria:'Baú', marca:'Mercedes-Benz', modelo:'MB-Atego 2426' },
+  { id:'c28', placa:'ROC2D07', base:'São Luís', uf:'MA', posse:'Particular', tipo:'Truck', carroceria:'Baú', marca:'Mercedes-Benz', modelo:'MB-Atego 2426' },
+  { id:'c35', placa:'ROZ2D79', base:'São Luís', uf:'MA', posse:'Particular', tipo:'Truck', carroceria:'Baú', marca:'Mercedes-Benz', modelo:'Atego 2429' },
+  { id:'c30', placa:'ROO2H80', base:'Araguaína', uf:'TO', posse:'Particular', tipo:'Toco', carroceria:'Baú', marca:'Mercedes-Benz', modelo:'Atego 1719' },
+  { id:'c31', placa:'ROO3E75', base:'Araguaína', uf:'TO', posse:'Particular', tipo:'Toco', carroceria:'Baú', marca:'Mercedes-Benz', modelo:'Atego 1719' },
+  { id:'c32', placa:'ROO4A57', base:'Araguaína', uf:'TO', posse:'Particular', tipo:'Toco', carroceria:'Baú', marca:'Mercedes-Benz', modelo:'Atego 1719' },
+  { id:'c33', placa:'ROO5G95', base:'Araguaína', uf:'TO', posse:'Particular', tipo:'Toco', carroceria:'Baú', marca:'Mercedes-Benz', modelo:'Atego 1719' },
+  { id:'c34', placa:'ROZ2D71', base:'São Luís', uf:'MA', posse:'Particular', tipo:'Truck', carroceria:'Baú', marca:'Mercedes-Benz', modelo:'Atego 2429' },
+  { id:'c29', placa:'ROC2D79', base:'Belém', uf:'PA', posse:'Particular', tipo:'Truck', carroceria:'Baú', marca:'Mercedes-Benz', modelo:'MB-Atego 2426' },
+  { id:'c36', placa:'ROZ2J66', base:'São Luís', uf:'MA', posse:'Particular', tipo:'Truck', carroceria:'Aberto', marca:'Mercedes-Benz', modelo:'Atego 2429' },
+  { id:'c37', placa:'ROZ3G11', base:'São Luís', uf:'MA', posse:'Particular', tipo:'Truck', carroceria:'Baú', marca:'Mercedes-Benz', modelo:'Atego 2429' },
+  { id:'c38', placa:'UJR5C24', base:'São Luís', uf:'MA', posse:'Particular', tipo:'3/4', carroceria:'Baú', marca:'Volkswagen', modelo:'Delivery 11180' },
+  { id:'c39', placa:'UJR5C33', base:'São Luís', uf:'MA', posse:'Particular', tipo:'3/4', carroceria:'Baú', marca:'Volkswagen', modelo:'Delivery 11180' },
+  { id:'c40', placa:'UJR5C36', base:'São Luís', uf:'MA', posse:'Particular', tipo:'3/4', carroceria:'Baú', marca:'Volkswagen', modelo:'Delivery 11180' },
+  { id:'c41', placa:'UJR5C38', base:'São Luís', uf:'MA', posse:'Particular', tipo:'3/4', carroceria:'Baú', marca:'Volkswagen', modelo:'Delivery 11180' },
+  { id:'c42', placa:'UJR5C44', base:'São Luís', uf:'MA', posse:'Particular', tipo:'Truck', carroceria:'Baú', marca:'Volkswagen', modelo:'' },
+  { id:'c44', placa:'UJW6H74', base:'Belém', uf:'PA', posse:'Particular', tipo:'3/4', carroceria:'Baú', marca:'Volkswagen', modelo:'' },
+  { id:'c45', placa:'UJW6H41', base:'São Luís', uf:'MA', posse:'Particular', tipo:'3/4', carroceria:'Baú', marca:'Volkswagen', modelo:'' },
+  { id:'c46', placa:'UJW6H38', base:'São Luís', uf:'MA', posse:'Particular', tipo:'3/4', carroceria:'Baú', marca:'Volkswagen', modelo:'' },
+  { id:'c47', placa:'UJW6H48', base:'São Luís', uf:'MA', posse:'Particular', tipo:'3/4', carroceria:'Baú', marca:'Volkswagen', modelo:'' },
+  { id:'c48', placa:'UJW6H45', base:'Araguaína', uf:'TO', posse:'Particular', tipo:'3/4', carroceria:'Baú', marca:'Volkswagen', modelo:'' }
 ];
+/* Sigla do estado em destaque (MA, PA, TO) */
+const UF_NOME = { MA: 'Maranhão', PA: 'Pará', TO: 'Tocantins' };
+function badgeUF(uf){ return uf ? `<span class="uf-badge uf-${uf}" title="${UF_NOME[uf] || uf}">${uf}</span>` : ''; }
+let filtroCam = { uf: '', posse: '', tipo: '', sit: '' };
 const CATEGORIAS = ['Hospedagem','Alimentação','Combustível','Manutenção mecânica','Pneus','Peças e acessórios','Pedágios','Estacionamento','Lavagem','Serviços de terceiros','Outros'];
 
 let despesas = [];      /* espelho da coleção despesas */
@@ -1770,20 +1803,32 @@ const TELAS_ADMIN = {
     viagens.filter(v => v.status === 'em andamento').forEach(v => { emUso[v.placa] = v; });
     const qtdEmUso = Object.keys(emUso).length;
     c.innerHTML = `
-      <div class="cabecalho-pagina"><div><h1>Caminhões</h1><p>Frota própria: ${CAMINHOES.length} veículos · <strong style="color:#1E7B3A">${qtdEmUso} em rota</strong></p></div></div>
+      <div class="cabecalho-pagina"><div><h1>Caminhões</h1><p>Frota: ${CAMINHOES.length} veículos · ${CAMINHOES.filter(x => x.posse === 'Particular').length} particulares · ${CAMINHOES.filter(x => x.posse === 'Aluguel').length} de aluguel · <strong style="color:#1E7B3A">${qtdEmUso} em rota</strong></p></div></div>
+      <div class="cam-ufs">${['MA', 'PA', 'TO'].map(uf => { const l = CAMINHOES.filter(x => x.uf === uf); return l.length ? `<button type="button" class="cam-uf-card ${filtroCam.uf === uf ? 'ativo' : ''}" data-filtro-uf="${uf}">${badgeUF(uf)}<div><strong>${esc(l[0].base)}</strong><span>${l.length} veículo(s) · ${l.filter(x => emUso[x.placa]).length} em rota</span></div></button>` : ''; }).join('')}</div>
+      <div class="filtros">
+        <select id="cam-posse"><option value="">Particular e aluguel</option><option ${filtroCam.posse === 'Particular' ? 'selected' : ''}>Particular</option><option ${filtroCam.posse === 'Aluguel' ? 'selected' : ''}>Aluguel</option></select>
+        <select id="cam-tipo"><option value="">Todos os tipos</option>${[...new Set(CAMINHOES.map(x => x.tipo))].map(t => `<option ${filtroCam.tipo === t ? 'selected' : ''}>${esc(t)}</option>`).join('')}</select>
+        <select id="cam-sit"><option value="">Em rota e disponíveis</option><option value="rota" ${filtroCam.sit === 'rota' ? 'selected' : ''}>Só em rota</option><option value="livre" ${filtroCam.sit === 'livre' ? 'selected' : ''}>Só disponíveis</option></select>
+        ${filtroCam.uf || filtroCam.posse || filtroCam.tipo || filtroCam.sit ? '<button type="button" class="btn btn-pequeno btn-contorno" id="cam-limpar">Limpar filtros</button>' : ''}
+      </div>
       <div class="legenda"><span class="bolinha verde"></span> Em rota (indisponível para nova viagem) <span class="bolinha" style="margin-left:14px"></span> Disponível</div>
       <div class="tabela-wrap"><table>
-        <thead><tr><th>PLACA</th><th>SITUAÇÃO</th><th>MOTORISTA</th><th>BASE</th><th>TIPO</th><th>CARROCERIA</th><th>MARCA</th><th>MODELO</th></tr></thead>
-        <tbody>${CAMINHOES.map(x => {
+        <thead><tr><th>PLACA</th><th>SITUAÇÃO</th><th>MOTORISTA</th><th>BASE</th><th>POSSE</th><th>TIPO</th><th>CARROCERIA</th><th>MARCA</th><th>MODELO</th></tr></thead>
+        <tbody>${CAMINHOES.filter(x => (!filtroCam.uf || x.uf === filtroCam.uf) && (!filtroCam.posse || x.posse === filtroCam.posse) && (!filtroCam.tipo || x.tipo === filtroCam.tipo)
+            && (!filtroCam.sit || (filtroCam.sit === 'rota') === !!emUso[x.placa])).map(x => {
           const v = emUso[x.placa];
           return `<tr class="${v ? 'linha-em-viagem' : ''}" data-placa="${esc(x.placa)}">
             <td class="num">${esc(x.placa)}</td>
             <td>${v ? tagEmRota('Em rota') : '<span class="tag disponivel">Disponível</span>'}${textoReservas('placa', x.placa)}</td>
             <td>${v ? `<strong>${esc(nomeMotorista(v.motoristaId))}</strong><div class="mini">Viagem #${v.id} · ${esc(v.origem)} → ${esc(v.destino)}</div>` : '—'}</td>
-            <td>${esc(x.base)}</td><td>${esc(x.tipo)}</td><td>${esc(x.carroceria)}</td><td>${esc(x.marca)}</td><td>${esc(x.modelo)}</td>
+            <td><span class="cam-base">${esc(x.base)} ${badgeUF(x.uf)}</span></td><td><span class="tag-posse ${x.posse === 'Particular' ? 'particular' : 'aluguel'}">${esc(x.posse)}</span></td>
+            <td>${esc(x.tipo)}</td><td>${esc(x.carroceria)}</td><td>${esc(x.marca)}</td><td>${x.modelo ? esc(x.modelo) : '<span class="mini">—</span>'}</td>
           </tr>`;
-        }).join('')}</tbody>
+        }).join('') || '<tr><td colspan="9"><div class="vazio">Nenhum caminhão com esses filtros.</div></td></tr>'}</tbody>
       </table></div>`;
+    c.querySelectorAll('[data-filtro-uf]').forEach(b => b.addEventListener('click', () => { filtroCam.uf = filtroCam.uf === b.dataset.filtroUf ? '' : b.dataset.filtroUf; irPara('caminhoes'); }));
+    [['cam-posse', 'posse'], ['cam-tipo', 'tipo'], ['cam-sit', 'sit']].forEach(([id, k]) => c.querySelector('#' + id).addEventListener('change', e => { filtroCam[k] = e.target.value; irPara('caminhoes'); }));
+    c.querySelector('#cam-limpar')?.addEventListener('click', () => { filtroCam = { uf: '', posse: '', tipo: '', sit: '' }; irPara('caminhoes'); });
   },
 
   motoristas(c){
@@ -2906,7 +2951,7 @@ const nomeMes = m => { const [a, b] = m.split('-').map(Number); return new Date(
 const diasAte = (a, b) => Math.round((new Date(b + 'T12:00') - new Date(a + 'T12:00')) / 864e5);
 const validas = () => despesas.filter(d => d.status !== 'rejeitado');
 function mediana(arr){ if(!arr.length) return 0; const s = arr.slice().sort((a, b) => a - b), m = Math.floor(s.length / 2); return s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2; }
-function caminhaoDe(v){ return CAMINHOES.find(c => c.id === v.caminhaoId || c.placa === v.placa); }
+function caminhaoDe(v){ return CAMINHOES.find(c => c.placa === v.placa) || CAMINHOES.find(c => c.id === v.caminhaoId); }
 function linkReg(id){ return `<span class="linha-clicavel g-link" data-abrir-det="${id}">#${id}</span>`; }
 function linkViagem(id){ return `<span class="linha-clicavel g-link" data-viagem-atalho="${id}">viagem #${id}</span>`; }
 
@@ -4148,7 +4193,7 @@ function buscarGlobal(q){
   const r = { motoristas:[], caminhoes:[], viagens:[], registros:[] };
   if(adm){
     USUARIOS.filter(u => u.perfil === 'motorista').forEach(u => { if(casa([u.nome, u.usuario, u.telefone, u.email].join(' '))) r.motoristas.push(u); });
-    CAMINHOES.forEach(x => { if(casa([x.placa, x.modelo, x.marca, x.tipo, x.carroceria, x.base].join(' '))) r.caminhoes.push(x); });
+    CAMINHOES.forEach(x => { if(casa([x.placa, x.modelo, x.marca, x.tipo, x.carroceria, x.base, x.uf, x.posse].join(' '))) r.caminhoes.push(x); });
   }
   viagens.filter(v => adm || v.motoristaId === usuarioAtual.id).forEach(v => {
     if(casa(['viagem', '#' + v.id, v.origem, v.destino, v.placa, nomeMotorista(v.motoristaId), rotuloViagem(v)].join(' '))) r.viagens.push(v);
@@ -4302,7 +4347,7 @@ function formIniciarViagem(c, motoristaId, voltar){
       <div class="grade-form">
         ${seletorMotorista}
         <div class="campo"><label for="v-caminhao">Caminhão</label>
-          <select id="v-caminhao" required>${CAMINHOES.map(x=>`<option value="${x.id}" data-base="${esc(x.placa)} — ${esc(x.modelo)}">${esc(x.placa)} — ${esc(x.modelo)}</option>`).join('')}</select></div>
+          <select id="v-caminhao" required>${['MA', 'PA', 'TO'].map(uf => { const l = CAMINHOES.filter(x => x.uf === uf); return l.length ? `<optgroup label="${esc(l[0].base)} — ${uf}">${l.map(x => { const r = esc(x.placa) + ' · ' + esc(x.tipo) + ' ' + esc(x.carroceria) + ' · ' + esc(x.base) + '/' + uf + (x.posse === 'Aluguel' ? ' · aluguel' : ''); return `<option value="${x.id}" data-base="${r}">${r}</option>`; }).join('')}</optgroup>` : ''; }).join('')}</select></div>
         <div class="campo"><label for="v-origem">Cidade de origem</label><input id="v-origem" required></div>
         <div class="campo"><label for="v-destino">Destino</label><input id="v-destino" required></div>
         <div class="campo"><label for="v-saida">Data de saída</label><input id="v-saida" type="date" required value="${hoje}"></div>
