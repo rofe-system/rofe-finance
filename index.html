@@ -97,7 +97,9 @@ button{cursor:pointer}
 .acomp-alerta{margin-top:10px;display:flex;gap:8px;align-items:center;color:var(--vermelho);font-weight:700;font-size:13.5px}
 .mon-grade{display:grid;grid-template-columns:1.4fr 1fr;gap:18px}
 .mon-grade > .painel-bloco{margin:0}
-.mon-mapa{height:360px;border-radius:14px;overflow:hidden;background:var(--cinza)}
+.mon-mapa{height:360px;border-radius:14px;overflow:hidden;background:var(--cinza);position:relative;z-index:0;isolation:isolate}
+/* o mapa (Leaflet usa z-index 400–1000) fica sempre atrás de janelas e menus */
+.mon-mapa-canvas,.leaflet-container{position:relative;z-index:0;isolation:isolate}
 .mon-mapa-canvas{width:100%;height:100%}
 .mon-quadro{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:14px}
 .mon-card{border:1px solid var(--cinza-borda);border-left:4px solid var(--verde);border-radius:14px;padding:14px;background:var(--branco)}
