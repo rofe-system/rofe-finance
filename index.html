@@ -771,6 +771,74 @@ tr.pisca-novo td{animation:novo-flash 2.8s ease-out both!important}
 .fila-topo h2{display:flex;align-items:center;gap:8px;margin:0}
 .fila-topo h2 .ico{color:#E0A100}
 .fila-item{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;padding:10px 0;border-top:1px solid var(--cinza-borda)}
+
+/* ===== v42: SOU MOTORISTA, cadastros, viagem do motorista ===== */
+.erro.erro-info{background:var(--azul-claro);color:var(--azul-700)}
+.ou-sep{display:flex;align-items:center;gap:12px;color:var(--texto-suave);font-size:12.5px;font-weight:600;margin:18px 0 14px;text-transform:uppercase;letter-spacing:.06em}
+.ou-sep::before,.ou-sep::after{content:"";flex:1;height:1px;background:var(--cinza-borda)}
+#btn-sou-motorista{width:100%;display:flex;align-items:center;justify-content:center;gap:10px;padding:14px;border-radius:14px;border:2px solid var(--azul);background:var(--azul-claro);color:var(--azul-700);font:700 15px 'Inter',sans-serif;letter-spacing:.04em;cursor:pointer;transition:.15s}
+#btn-sou-motorista:hover{background:var(--azul);color:#fff}
+#btn-sou-motorista svg{width:22px;height:22px}
+#btn-sou-motorista>span{display:flex;flex-direction:column;align-items:flex-start;text-align:left;line-height:1.25}
+#btn-sou-motorista strong{font-size:16px}#btn-sou-motorista small{font-weight:500;font-size:12.5px;letter-spacing:0;opacity:.85}
+#btn-sou-motorista svg{width:28px;height:28px;flex:none}
+.link-voltar{background:none;border:0;color:var(--azul);font:600 14px 'Inter',sans-serif;cursor:pointer;padding:0;margin:0 0 14px;display:inline-flex;align-items:center;gap:6px}
+.link-voltar svg{width:16px;height:16px;transform:rotate(180deg)}
+.card-login h2 svg{width:24px;height:24px;vertical-align:-3px;color:var(--azul)}
+.abas-login{display:flex;gap:4px;background:var(--cinza);padding:4px;border-radius:12px;margin:14px 0 18px}
+.abas-login button{flex:1;border:0;background:transparent;padding:10px;border-radius:9px;font:600 14px 'Inter',sans-serif;color:var(--texto-suave);cursor:pointer}
+.abas-login button.ativo{background:#fff;color:var(--azul-900);box-shadow:0 2px 6px rgba(11,42,74,.10)}
+.cad-ok{text-align:center;padding:10px 0}
+.cad-ok-ico{width:64px;height:64px;border-radius:50%;background:var(--verde-claro);color:var(--verde);display:grid;place-items:center;margin:0 auto 14px}
+.cad-ok-ico svg{width:32px;height:32px}
+.cad-pend{border:2px solid #F2C14E;background:#FFF8E6;border-radius:16px;padding:14px 16px;margin-bottom:16px}
+.cad-pend h3{margin:0 0 10px;font-size:16px;display:flex;align-items:center;gap:8px}
+.cad-item{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;justify-content:space-between;padding:10px 0;border-top:1px solid rgba(0,0,0,.06)}
+.cad-item:first-of-type{border-top:0}
+.cad-info{min-width:200px;flex:1}.cad-info strong{display:block}
+.cad-acoes{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.cad-acoes select{padding:8px 10px;border-radius:10px;border:1px solid var(--cinza-borda);font:inherit;font-size:13.5px;max-width:260px}
+.mot-jornada{display:flex;gap:10px;align-items:center;padding:10px 12px;border-radius:12px;background:var(--azul-claro);color:var(--azul-900);font-size:14px;margin:10px 0}
+.mot-jornada svg{width:20px;height:20px;flex:none}
+.mot-jornada.jor-amarelo{background:#FFF4D6;color:#7A5300}
+.mot-jornada.jor-vermelho{background:var(--vermelho-claro);color:var(--vermelho);animation:pulsaJor 1.6s ease-in-out infinite}
+.mot-jornada.jor-verde{background:var(--verde-claro);color:var(--verde)}
+@keyframes pulsaJor{50%{box-shadow:0 0 0 4px rgba(211,47,47,.18)}}
+.mot-check-pend{width:100%;display:flex;gap:8px;align-items:center;justify-content:center;margin:0 0 12px;padding:11px 12px;border-radius:12px;background:#FFF4D6;color:#7A5300;border:2px dashed #E0A800;font:700 13.5px 'Inter',sans-serif;cursor:pointer;text-align:left}
+.mot-check-pend .ico{width:18px;height:18px;flex:none}
+.mot-btn-encerrar{width:100%;justify-content:center;margin-top:8px;background:transparent !important;color:#fff !important;border:1.5px solid rgba(255,255,255,.55) !important}
+.mot-viagem.mot-pronta{background:linear-gradient(150deg,#0F3D22,#1E7B3A)}
+.mot-alerta{display:flex;gap:10px;align-items:center;background:var(--vermelho-claro);color:var(--vermelho);border-radius:14px;padding:12px 14px;margin-bottom:14px;font-size:14px}
+.mot-alerta svg{width:20px;height:20px;flex:none}
+.mot-resumo{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+.mot-resumo>div{background:var(--branco);border:1px solid var(--cinza-borda);border-radius:16px;padding:14px 16px}
+.mot-resumo h3{margin:0 0 8px;font-size:14px;color:var(--texto-suave);font-weight:600}
+.mot-res-linha{display:flex;justify-content:space-between;gap:10px;padding:4px 0;font-size:14px}
+.mot-res-linha strong{font-variant-numeric:tabular-nums}
+.mot-cam{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+.mot-cam strong{font-size:17px;letter-spacing:.04em}
+.mot-emerg .mot-emerg-grade{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.mot-emerg-grade a{display:flex;flex-direction:column;align-items:center;gap:2px;padding:12px 6px;border-radius:12px;background:var(--vermelho-claro);color:var(--vermelho);text-decoration:none;font-size:12.5px;font-weight:600;text-align:center}
+.mot-emerg-grade a strong{font-size:20px}
+.ck-lista{display:flex;flex-direction:column;gap:6px;max-height:44vh;overflow:auto}
+.ck-item{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:8px 10px;border:1px solid var(--cinza-borda);border-radius:12px;font-size:14px}
+.ck-item.ck-prob{border-color:var(--vermelho);background:var(--vermelho-claro)}
+.ck-opc{display:flex;gap:6px;flex:none}
+.ck-opc button{border:1px solid var(--cinza-borda);background:#fff;border-radius:9px;padding:7px 12px;font:600 13px 'Inter',sans-serif;cursor:pointer;color:var(--texto-suave)}
+.ck-opc button[data-v="ok"].sel{background:var(--verde);border-color:var(--verde);color:#fff}
+.ck-opc button[data-v="prob"].sel{background:var(--vermelho);border-color:var(--vermelho);color:#fff}
+.ck-resumo{margin-top:8px;padding:8px 12px;border-radius:10px;background:var(--verde-claro);color:var(--verde);font-size:13.5px}
+.ck-resumo.ck-resumo-prob{background:#FFF4D6;color:#7A5300}
+[data-tema="escuro"] .abas-login{background:#0F1A2C}[data-tema="escuro"] .abas-login button.ativo{background:#24324A;color:#E6EDF7}
+[data-tema="escuro"] .mot-resumo>div,[data-tema="escuro"] .ck-opc button{background:#172339;border-color:#24324A;color:#E6EDF7}
+[data-tema="escuro"] .ck-item{border-color:#24324A}
+[data-tema="escuro"] .cad-pend{background:#2A2614;border-color:#7A5E14}
+[data-tema="escuro"] .cad-acoes select{background:#172339;color:#E6EDF7;border-color:#24324A}
+@media (max-width:640px){
+  .mot-resumo{grid-template-columns:1fr}
+  .mot-emerg .mot-emerg-grade{grid-template-columns:repeat(2,1fr)}
+  .ck-item{flex-direction:column;align-items:stretch}.ck-opc button{flex:1;padding:10px}
+}
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
@@ -1137,21 +1205,24 @@ function renderLogin(){
     <form id="form-login" novalidate>
       <div class="campo"><label for="login-email">E-mail</label><input id="login-email" type="email" autocomplete="username" required></div>
       <div class="campo"><label for="login-senha">Senha</label>
-        <div class="campo-senha"><input id="login-senha" type="password" autocomplete="current-password" required>
+        <div class="campo-senha"><input id="login-senha" type="password" data-olho="1" autocomplete="current-password" required>
           <button type="button" class="btn-olho" id="btn-olho" aria-label="Mostrar senha" title="Mostrar senha"></button></div></div>
       <button class="btn btn-primario btn-bloco" type="submit">ENTRAR</button>
     </form>
     <button type="button" class="link-esqueci" id="btn-esqueci">Esqueci minha senha</button>
+    <div class="ou-sep"><span>ou</span></div>
+    <button type="button" class="btn-sou-motorista" id="btn-sou-motorista">${icon('truck')}<span><strong>SOU MOTORISTA</strong><small>Entrar ou cadastrar com o seu telefone</small></span></button>
     <div class="rodape-login">Acesso restrito a motoristas e administração ROFE</div>
     <div class="primeiro-acesso oculto" id="primeiro-acesso">
       <span class="mini">Sistema ainda sem administrador.</span>
       <button type="button" class="btn btn-contorno btn-bloco" id="btn-criar-adm">${icon('user')}<span>Criar usuário administrador</span></button>
     </div>`;
   card.querySelector('#btn-criar-adm').addEventListener('click', renderCriarAdmin);
+  card.querySelector('#btn-sou-motorista').addEventListener('click', () => renderLoginMotorista('entrar'));
   card.querySelector('#btn-esqueci').addEventListener('click', () => renderEsqueciSenha(card.querySelector('#login-email').value.trim()));
   if(window.RofeAuth) window.rofeVerificarInstalacao();
-  const OLHO = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>';
-  const OLHO_CORTADO = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.94 17.94A10.6 10.6 0 0 1 12 19c-6.4 0-10-7-10-7a18.7 18.7 0 0 1 5.06-5.94"/><path d="M9.9 4.24A9.9 9.9 0 0 1 12 4c6.4 0 10 7 10 7a18.5 18.5 0 0 1-2.16 3.19"/><path d="M14.12 14.12A3 3 0 1 1 9.88 9.88"/><path d="M1 1l22 22"/></svg>';
+  const OLHO = OLHO_SVG;
+  const OLHO_CORTADO = OLHO_CORTADO_SVG;
   const campoSenha = card.querySelector('#login-senha');
   const btnOlho = card.querySelector('#btn-olho');
   btnOlho.innerHTML = OLHO;
@@ -1176,6 +1247,130 @@ function renderLogin(){
     try { await window.RofeAuth.entrar(email, senha); }   /* o restante acontece em rofeAbrirSessao() */
     catch(err){ window.rofeLoginErro(window.RofeAuth.traduzirErro(err)); }
   });
+}
+/* ===== Olho em qualquer campo de senha/PIN (mostrar e ocultar) ===== */
+const OLHO_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>';
+const OLHO_CORTADO_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.94 17.94A10.6 10.6 0 0 1 12 19c-6.4 0-10-7-10-7a18.7 18.7 0 0 1 5.06-5.94"/><path d="M9.9 4.24A9.9 9.9 0 0 1 12 4c6.4 0 10 7 10 7a18.5 18.5 0 0 1-2.16 3.19"/><path d="M14.12 14.12A3 3 0 1 1 9.88 9.88"/><path d="M1 1l22 22"/></svg>';
+function ligarOlhos(raiz){
+  (raiz || document).querySelectorAll('input[type="password"]:not([data-olho])').forEach(inp => {
+    inp.dataset.olho = '1';
+    let caixa = inp.parentElement;
+    if(!caixa.classList.contains('campo-senha')){
+      caixa = document.createElement('div');
+      caixa.className = 'campo-senha';
+      inp.parentElement.insertBefore(caixa, inp);
+      caixa.appendChild(inp);
+    }
+    if(caixa.querySelector('.btn-olho')) return;
+    const b = document.createElement('button');
+    b.type = 'button'; b.className = 'btn-olho'; b.innerHTML = OLHO_SVG;
+    b.setAttribute('aria-label', 'Mostrar senha'); b.title = 'Mostrar senha';
+    b.addEventListener('click', () => {
+      const mostrar = inp.type === 'password';
+      inp.type = mostrar ? 'text' : 'password';
+      b.innerHTML = mostrar ? OLHO_CORTADO_SVG : OLHO_SVG;
+      const r = mostrar ? 'Ocultar' : 'Mostrar senha';
+      b.setAttribute('aria-label', r); b.title = r;
+      inp.focus();
+    });
+    caixa.appendChild(b);
+  });
+}
+new MutationObserver(() => ligarOlhos()).observe(document.body, { childList: true, subtree: true });
+
+/* ===== SOU MOTORISTA: entrar com telefone + PIN, ou fazer o primeiro cadastro ===== */
+function mascaraTel(inp){
+  inp.addEventListener('input', () => {
+    const d = inp.value.replace(/\D/g, '').slice(0, 11);
+    inp.value = d.length > 6 ? `(${d.slice(0, 2)}) ${d.slice(2, d.length - 4)}-${d.slice(-4)}` : d.length > 2 ? `(${d.slice(0, 2)}) ${d.slice(2)}` : d;
+  });
+}
+function renderLoginMotorista(aba){
+  const card = document.querySelector('.card-login');
+  const entrar = aba !== 'cadastro';
+  card.innerHTML = `
+    <button type="button" class="link-voltar" id="lm-voltar">${icon('chevron')}<span>Voltar</span></button>
+    <h2>${icon('truck')} Área do motorista</h2>
+    <div class="abas-login"><button type="button" data-aba-lm="entrar" class="${entrar ? 'ativo' : ''}">Entrar</button><button type="button" data-aba-lm="cadastro" class="${entrar ? '' : 'ativo'}">Primeiro acesso</button></div>
+    <div class="erro oculto" id="login-erro"></div>
+    ${entrar ? `
+    <form id="form-lm" novalidate>
+      <div class="campo"><label for="lm-tel">Telefone (com DDD)</label><input id="lm-tel" type="tel" inputmode="tel" autocomplete="tel" placeholder="(98) 99999-9999"></div>
+      <div class="campo"><label for="lm-pin">PIN (6 números)</label><input id="lm-pin" type="password" inputmode="numeric" maxlength="6" autocomplete="current-password" placeholder="••••••"></div>
+      <button class="btn btn-primario btn-bloco" type="submit" data-rotulo="ENTRAR">ENTRAR</button>
+    </form>
+    <p class="mini" style="text-align:center;margin:14px 0 0">Esqueceu o PIN? Fale com o contador para liberar um novo cadastro.</p>`
+    : `
+    <form id="form-lm" novalidate>
+      <p class="sub" style="margin-top:0">Preencha seus dados. O contador aprova o cadastro e você já pode registrar as despesas das viagens.</p>
+      <div class="grade-form">
+        <div class="campo"><label for="lc-nome">Nome *</label><input id="lc-nome" autocomplete="given-name"></div>
+        <div class="campo"><label for="lc-sobrenome">Sobrenome *</label><input id="lc-sobrenome" autocomplete="family-name"></div>
+        <div class="campo inteiro"><label for="lc-tel">Telefone / WhatsApp *</label><input id="lc-tel" type="tel" inputmode="tel" autocomplete="tel" placeholder="(98) 99999-9999"></div>
+        <div class="campo inteiro"><label for="lc-base">Base onde trabalha</label><select id="lc-base"><option value="">Selecione</option><option>São Luís - MA</option><option>Belém - PA</option><option>Araguaína - TO</option></select></div>
+        <div class="campo"><label for="lc-cnh">Categoria da CNH</label><select id="lc-cnh"><option value="">—</option>${['B', 'C', 'D', 'E', 'AB', 'AC', 'AD', 'AE'].map(x => `<option>${x}</option>`).join('')}</select></div>
+        <div class="campo"><label for="lc-cnhval">Validade da CNH</label><input id="lc-cnhval" type="date"></div>
+        <div class="campo"><label for="lc-emnome">Contato de emergência</label><input id="lc-emnome" placeholder="Nome (ex.: esposa Maria)"></div>
+        <div class="campo"><label for="lc-emtel">Telefone de emergência</label><input id="lc-emtel" type="tel" inputmode="tel" placeholder="(98) 99999-9999"></div>
+        <div class="campo"><label for="lc-pin">Crie um PIN (6 números) *</label><input id="lc-pin" type="password" inputmode="numeric" maxlength="6" autocomplete="new-password"></div>
+        <div class="campo"><label for="lc-pin2">Repita o PIN *</label><input id="lc-pin2" type="password" inputmode="numeric" maxlength="6" autocomplete="new-password"></div>
+      </div>
+      <label class="st-local" style="margin:4px 0 14px"><input type="checkbox" id="lc-aceite"> Concordo que meus dados sejam usados pela Rofe para a prestação de contas das viagens.</label>
+      <button class="btn btn-primario btn-bloco" type="submit" data-rotulo="ENVIAR CADASTRO">ENVIAR CADASTRO</button>
+    </form>`}`;
+  const $ = q => card.querySelector(q);
+  const erro = (m, info) => window.rofeLoginErro(m, info);
+  $('#lm-voltar').addEventListener('click', renderLogin);
+  card.querySelectorAll('[data-aba-lm]').forEach(b => b.addEventListener('click', () => renderLoginMotorista(b.dataset.abaLm)));
+  card.querySelectorAll('input[type=tel]').forEach(mascaraTel);
+  card.querySelectorAll('input[inputmode=numeric]').forEach(i => i.addEventListener('input', () => { i.value = i.value.replace(/\D/g, '').slice(0, 6); }));
+  ligarOlhos(card);
+  const telOk = t => t.replace(/\D/g, '').length >= 10 && t.replace(/\D/g, '').length <= 11;
+  $('#form-lm').addEventListener('submit', async e => {
+    e.preventDefault();
+    $('#login-erro').classList.add('oculto');
+    if(!window.RofeAuth) return erro('Não foi possível carregar o Firebase. Verifique sua conexão.');
+    const btn = $('#form-lm button[type="submit"]');
+    if(entrar){
+      const tel = $('#lm-tel').value, pin = $('#lm-pin').value;
+      if(!telOk(tel)) return erro('Digite o telefone com DDD.');
+      if(!/^\d{6}$/.test(pin)) return erro('O PIN tem 6 números.');
+      btn.disabled = true; btn.textContent = 'ENTRANDO…';
+      try { await window.RofeAuth.entrarMotorista(tel, pin); }
+      catch(err){ erro(['auth/invalid-credential', 'auth/wrong-password', 'auth/user-not-found', 'auth/invalid-email'].includes(err.code) ? 'Telefone ou PIN incorretos. Se ainda não tem cadastro, use "Primeiro acesso".' : window.RofeAuth.traduzirErro(err)); }
+      return;
+    }
+    const nome = $('#lc-nome').value.trim().replace(/\s+/g, ' '), sobrenome = $('#lc-sobrenome').value.trim().replace(/\s+/g, ' ');
+    const tel = $('#lc-tel').value, pin = $('#lc-pin').value;
+    if(nome.length < 2 || sobrenome.length < 2) return erro('Informe nome e sobrenome.');
+    if(!telOk(tel)) return erro('Digite o telefone com DDD.');
+    const emTel = $('#lc-emtel').value;
+    if(emTel && !telOk(emTel)) return erro('Telefone de emergência inválido.');
+    if(!/^\d{6}$/.test(pin)) return erro('O PIN precisa ter 6 números.');
+    if(/^(\d)\1{5}$/.test(pin) || pin === '123456' || pin === '654321') return erro('PIN fácil demais. Evite números repetidos ou em sequência.');
+    if(pin !== $('#lc-pin2').value) return erro('Os PINs não conferem.');
+    if(!$('#lc-aceite').checked) return erro('Marque a concordância para continuar.');
+    const base = $('#lc-base').value;
+    const dados = { nome: nome + ' ' + sobrenome, primeiroNome: nome, sobrenome, telefone: tel.trim() };
+    if(base){ dados.baseCidade = base; }
+    if($('#lc-cnh').value) dados.cnhCategoria = $('#lc-cnh').value;
+    if($('#lc-cnhval').value) dados.cnhValidade = $('#lc-cnhval').value;
+    if($('#lc-emnome').value.trim()) dados.emergenciaNome = $('#lc-emnome').value.trim();
+    if(emTel) dados.emergenciaTelefone = emTel.trim();
+    btn.disabled = true; btn.textContent = 'ENVIANDO…';
+    try {
+      await window.RofeAuth.cadastrarMotorista(dados, pin);
+      card.innerHTML = `<div class="cad-ok">${icon('check')}<h2>Cadastro enviado!</h2>
+        <p>Obrigado, ${esc(nome)}. O contador vai conferir seus dados e liberar o acesso.</p>
+        <p class="mini">Depois da aprovação, entre em <strong>SOU MOTORISTA → Entrar</strong> com o telefone <strong>${esc(tel)}</strong> e o PIN que você criou. Guarde o seu PIN.</p>
+        <button type="button" class="btn btn-primario btn-bloco" id="lm-ok">ENTENDI</button></div>`;
+      card.querySelector('#lm-ok').addEventListener('click', () => renderLoginMotorista('entrar'));
+    } catch(err){
+      console.error(err);
+      erro(err.code === 'auth/email-already-in-use' ? 'Este telefone já tem cadastro. Use a aba "Entrar" com o seu PIN.' : window.RofeAuth.traduzirErro(err, 'Não foi possível enviar o cadastro.'));
+    }
+  });
+  (entrar ? $('#lm-tel') : $('#lc-nome')).focus();
 }
 /* ===== Esqueci minha senha: o Firebase envia um link de redefinição para o e-mail ===== */
 function renderEsqueciSenha(emailInicial){
@@ -1294,15 +1489,17 @@ function renderCriarAdmin(){
   });
 }
 /* Chamadas pelo módulo do Firebase (final do arquivo) */
-window.rofeLoginErro = function(msg){
+window.rofeLoginErro = function(msg, info){
   const erro = document.getElementById('login-erro');
-  const btn = document.querySelector('#form-login button[type="submit"]');
-  if(btn){ btn.disabled = false; btn.textContent = 'ENTRAR'; }
-  if(erro){ erro.textContent = msg; erro.classList.remove('oculto'); }
+  const btn = document.querySelector('.card-login form button[type="submit"]');
+  if(btn){ btn.disabled = false; btn.textContent = btn.dataset.rotulo || 'ENTRAR'; }
+  if(erro){ erro.textContent = msg; erro.classList.toggle('erro-info', !!info); erro.classList.remove('oculto'); }
 };
 /* Admin: junta à lista em memória os motoristas cadastrados no Firestore (chamado pela escuta em tempo real) */
+let cadastrosPendentes = [];   /* motoristas que se cadastraram sozinhos e aguardam aprovação */
 function mesclarMotoristas(docs){
-  docs.forEach(d => {
+  cadastrosPendentes = docs.filter(d => d.cadastroStatus === 'pendente').sort((a, b) => (b.criadoEm || 0) - (a.criadoEm || 0));
+  docs.filter(d => !['pendente', 'recusado', 'substituido'].includes(d.cadastroStatus)).forEach(d => {
     let u = USUARIOS.find(x => (d.idApp && x.id === d.idApp) || x.uid === d.uid);
     if(!u){
       u = { id: d.idApp || d.uid, usuario: d.login || d.nome, perfil: d.perfil || 'motorista', nome: d.nome, ativo: true };
@@ -1312,7 +1509,7 @@ function mesclarMotoristas(docs){
     if(d.perfil) u.perfil = d.perfil;
     u.nome = d.nome || u.nome;
     u.ativo = d.ativo !== false;
-    ['telefone','email','foto','tema','cadastroFeito','cargo','setor','empresa','categoria'].forEach(k => { if(d[k] !== undefined && d[k] !== '') u[k] = d[k]; });
+    ['telefone','email','foto','tema','cadastroFeito','cargo','setor','empresa','categoria','cnhCategoria','cnhValidade','baseCidade','emergenciaNome','emergenciaTelefone','loginTelefone','cadastroStatus','origem','criadoEm'].forEach(k => { if(d[k] !== undefined && d[k] !== '') u[k] = d[k]; });
   });
 }
 window.rofeAbrirSessao = async function(uid, email, perfilDoc){
@@ -1323,11 +1520,13 @@ window.rofeAbrirSessao = async function(uid, email, perfilDoc){
     u = { id: perfilDoc.idApp || uid, usuario: email, perfil: perfilDoc.perfil, nome: perfilDoc.nome || email, ativo: true };
     USUARIOS.push(u);
   }
-  u.uid = uid; u.email = u.email || email;
+  u.uid = uid;
+  if(window.RofeAuth && window.RofeAuth.ehLoginTelefone(email)){ u.usuario = perfilDoc.telefone || u.usuario; u.loginPorTelefone = true; }
+  else u.email = u.email || email;
   if(perfilDoc.nome) u.nome = perfilDoc.nome;   /* nome do cadastro no Firestore vale mais que o padrão do código */
   if(perfilDoc.perfil) u.perfil = perfilDoc.perfil;
   /* campos de perfil salvos no Firestore */
-  ['telefone','email','foto','tema','cadastroFeito','cargo','setor','empresa','categoria'].forEach(k => { if(perfilDoc[k] !== undefined && perfilDoc[k] !== '') u[k] = perfilDoc[k]; });
+  ['telefone','email','foto','tema','cadastroFeito','cargo','setor','empresa','categoria','cnhCategoria','cnhValidade','baseCidade','emergenciaNome','emergenciaTelefone','loginTelefone','cadastroStatus','origem','criadoEm'].forEach(k => { if(perfilDoc[k] !== undefined && perfilDoc[k] !== '') u[k] = perfilDoc[k]; });
   usuarioAtual = u;
   iniciarSincronizacao();
   entrar();
@@ -1517,6 +1716,11 @@ const TELAS_MOTORISTA = {
     const contador = USUARIOS.find(u => u.perfil === 'admin');
     const fone = contador && (contador.telefone || '').replace(/\D/g, '');
     const pedido = v && v.pedidoAtualizacaoEm && (!v.ultimoStatus || v.ultimoStatus.ts < v.pedidoAtualizacaoEm);
+    const pronta = !v && proxViagem && proxViagem.saida <= hojeIso() ? proxViagem : null;
+    const jor = v ? jornada(v) : null;
+    const gv = v ? saldoViagem(v) : null;
+    const cam = v ? caminhaoDe(v) : null;
+    const cnh = situacaoCNH(usuarioAtual);
     const acao = (rota, ic, titulo, sub, extra) => `<button type="button" class="mot-acao ${extra || ''}" ${rota}>${icon(ic)}<strong>${titulo}</strong><span>${sub}</span></button>`;
     c.innerHTML = `
       <div class="mot-saudacao"><h1>${saud}, ${esc(usuarioAtual.nome.split(' ')[0])}</h1><p>${new Date().toLocaleDateString('pt-BR', { weekday: 'long', day: 'numeric', month: 'long' })}</p></div>
@@ -1525,11 +1729,31 @@ const TELAS_MOTORISTA = {
           <div class="mot-rota"><span>${esc(v.origem)}</span>${icon('route')}<span>${esc(v.destino)}</span></div>
           <div class="mot-info">${icon('truck')} ${esc(v.placa)} · Saída ${fmtData(v.saida)}${v.previsaoRetorno ? ' · Retorno previsto ' + fmtData(v.previsaoRetorno) : ''}</div>
           <div class="mot-status">${chipStatusViagem(v, true)}</div>
+          ${jor ? `<div class="mot-jornada ${jor.nivel}">${icon(jor.dirigindo ? 'truck' : 'pause')}<span>${jor.texto}</span></div>` : ''}
           ${pedido ? `<div class="mot-pedido">${icon('bell')} A operação pediu uma atualização da viagem.</div>` : ''}
+          ${!v.checklistSaida ? `<button type="button" class="mot-check-pend" data-checklist="${v.id}" data-fase="saida">${icon('check')} Checklist de saída pendente: toque para fazer (leva 1 minuto).</button>` : ''}
           <button type="button" class="btn btn-bloco mot-btn-status" data-status-viagem="${v.id}">${icon('send')}<span>Atualizar status da viagem</span></button>
+          <button type="button" class="btn btn-bloco mot-btn-encerrar" data-checklist="${v.id}" data-fase="chegada">${icon('flag')}<span>Encerrar viagem</span></button>
         </section>`
+        : pronta ? `<section class="mot-viagem mot-pronta"><div class="mot-viagem-topo"><span class="status-vivo">PRONTA PARA SAIR</span><span>Viagem #${pronta.id}</span></div>
+          <div class="mot-rota"><span>${esc(pronta.origem)}</span>${icon('route')}<span>${esc(pronta.destino)}</span></div>
+          <div class="mot-info">${icon('truck')} ${esc(pronta.placa)} · Saída ${fmtData(pronta.saida)}${pronta.previsaoRetorno ? ' · Retorno previsto ' + fmtData(pronta.previsaoRetorno) : ''}</div>
+          <p style="margin:12px 0;opacity:.9;font-size:14px">Antes de sair, faça o checklist do caminhão e informe o km do painel. A operação é avisada na hora.</p>
+          <button type="button" class="btn btn-bloco mot-btn-status" data-checklist="${pronta.id}" data-fase="saida">${icon('play')}<span>Iniciar viagem</span></button></section>`
         : `<section class="mot-viagem vazia"><div class="mot-viagem-topo"><span>Sem viagem em andamento</span></div>
-          <p>${proxViagem ? 'Próxima viagem: <strong>' + esc(proxViagem.origem) + ' → ' + esc(proxViagem.destino) + '</strong> em ' + fmtData(proxViagem.saida) + ' · caminhão ' + esc(proxViagem.placa) + '.' : 'Quando a operação abrir uma viagem para você, ela aparece aqui.'}</p></section>`}
+          <p>${proxViagem ? 'Próxima viagem: <strong>' + esc(proxViagem.origem) + ' → ' + esc(proxViagem.destino) + '</strong> em ' + fmtData(proxViagem.saida) + ' · caminhão ' + esc(proxViagem.placa) + '. O botão "Iniciar viagem" aparece aqui no dia da saída.' : 'Quando a operação abrir uma viagem para você, ela aparece aqui.'}</p></section>`}
+      ${cnh && (cnh.vencida || cnh.vencendo) ? `<div class="mot-alerta">${icon('alert')}<span>${cnh.vencida ? 'Sua CNH está <strong>vencida</strong> desde ' + fmtData(usuarioAtual.cnhValidade) + '. Fale com o contador.' : 'Sua CNH vence em <strong>' + cnh.dias + ' dia(s)</strong> (' + fmtData(usuarioAtual.cnhValidade) + '). Providencie a renovação.'}</span></div>` : ''}
+      ${v ? `<div class="mot-resumo">
+        <div class="painel-bloco"><h2>Gastos desta viagem</h2>
+          <div class="mot-res-linha"><span>Lançado</span><strong>${fmtBRL(gv.regs.reduce((t, d) => t + d.valor, 0))}</strong></div>
+          <div class="mot-res-linha"><span>Aprovado</span><strong class="ok">${fmtBRL(gv.aprovado)}</strong></div>
+          <div class="mot-res-linha"><span>Em análise (${gv.nAguard})</span><strong>${fmtBRL(gv.aguardando)}</strong></div>
+          ${gv.rejeitado ? `<div class="mot-res-linha"><span>Rejeitado</span><strong class="g-verm">${fmtBRL(gv.rejeitado)}</strong></div>` : ''}</div>
+        <div class="painel-bloco"><h2>Caminhão</h2>
+          <div class="mot-cam"><strong>${esc(v.placa)}</strong> ${cam ? badgeUF(cam.uf) : ''}</div>
+          <div class="mini">${cam ? esc([cam.tipo, cam.carroceria, cam.marca, cam.modelo].filter(Boolean).join(' · ')) + (cam.posse === 'Aluguel' ? ' · aluguel' : '') : ''}</div>
+          <div class="mini" style="margin-top:6px">Km de saída: <strong>${v.kmInicial ? esc(v.kmInicial) : 'não informado'}</strong>${v.checklistSaida ? ' · checklist ' + (v.checklistSaida.problemas ? '<strong class="g-verm">com ' + v.checklistSaida.problemas + ' problema(s)</strong>' : 'OK') : ''}</div></div>
+      </div>` : ''}
       <div class="mot-acoes">
         ${v ? acao('data-ir="novo"', 'camera', 'Novo registro', 'Despesa com foto da nota', 'mot-principal') : ''}
         ${acao('data-ir="orcamentos"', 'wallet', 'Pedir orçamento', pendOrc ? pendOrc + ' aguardando resposta' : 'Liberação de valor')}
@@ -1549,6 +1773,14 @@ const TELAS_MOTORISTA = {
         <div class="painel-bloco"><h2>Últimos registros</h2>${blocoTabelaMotorista(lista.slice(-5).reverse())}</div>
         <div class="painel-bloco"><h2>${v ? 'Linha do tempo da viagem' : 'Minhas últimas atualizações'}</h2>${linhaTempoHtml(v ? eventosDaViagem(v.id) : eventos, v || null, v ? 0 : 6)}</div>
       </div>
+      <div class="painel-bloco mot-emerg"><h2>${icon('alert')} Emergência na estrada</h2>
+        <div class="mot-emerg-grade">
+          <a href="tel:191"><strong>191</strong><span>PRF (rodovias federais)</span></a>
+          <a href="tel:192"><strong>192</strong><span>SAMU</span></a>
+          <a href="tel:193"><strong>193</strong><span>Bombeiros</span></a>
+          <a href="tel:190"><strong>190</strong><span>Polícia</span></a>
+        </div>
+        <p class="mini" style="margin:10px 0 0">Depois de pedir ajuda, registre a <strong>Ocorrência</strong> aqui para a operação acompanhar.</p></div>
       ${painelContatoContador()}`;
   },
 
@@ -1842,21 +2074,22 @@ const TELAS_ADMIN = {
     const desenhar = () => {
       const q = norm(document.getElementById('m-busca').value.trim());
       const lista = USUARIOS.filter(u => u.perfil === 'motorista' && (!q || norm(u.nome).includes(q)));
-      document.getElementById('m-tabela').innerHTML = lista.length ? `<div class="tabela-wrap"><table>
-        <thead><tr><th>NOME</th><th>USUÁRIO</th><th>SITUAÇÃO</th><th>ÚLTIMO STATUS</th><th>CONTATO</th>${ehAdmin() ? '<th>AÇÕES</th>' : ''}</tr></thead>
+      document.getElementById('m-tabela').innerHTML = (ehAdmin() ? blocoCadastrosPendentes() : '') + (lista.length ? `<div class="tabela-wrap"><table>
+        <thead><tr><th>NOME</th><th>LOGIN</th><th>SITUAÇÃO</th><th>ÚLTIMO STATUS</th><th>CNH</th><th>CONTATO</th>${ehAdmin() ? '<th>AÇÕES</th>' : ''}</tr></thead>
         <tbody>${lista.map(u => {
           const v = u.ativo ? viagemDoMotorista(u.id) : null;
           const situacao = !u.ativo ? '<span class="tag rejeitado">Inativo</span>'
             : v ? tagEmRota('Em rota') + `<div class="mini" style="margin-top:6px">Viagem #${v.id} · ${esc(v.origem)} → ${esc(v.destino)} · ${esc(v.placa)}</div>`
             : '<span class="tag disponivel">Disponível</span>';
           return `<tr class="${v ? 'linha-em-viagem' : ''}">
-          <td><strong>${esc(u.nome)}</strong></td><td>${esc(u.usuario)}</td>
+          <td><strong>${esc(u.nome)}</strong>${u.baseCidade ? '<div class="mini">' + esc(u.baseCidade) + '</div>' : ''}</td><td class="mini">${esc(loginExibicao(u))}</td>
           <td>${situacao}${u.ativo ? textoReservas('motoristaId', u.id) : ''}</td>
           <td>${v ? chipStatusViagem(v, true) : '<span class="mini">—</span>'}</td>
+          <td>${celulaCNH(u)}</td>
           <td>${linksContato(u)}</td>
           ${ehAdmin() ? `<td>${u.uid ? `<button type="button" class="btn btn-pequeno ${u.ativo ? 'btn-contorno' : 'btn-primario'}" data-toggle-ativo="${esc(u.id)}">${u.ativo ? 'Desativar' : 'Ativar'}</button>` : '<span class="mini">—</span>'}</td>` : ''}</tr>`;
         }).join('')}</tbody>
-      </table></div>` : '<div class="card vazio">Nenhum motorista encontrado.</div>';
+      </table></div>` : '<div class="card vazio">Nenhum motorista encontrado.</div>');
     };
     document.getElementById('m-busca').addEventListener('input', desenhar);
     document.getElementById('m-novo')?.addEventListener('click', abrirNovoMotorista);
@@ -2591,6 +2824,9 @@ function blocoAcompanhamentoViagem(v, gest){
         ${ativa && ehDono ? `<button type="button" class="btn btn-pequeno btn-primario" data-status-viagem="${v.id}">${icon('send')}<span>Atualizar status</span></button>` : ''}
       </div></div>
     ${ocs.length ? `<div class="acomp-alerta">${icon('alert')}<span>${ocs.length} ocorrência(s) aberta(s): ${ocs.map(o => esc(o.detalhe)).join(', ')}</span></div>` : ''}
+    ${v.checklistSaida ? linhaChecklist('Checklist de saída', v.checklistSaida) : ativa ? '<div class="ck-resumo ck-resumo-prob"><strong>Checklist de saída:</strong> ainda não feito pelo motorista</div>' : ''}
+    ${v.checklistChegada ? linhaChecklist('Checklist de chegada', v.checklistChegada) : ''}
+    ${(() => { const j = jornada(v); return j && gest ? `<div class="mot-jornada ${j.nivel}" style="margin-top:8px">${icon(j.dirigindo ? 'truck' : 'pause')}<span>${j.texto.replace('Ao voltar a rodar, marque "Em trânsito".', '')}</span></div>` : ''; })()}
   </div>`;
 }
 function pedirAtualizacao(v){
@@ -2615,6 +2851,109 @@ function resolverOcorrencia(id){
   document.querySelectorAll('.overlay').forEach(o => { if(o.querySelector('.tl')) o.remove(); });
   agendarAtualizacaoTela();
 }
+
+/* ---------- Viagem do motorista: checklist, início/encerramento com km e jornada ---------- */
+const ITENS_CHECK = {
+  saida: ['Pneus e estepe', 'Freios', 'Luzes e setas', 'Óleo e água do motor', 'Documentos (CRLV, CNH, notas)', 'Extintor e triângulo', 'Tacógrafo', 'Carga amarrada ou lacrada'],
+  chegada: ['Carga entregue', 'Canhotos / notas assinadas', 'Caminhão sem avarias novas', 'Combustível conferido', 'Caminhão limpo e organizado']
+};
+/* Tempo ao volante desde a última parada (Lei 13.103/2015: no máximo 5h30 seguidas dirigindo, com 30 min de descanso) */
+function jornada(v){
+  if(!v || v.status !== 'em andamento') return null;
+  const inicio = (v.checklistSaida && v.checklistSaida.ts) || v.criadoEm || 0;
+  let dirigindo = true, desde = inicio;
+  eventosDaViagem(v.id).slice().reverse().forEach(e => {
+    if((e.ts || 0) < inicio) return;
+    if(['parada', 'chegada', 'ocorrencia'].includes(e.tipo)){ if(dirigindo){ dirigindo = false; desde = e.ts; } }
+    else if(['transito', 'inicio'].includes(e.tipo)){ if(!dirigindo){ dirigindo = true; desde = e.ts; } }
+  });
+  if(!desde) return null;
+  const min = Math.max(0, Math.round((Date.now() - desde) / 60000));
+  const hm = min >= 60 ? Math.floor(min / 60) + 'h' + String(min % 60).padStart(2, '0') : min + ' min';
+  if(dirigindo){
+    if(min >= 330) return { dirigindo, nivel: 'jor-vermelho', texto: `Dirigindo há <strong>${hm}</strong> sem parar. Pare agora e descanse 30 min (lei do motorista: no máximo 5h30 seguidas ao volante).` };
+    if(min >= 300) return { dirigindo, nivel: 'jor-amarelo', texto: `Dirigindo há <strong>${hm}</strong>. Planeje uma parada de 30 min: o limite é 5h30 seguidas.` };
+    return { dirigindo, nivel: '', texto: `Dirigindo há <strong>${hm}</strong> desde a última parada.` };
+  }
+  return { dirigindo, nivel: min >= 30 ? 'jor-verde' : '', texto: `Parado há <strong>${hm}</strong>${min >= 30 ? ' · descanso mínimo de 30 min cumprido' : ''}. Ao voltar a rodar, marque "Em trânsito".` };
+}
+function abrirChecklist(v, fase){
+  const saida = fase === 'saida';
+  const itens = ITENS_CHECK[fase];
+  const kmIni = parseFloat(v.kmInicial);
+  const ov = document.createElement('div');
+  ov.className = 'overlay';
+  ov.innerHTML = `<div class="modal modal-status">
+    <div class="modal-topo"><h2 style="margin:0;font-size:20px">${saida ? (v.status === 'agendada' ? 'Iniciar viagem' : 'Checklist de saída') : 'Encerrar viagem'}</h2><button type="button" class="btn btn-pequeno btn-contorno" data-fechar>Fechar</button></div>
+    <p class="mini" style="margin:6px 0 14px">Viagem #${v.id} · ${esc(v.origem)} → ${esc(v.destino)} · ${esc(v.placa)}</p>
+    <form id="form-ck" novalidate>
+      <div class="campo"><label for="ck-km">${saida ? 'Km do painel na saída *' : 'Km do painel na chegada *'}</label>
+        <input id="ck-km" type="number" inputmode="numeric" min="0" step="1" value="${saida && v.kmInicial ? esc(v.kmInicial) : ''}" placeholder="${!saida && kmIni ? 'Saída: ' + kmIni : 'Ex.: 152340'}"></div>
+      <div class="mini" style="margin:-4px 0 10px">${saida ? 'Confira cada item do caminhão:' : 'Confira a entrega e o caminhão:'}</div>
+      <div class="ck-lista">${itens.map((t, i) => `<div class="ck-item" data-i="${i}"><span>${esc(t)}</span>
+        <div class="ck-opc"><button type="button" data-v="ok">OK</button><button type="button" data-v="prob">Problema</button></div></div>`).join('')}</div>
+      <div class="campo" style="margin-top:12px"><label for="ck-obs">Observações <span class="mini" id="ck-obs-req"></span></label><textarea id="ck-obs" rows="2" maxlength="500" placeholder="${saida ? 'Ex.: luz de freio traseira queimada' : 'Ex.: cliente recebeu com 1 caixa avariada'}"></textarea></div>
+      <div class="rodape-editor"><button type="submit" class="btn btn-primario btn-pequeno">${saida ? (v.status === 'agendada' ? 'Iniciar viagem' : 'Salvar checklist') : 'Encerrar viagem'}</button></div>
+    </form></div>`;
+  ov.addEventListener('click', e => { if(e.target === ov || e.target.hasAttribute('data-fechar')) ov.remove(); });
+  const resp = {};
+  ov.querySelectorAll('.ck-item').forEach(row => row.querySelectorAll('[data-v]').forEach(b => b.addEventListener('click', () => {
+    resp[row.dataset.i] = b.dataset.v;
+    row.querySelectorAll('[data-v]').forEach(x => x.classList.toggle('sel', x === b));
+    row.classList.toggle('ck-prob', b.dataset.v === 'prob');
+    ov.querySelector('#ck-obs-req').textContent = Object.values(resp).includes('prob') ? '(obrigatório: descreva o problema)' : '';
+  })));
+  ov.querySelector('#form-ck').addEventListener('submit', async e => {
+    e.preventDefault();
+    const km = Math.round(parseFloat(ov.querySelector('#ck-km').value));
+    const obs = ov.querySelector('#ck-obs').value.trim();
+    if(!(km > 0)){ mostrarMensagem('Informe o km do painel.', true); return; }
+    if(!saida && kmIni && km <= kmIni){ mostrarMensagem('O km de chegada precisa ser maior que o de saída (' + kmIni + ').', true); return; }
+    if(!saida && kmIni && km - kmIni > 6000 && !confirm('Foram ' + (km - kmIni) + ' km nesta viagem. Está correto?')) return;
+    if(Object.keys(resp).length < itens.length){ mostrarMensagem('Marque OK ou Problema em todos os itens.', true); return; }
+    const problemas = itens.filter((t, i) => resp[i] === 'prob');
+    if(problemas.length && !obs){ mostrarMensagem('Descreva o problema nas observações.', true); return; }
+    const ck = { itens: Object.fromEntries(itens.map((t, i) => [t, resp[i] === 'ok'])), problemas: problemas.length, obs, km, ts: Date.now(), por: usuarioAtual.nome };
+    ov.querySelectorAll('button').forEach(b => b.disabled = true);
+    if(saida){
+      if(v.status === 'agendada'){
+        salvarViagem(v, { status: 'em andamento', kmInicial: String(km), checklistSaida: ck, iniciadaPor: usuarioAtual.nome });
+        await registrarEvento(v, 'inicio', '', problemas.length ? 'Checklist com problema: ' + problemas.join(', ') : '', false);
+        avisarEquipe('monitor');
+        auditar('Iniciou a viagem #' + v.id, 'Km ' + km + (problemas.length ? ' · checklist com problema: ' + problemas.join(', ') : ' · checklist OK'));
+        mostrarMensagem('Viagem iniciada. Boa viagem e atenção na estrada!');
+      } else {
+        salvarViagem(v, { checklistSaida: ck, ...(v.kmInicial ? {} : { kmInicial: String(km) }) });
+        auditar('Fez checklist de saída da viagem #' + v.id, problemas.length ? 'Problemas: ' + problemas.join(', ') : 'OK');
+        mostrarMensagem('Checklist salvo.');
+      }
+      if(problemas.length){ avisarEquipe('monitor'); mostrarMensagem('A operação foi avisada dos problemas: ' + problemas.join(', ') + '.', true); }
+    } else {
+      if(!confirm('Encerrar a viagem #' + v.id + ' com km ' + km + '? Depois disso você não lança mais despesas nela.')){ ov.querySelectorAll('button').forEach(b => b.disabled = false); return; }
+      await registrarEvento(v, 'chegada', 'Viagem encerrada', obs, false);
+      salvarViagem(v, { status: 'finalizada', kmFinal: String(km), chegada: hojeIso(), checklistChegada: ck, encerradaPor: usuarioAtual.nome });
+      avisarEquipe('viagens');
+      auditar('Encerrou a viagem #' + v.id + ' (motorista)', 'Km ' + km + (kmIni ? ' · ' + (km - kmIni) + ' km rodados' : '') + (problemas.length ? ' · pendências: ' + problemas.join(', ') : ''));
+      mostrarMensagem('Viagem encerrada' + (kmIni ? ': ' + (km - kmIni) + ' km rodados' : '') + '. Obrigado!');
+    }
+    ov.remove();
+    irPara(rotaAtual);
+  });
+  document.body.appendChild(ov);
+  ov.querySelector('#ck-km').focus();
+}
+function linhaChecklist(titulo, ck){
+  const falhas = Object.entries(ck.itens || {}).filter(([, ok]) => !ok).map(([t]) => t);
+  return `<div class="ck-resumo ${falhas.length ? 'ck-resumo-prob' : ''}"><strong>${titulo}:</strong> ${falhas.length ? 'problema em ' + falhas.map(esc).join(', ') : 'tudo OK'} · km ${esc(ck.km)} · ${esc(ck.por || '')} · ${fmtHora(ck.ts)}${ck.obs ? `<div class="mini">“${esc(ck.obs)}”</div>` : ''}</div>`;
+}
+document.addEventListener('click', e => {
+  const b = e.target.closest('[data-checklist]');
+  if(!b || !usuarioAtual) return;
+  const v = viagens.find(x => x.id === +b.dataset.checklist);
+  if(v) abrirChecklist(v, b.dataset.fase);
+});
+/* relógio da jornada: atualiza o Início do motorista a cada minuto */
+setInterval(() => { if(usuarioAtual && usuarioAtual.perfil === 'motorista' && rotaAtual === 'inicio' && !document.querySelector('.overlay')) agendarAtualizacaoTela(); }, 60000);
 
 /* ---------- Orçamentos ---------- */
 function criarSolicitacao(dados){
@@ -2751,6 +3090,58 @@ function desenharMapaMonitor(info){
     }
   }).catch(() => { window.__mapaEl.innerHTML = '<div class="vazio">Mapa indisponível agora (sem internet). Use os links "ver no mapa" de cada viagem.</div>'; });
 }
+
+/* ---------- Cadastros de motoristas (autocadastro pelo "SOU MOTORISTA") ---------- */
+function celulaCNH(u){
+  const c = situacaoCNH(u);
+  if(!u.cnhCategoria && !c) return '<span class="mini">—</span>';
+  return `${u.cnhCategoria ? '<strong>' + esc(u.cnhCategoria) + '</strong>' : ''}${c ? `<div class="mini ${c.vencida ? 'g-verm' : c.vencendo ? 'st-atrasado' : ''}">${c.vencida ? 'Vencida há ' + (-c.dias) + ' dia(s)' : c.vencendo ? 'Vence em ' + c.dias + ' dia(s)' : 'Válida até ' + fmtData(u.cnhValidade)}</div>` : ''}`;
+}
+function blocoCadastrosPendentes(){
+  if(!cadastrosPendentes.length) return '';
+  const motoristas = USUARIOS.filter(u => u.perfil === 'motorista');
+  const dig = t => String(t || '').replace(/\D/g, '').slice(-9);
+  return `<div class="painel-bloco cad-pend"><h2>${icon('user')} Cadastros aguardando aprovação <span class="g-qtd">${cadastrosPendentes.length}</span></h2>
+    <p class="mini" style="margin:0 0 6px">Motoristas que se cadastraram pelo botão "SOU MOTORISTA". Confira os dados antes de aprovar. Se a pessoa já existe no sistema, vincule ao cadastro antigo para manter o histórico dela.</p>
+    ${cadastrosPendentes.map(d => {
+      const iguais = motoristas.filter(u => d.telefone && dig(u.telefone) && dig(u.telefone) === dig(d.telefone));
+      const c = situacaoCNH(d);
+      return `<div class="cad-item" data-cad="${esc(d.uid)}">
+        <div class="cad-info"><strong>${esc(d.nome)}</strong> <span class="mini">· ${fmtHora(d.criadoEm)}</span>
+          <div class="mini">${icon('phone')} ${esc(d.telefone || '')}${d.baseCidade ? ' · ' + esc(d.baseCidade) : ''}${d.cnhCategoria ? ' · CNH ' + esc(d.cnhCategoria) : ''}${c ? ' · validade ' + fmtData(d.cnhValidade) + (c.vencida ? ' <strong class="g-verm">(vencida)</strong>' : '') : ''}</div>
+          ${d.emergenciaNome || d.emergenciaTelefone ? `<div class="mini">Emergência: ${esc(d.emergenciaNome || '')} ${esc(d.emergenciaTelefone || '')}</div>` : ''}
+          ${iguais.length ? `<div class="mini st-atrasado">Telefone igual ao de: ${iguais.map(u => esc(u.nome)).join(', ')}</div>` : ''}
+          <div>${linksContato(d)}</div></div>
+        <div class="cad-acoes">
+          <select data-vinculo><option value="">Motorista novo</option>${motoristas.map(u => `<option value="${esc(u.id)}" ${iguais[0] === u ? 'selected' : ''}>Vincular a: ${esc(u.nome)}</option>`).join('')}</select>
+          <div class="linha-acoes"><button type="button" class="btn btn-pequeno btn-primario" data-aprovar-cad="${esc(d.uid)}">Aprovar</button><button type="button" class="btn btn-pequeno btn-vermelho" data-recusar-cad="${esc(d.uid)}">Recusar</button></div>
+        </div></div>`;
+    }).join('')}</div>`;
+}
+async function decidirCadastro(uid, aprovar, vinculoId){
+  const d = cadastrosPendentes.find(x => x.uid === uid);
+  if(!d || !ehAdmin()) return;
+  const vinc = vinculoId ? USUARIOS.find(u => u.id === vinculoId) : null;
+  if(aprovar && !confirm(vinc ? `Aprovar ${d.nome} e vincular ao cadastro de ${vinc.nome}? As viagens e registros de ${vinc.nome} passam a aparecer para este novo login.` : `Aprovar o cadastro de ${d.nome}?`)) return;
+  if(!aprovar && !confirm('Recusar o cadastro de ' + d.nome + '?')) return;
+  const dados = aprovar
+    ? { ativo: true, cadastroStatus: 'aprovado', aprovadoPor: usuarioAtual.nome, aprovadoEm: Date.now(), ...(vinc ? { idApp: vinc.id } : {}) }
+    : { ativo: false, cadastroStatus: 'recusado', recusadoPor: usuarioAtual.nome, recusadoEm: Date.now() };
+  try {
+    const ops = [{ tipo: 'upd', col: 'usuarios', id: uid, dados }];
+    if(aprovar && vinc && vinc.uid && vinc.uid !== uid) ops.push({ tipo: 'upd', col: 'usuarios', id: vinc.uid, dados: { ativo: false, cadastroStatus: 'substituido', substituidoPor: uid, substituidoEm: Date.now() } });
+    await RofeDB.lote(ops);
+    auditar(aprovar ? 'Aprovou cadastro de motorista' : 'Recusou cadastro de motorista', d.nome + ' · ' + (d.telefone || '') + (vinc ? ' · vinculado a ' + vinc.nome : ''));
+    mostrarMensagem(aprovar ? d.nome + ' aprovado. Ele já pode entrar pelo "SOU MOTORISTA".' : 'Cadastro recusado.');
+  } catch(err){ console.error(err); mostrarMensagem(window.RofeAuth.traduzirErro(err, 'Não foi possível salvar a decisão.'), true); }
+}
+document.addEventListener('click', e => {
+  const a = e.target.closest('[data-aprovar-cad],[data-recusar-cad]');
+  if(!a || !usuarioAtual) return;
+  const item = a.closest('.cad-item');
+  if(a.dataset.aprovarCad) decidirCadastro(a.dataset.aprovarCad, true, item.querySelector('[data-vinculo]').value);
+  else decidirCadastro(a.dataset.recusarCad, false);
+});
 
 /* ---------- Telas novas ---------- */
 const TELAS_GESTAO = {
@@ -2984,6 +3375,17 @@ function calcularPendencias(){
     v => `${esc(nomeMotorista(v.motoristaId))} · ${linkViagem(v.id)} · última atualização ${tempoDesde(statusAtual(v).ts)}`);
   add('media', 'Viagens encerradas com registros pendentes', travadas, 'O fechamento dessas viagens depende da sua análise.', 'viagens',
     v => `${linkViagem(v.id)} · ${esc(nomeMotorista(v.motoristaId))} · ${saldoViagem(v).nAguard} registro(s) aguardando`);
+  add('alta', 'Cadastros de motoristas aguardando aprovação', cadastrosPendentes, 'Pessoas que se cadastraram pelo "SOU MOTORISTA" e ainda não podem entrar.', 'motoristas',
+    d => `${esc(d.nome)} · ${esc(d.telefone || '')}${d.baseCidade ? ' · ' + esc(d.baseCidade) : ''} · ${tempoDesde(d.criadoEm)}`);
+  const cnhs = USUARIOS.filter(u => u.perfil === 'motorista' && u.ativo && situacaoCNH(u) && (situacaoCNH(u).vencida || situacaoCNH(u).vencendo));
+  add('media', 'CNH vencida ou vencendo em 30 dias', cnhs, 'Motorista com CNH vencida não pode dirigir.', 'motoristas',
+    u => { const c = situacaoCNH(u); return `${esc(u.nome)} · ${c.vencida ? '<strong class="g-verm">vencida há ' + (-c.dias) + ' dia(s)</strong>' : 'vence em ' + c.dias + ' dia(s)'} (${fmtData(u.cnhValidade)})`; });
+  const semCheck = ativas.filter(v => !v.checklistSaida);
+  add('media', 'Viagens sem checklist de saída', semCheck, 'O motorista ainda não conferiu o caminhão nesta viagem.', 'monitor',
+    v => `${linkViagem(v.id)} · ${esc(nomeMotorista(v.motoristaId))} · ${esc(v.placa)}`);
+  const ckProb = viagens.filter(v => (v.checklistSaida && v.checklistSaida.problemas && v.status === 'em andamento') || (v.checklistChegada && v.checklistChegada.problemas && mesDe(v.chegada) === hojeIso().slice(0, 7)));
+  add('media', 'Checklist com problema', ckProb, 'Itens marcados como "Problema" pelo motorista.', 'viagens',
+    v => { const ck = v.checklistChegada && v.checklistChegada.problemas ? v.checklistChegada : v.checklistSaida; return `${linkViagem(v.id)} · ${esc(nomeMotorista(v.motoristaId))} · ${Object.entries(ck.itens).filter(([, ok]) => !ok).map(([t]) => esc(t)).join(', ')}`; });
   add('baixa', 'Saldo a devolver pelo motorista', devolver, 'Viagens encerradas em que o adiantamento foi maior que o comprovado.', 'gestor:dinheiro',
     v => `${linkViagem(v.id)} · ${esc(nomeMotorista(v.motoristaId))} · devolver ${fmtBRL(saldoViagem(v).saldo)}`);
   add('baixa', 'Registros aguardando análise', aguard.filter(d => !velhos.includes(d)), 'Lançados nas últimas 48 horas.', 'registros:aguardando',
@@ -3341,7 +3743,7 @@ function rotularTabelasMobile(){
     }));
   });
 }
-const DUVIDAS = [{"lado": "motorista", "tema": "Viagens", "p": "Por que não aparece o botão <strong>Novo registro</strong> no meu menu?", "r": "Porque os registros só podem ser lançados em uma <strong>viagem em andamento</strong>, aberta pelo contador. Se existir uma viagem <strong>agendada</strong> para você, ela começa na data de saída e o botão aparece sozinho. Confira em <strong>Minhas viagens</strong>. Se a viagem já deveria ter começado, use o card <strong>Fale com o contador</strong> na tela de Início."}, {"lado": "motorista", "tema": "Viagens", "p": "Terminei a viagem. Como eu encerro?", "r": "Quem encerra a viagem é o <strong>contador</strong>. Ele confere o total e pode informar a quilometragem final. Depois disso o botão Novo registro some, mas tudo o que você lançou continua disponível em <strong>Minhas viagens → Ver registros</strong>."}, {"lado": "motorista", "tema": "Viagens", "p": "Para que servem a quilometragem inicial e final?", "r": "São opcionais e preenchidas pelo contador. Com elas o sistema calcula <strong>km rodado</strong>, <strong>custo por km</strong> e, se houver litros de combustível lançados, o <strong>consumo médio (km/L)</strong>. Você vê esses números no cartão da viagem."}, {"lado": "motorista", "tema": "Registros", "p": "Como lanço uma despesa?", "r": "Vá em <strong>Novo registro</strong>, escolha a categoria, informe valor, data e cidade, escreva a descrição (obrigatória) e anexe as fotos. Depois toque em <strong>Salvar registro</strong>. Os textos são convertidos para maiúsculas automaticamente e o registro fica como <strong>Aguardando</strong> análise."}, {"lado": "motorista", "tema": "Registros", "p": "Para que serve o campo <strong>Litros abastecidos</strong>?", "r": "Ele só aparece quando a categoria é <strong>Combustível</strong>. Com os litros o sistema calcula o preço por litro e o consumo médio da viagem. Se não souber os litros, o registro pode ser salvo sem eles, mas o consumo não será calculado."}, {"lado": "motorista", "tema": "Registros", "p": "Posso anexar mais de uma foto? E se ela sair torta ou escura?", "r": "Pode anexar várias fotos da nota ou do recibo, tirando na hora ou escolhendo da galeria. Antes de anexar, o <strong>editor de foto</strong> permite girar, cortar as bordas e ajustar brilho e contraste, para que o contador consiga ler tudo."}, {"lado": "motorista", "tema": "Registros", "p": "Apareceu um aviso de <strong>possível duplicidade</strong> ao salvar. O que faço?", "r": "O aviso surge quando já existe um registro com <strong>mesmo valor, data e categoria</strong> ou com a <strong>mesma foto</strong>. Se for outra despesa de verdade (por exemplo, dois abastecimentos iguais no mesmo dia), pode salvar mesmo assim: o contador será avisado e vai conferir. Se você lançou duas vezes sem querer, cancele e não salve."}, {"lado": "motorista", "tema": "Registros", "p": "Digitei o valor errado. Consigo corrigir?", "r": "Sim, enquanto o registro estiver <strong>Aguardando</strong>: abra o registro e toque em <strong>Editar</strong>. Depois que ele for aprovado ou rejeitado, só o contador pode alterar, então peça a correção pela conversa do próprio registro. Toda edição fica gravada no histórico."}, {"lado": "motorista", "tema": "Status e descontos", "p": "O que significam Aguardando, Aprovado e Rejeitado?", "r": "<strong>Aguardando</strong>: o contador ainda não analisou. <strong>Aprovado</strong>: a despesa foi aceita. <strong>Rejeitado</strong>: não foi aceita e o motivo fica registrado. Você acompanha tudo em <strong>Meus registros</strong> e recebe um aviso a cada mudança."}, {"lado": "motorista", "tema": "Status e descontos", "p": "Meu registro foi rejeitado. Como descubro o motivo?", "r": "O motivo aparece na coluna <strong>Observação</strong> de Meus registros, no detalhe do registro e na notificação que você recebe. Se ficou alguma dúvida, escreva na <strong>conversa do registro</strong> para combinar o próximo passo com o contador."}, {"lado": "motorista", "tema": "Status e descontos", "p": "O que é o card <strong>Valor para desconto</strong>?", "r": "É a soma dos descontos que o contador definiu nos seus registros, sempre com uma justificativa. Esse valor serve para <strong>conferência</strong>: o sistema não aplica nenhum desconto automaticamente em folha."}, {"lado": "motorista", "tema": "Conversa e conta", "p": "Posso tirar uma dúvida sobre um registro sem ele ser rejeitado?", "r": "Pode. Abra o registro e use a seção <strong>Conversa</strong>. O contador recebe um aviso, e a resposta dele chega para você como notificação. Enter envia a mensagem e Shift+Enter quebra a linha."}, {"lado": "motorista", "tema": "Conversa e conta", "p": "Como falo diretamente com o contador?", "r": "Na tela de <strong>Início</strong> há o card <strong>Fale com o contador</strong>, com atalhos de WhatsApp e e-mail quando ele tiver preenchido esses dados no perfil."}, {"lado": "motorista", "tema": "Conversa e conta", "p": "Como mudo meu telefone, minha foto ou ativo o tema escuro?", "r": "Toque no seu <strong>avatar</strong> (iniciais ou foto) no topo da tela para abrir o perfil. Lá você ajusta telefone com DDD, e-mail, foto e escolhe entre tema <strong>Claro</strong> e <strong>Escuro</strong>. Manter o telefone atualizado ajuda o contador a falar com você."}, {"lado": "motorista", "tema": "Conversa e conta", "p": "Como encontro um registro ou uma viagem antiga?", "r": "Use a <strong>busca</strong> no topo. Ela encontra seus registros por categoria, descrição, cidade, local, placa, valor ou data, e também suas viagens por origem, destino ou número."}, {"lado": "contador", "tema": "Viagens", "p": "Qual a diferença entre iniciar e agendar uma viagem?", "r": "Em <strong>Iniciar viagem</strong>, se a data de saída for hoje a viagem começa na hora. Se for uma data futura, ela fica <strong>agendada</strong>: apenas reserva motorista e caminhão naquele período e começa sozinha na data de saída (o botão muda para <strong>Agendar viagem</strong>)."}, {"lado": "contador", "tema": "Viagens", "p": "O motorista ou o caminhão aparece bloqueado com \"em rota\" ou \"reservado\". Por quê?", "r": "Porque já existe uma viagem ativa que ocupa aquele recurso no período escolhido. Uma viagem <strong>em andamento sem previsão de retorno</strong> ocupa o motorista e o caminhão por tempo indeterminado, então preencher a <strong>previsão de retorno</strong> libera as datas futuras para novos agendamentos."}, {"lado": "contador", "tema": "Viagens", "p": "O botão de salvar a viagem está travado. O que fazer?", "r": "A mensagem em vermelho informa que não há motorista ou caminhão disponível no período. Altere as datas ou <strong>encerre ou cancele</strong> uma viagem que esteja ocupando o recurso."}, {"lado": "contador", "tema": "Viagens", "p": "Como antecipo ou cancelo uma viagem agendada?", "r": "Em <strong>Viagens</strong>, abra a viagem agendada. <strong>Iniciar agora</strong> começa a viagem hoje, desde que motorista e caminhão estejam livres. <strong>Cancelar reserva</strong> libera os dois e avisa o motorista."}, {"lado": "contador", "tema": "Viagens", "p": "Como encerro uma viagem e o que o sistema calcula?", "r": "Em <strong>Viagens</strong>, abra a viagem em andamento e use <strong>Encerrar viagem</strong>. O sistema mostra quantos registros e qual total você está fechando e pede a quilometragem final (opcional, e precisa ser maior que a inicial). Com ela ele calcula km rodado, custo por km e consumo médio. Registros rejeitados não entram no custo."}, {"lado": "contador", "tema": "Registros", "p": "Como aprovo, rejeito ou defino desconto em um registro?", "r": "Em <strong>Registros</strong>: <strong>Aprovar</strong> aceita a despesa. <strong>Rejeitar</strong> exige um motivo, que é enviado ao motorista. <strong>Desconto</strong> pede o valor a descontar (não pode passar do valor informado; use 0 para nenhum) e uma justificativa obrigatória."}, {"lado": "contador", "tema": "Registros", "p": "O desconto é aplicado na folha do motorista?", "r": "Não. O desconto fica apenas <strong>registrado para conferência</strong>, com a justificativa, e o motorista é notificado. Nenhum valor é descontado automaticamente em folha."}, {"lado": "contador", "tema": "Registros", "p": "Como aprovo vários registros de uma vez?", "r": "Marque as caixas dos registros <strong>Aguardando</strong> (ou a caixa do cabeçalho para selecionar todos os pendentes da página). A barra mostra quantos estão selecionados e o total em reais. Toque em <strong>Aprovar selecionados</strong>. Se algum tiver possível duplicidade, o sistema avisa antes de confirmar."}, {"lado": "contador", "tema": "Registros", "p": "Como o sistema identifica uma possível duplicidade?", "r": "Ele compara cada registro com os demais (ignorando os rejeitados) e alerta quando há <strong>mesmo valor, data e categoria</strong> ou a <strong>mesma foto</strong>. Você vê o alerta no registro, no card <strong>Possíveis duplicidades</strong> do painel e no filtro da lista. É um aviso para conferir, não uma prova: duas despesas legítimas iguais também disparam o alerta."}, {"lado": "contador", "tema": "Registros", "p": "Posso corrigir um registro lançado pelo motorista?", "r": "Pode, a qualquer momento: abra <strong>Detalhes</strong> e toque em <strong>Editar</strong>. Cada mudança é gravada como \"antes → depois\" no histórico do registro e na Auditoria, e o motorista recebe um aviso."}, {"lado": "contador", "tema": "Registros", "p": "Devo rejeitar ou conversar com o motorista?", "r": "Se faltou algo simples, como uma foto mais legível, use a <strong>Conversa</strong> do registro para pedir o ajuste sem rejeitar. Rejeite quando a despesa não for aceita: o motivo é obrigatório e fica visível para o motorista."}, {"lado": "contador", "tema": "Registros", "p": "Preciso ligar para o motorista. Onde está o contato?", "r": "Nos detalhes do registro, nos detalhes da viagem e na lista <strong>Motoristas</strong> aparecem atalhos de WhatsApp e e-mail. Se mostrar \"Contato não informado\", o motorista ainda não preencheu o perfil."}, {"lado": "contador", "tema": "Análises", "p": "Como funciona o Comparativo de viagens?", "r": "Ele agrupa as viagens <strong>finalizadas</strong> pela mesma origem e destino e compara o custo de cada uma com a média da rota. Você escolhe o limite de alerta (+10%, +20%, +30% ou +50%) e o sistema destaca as viagens acima dele e a categoria que mais pesou. Rotas com apenas uma viagem ainda não entram na comparação, e registros rejeitados não contam."}, {"lado": "contador", "tema": "Análises", "p": "Como gero um relatório para fechar as contas?", "r": "Em <strong>Relatórios</strong>, filtre por motorista, caminhão, viagem, categoria, status e período, escolha se quer agrupar (por motorista, caminhão, viagem, categoria...) e use <strong>Exportar Excel</strong> ou <strong>Exportar PDF</strong>."}, {"lado": "contador", "tema": "Análises", "p": "Como sei quem fez o quê no sistema?", "r": "Na <strong>Auditoria</strong> ficam registradas todas as ações, com data e hora, usuário, perfil e detalhe. Dá para filtrar por usuário e por período."}, {"lado": "motorista", "tema": "Viagens", "p": "Posso estar em duas viagens ao mesmo tempo?", "r": "Não. O sistema não deixa o contador abrir ou agendar uma viagem se você ou o caminhão já estiverem em outra viagem no mesmo período. Uma viagem <strong>em andamento sem retorno previsto</strong> ocupa você e o caminhão até ser encerrada."}, {"lado": "motorista", "tema": "Viagens", "p": "O que significam Agendada, Em andamento, Finalizada e Cancelada?", "r": "<strong>Agendada</strong>: reservada para uma data futura e ainda sem registros. <strong>Em andamento</strong>: é a viagem atual, onde você lança despesas. <strong>Finalizada</strong>: encerrada pelo contador. <strong>Cancelada</strong>: a reserva foi cancelada pelo contador e você é avisado."}, {"lado": "motorista", "tema": "Viagens", "p": "Troquei de caminhão no meio da viagem. Como eu lanço as despesas?", "r": "Os registros usam o caminhão da viagem aberta. Antes de lançar, fale com o contador pelo card <strong>Fale com o contador</strong>: ele pode encerrar a viagem atual e abrir outra com o caminhão correto, para que as despesas fiquem na placa certa."}, {"lado": "motorista", "tema": "Registros", "p": "Qual categoria devo escolher?", "r": "As categorias são: Hospedagem, Alimentação, Combustível, Manutenção mecânica, Pneus, Peças e acessórios, Pedágios, Estacionamento, Lavagem, Serviços de terceiros e Outros. Se nenhuma servir direito, escolha <strong>Outros</strong> e explique bem na descrição."}, {"lado": "motorista", "tema": "Registros", "p": "Posso lançar uma despesa de ontem? E de uma data futura?", "r": "Pode lançar de dias anteriores, basta escolher a data real da despesa. <strong>Datas futuras não são aceitas</strong>, porque a despesa precisa já ter acontecido."}, {"lado": "motorista", "tema": "Registros", "p": "Esqueci de anexar a foto ou quero trocar uma foto. E agora?", "r": "A edição de um registro já salvo altera os dados, mas <strong>não troca as fotos</strong>. Escreva na <strong>Conversa</strong> do registro avisando o contador, ou fale com ele pelo card Fale com o contador. Para os próximos lançamentos, anexe as fotos antes de salvar."}, {"lado": "motorista", "tema": "Registros", "p": "Lancei a mesma despesa duas vezes sem querer. Posso excluir?", "r": "O motorista não exclui registros. Avise o contador pela <strong>Conversa</strong> do registro repetido para que ele o rejeite com o motivo. Assim fica tudo documentado no histórico."}, {"lado": "motorista", "tema": "Status e descontos", "p": "Não concordo com um desconto. O que faço?", "r": "Abra o registro e escreva na <strong>Conversa</strong> explicando o que aconteceu, anexando informações que ajudem. Cada desconto tem uma justificativa registrada pelo contador, e vocês podem acertar a decisão por ali."}, {"lado": "motorista", "tema": "Status e descontos", "p": "Quanto tempo leva para o contador aprovar?", "r": "O sistema não define prazo: depende da análise do contador. Quando ele aprovar, rejeitar, editar ou definir desconto, você recebe um aviso e o registro muda de status em <strong>Meus registros</strong>."}, {"lado": "motorista", "tema": "Conversa e conta", "p": "O que são o \"!\" no menu e o sino no topo?", "r": "São os <strong>avisos</strong>. O \"!\" marca a aba onde há novidade (por exemplo, Meus registros depois de uma edição do contador) e o sino soma tudo que ainda não foi visto. Ao abrir a aba, o \"!\" some."}, {"lado": "motorista", "tema": "Conversa e conta", "p": "Posso usar o sistema no celular?", "r": "Sim. O sistema se adapta à tela do celular: as tabelas viram cartões e o botão <strong>Tirar foto</strong> abre a câmera para fotografar a nota na hora."}, {"lado": "motorista", "tema": "Conversa e conta", "p": "Como saio do sistema?", "r": "Use o botão <strong>Sair</strong> no topo da tela. Em aparelho compartilhado, saia sempre que terminar para que ninguém veja seus registros."}, {"lado": "contador", "tema": "Viagens", "p": "Como vejo quais motoristas e caminhões estão livres?", "r": "Em <strong>Motoristas</strong> e <strong>Caminhões</strong> cada item aparece como <strong>Em rota</strong> (com a viagem) ou <strong>Disponível</strong>, e as reservas futuras aparecem logo abaixo. Ao criar uma viagem, quem estiver ocupado no período aparece bloqueado no seletor."}, {"lado": "contador", "tema": "Viagens", "p": "O motorista trocou de caminhão no meio da viagem. Como ajusto?", "r": "Nesta versão não há edição de viagem. O caminho é <strong>encerrar</strong> a viagem atual e abrir outra com o caminhão correto, informando o km final da primeira e o km inicial da segunda."}, {"lado": "contador", "tema": "Viagens", "p": "A viagem agendada não começou sozinha. Por quê?", "r": "Ela começa quando chega a data de saída, desde que o motorista e o caminhão não estejam em outra viagem em andamento. Se algum deles ainda estiver ocupado, encerre a outra viagem e use <strong>Iniciar agora</strong> nos detalhes da agendada."}, {"lado": "contador", "tema": "Registros", "p": "Como filtro e ordeno a lista de registros?", "r": "Em <strong>Registros</strong> você busca por motorista, placa ou descrição e filtra por status, categoria, período e somente possíveis duplicidades. Clique no título de uma coluna para ordenar. A lista mostra 15 registros por página."}, {"lado": "contador", "tema": "Registros", "p": "Aprovei um registro por engano. Dá para desfazer?", "r": "Nesta versão não existe botão para desfazer uma aprovação. Por isso confira bem antes de aprovar, principalmente quando houver alerta de duplicidade. Para ajustar valores, use <strong>Editar</strong> ou <strong>Desconto</strong>, que ficam registrados no histórico e na Auditoria."}, {"lado": "contador", "tema": "Registros", "p": "Como os registros rejeitados entram nos totais?", "r": "O <strong>Total informado</strong> soma tudo que foi lançado, e o <strong>Rejeitado</strong> aparece separado. Já o custo da viagem, o custo por km, o consumo, o comparativo e o desempenho por caminhão <strong>desconsideram os rejeitados</strong>."}, {"lado": "contador", "tema": "Registros", "p": "O que é o card \"Definido para desconto\" no painel?", "r": "É a soma dos descontos que você definiu nos registros do período filtrado no painel. É um valor de conferência e não é aplicado automaticamente em folha."}, {"lado": "contador", "tema": "Registros", "p": "Como confiro as fotos da nota?", "r": "Nos <strong>Detalhes</strong> do registro há a galeria de fotos. Clique em uma foto para ampliar. Fotos iguais em registros diferentes disparam o alerta de <strong>possível duplicidade</strong>."}, {"lado": "contador", "tema": "Análises", "p": "Como filtro o painel por período?", "r": "No topo do <strong>Painel</strong> há os campos de data inicial e final. Eles atualizam os cards de valores e os gráficos por mês, categoria, motorista e caminhão. Os contadores de viagens mostram sempre a situação atual."}, {"lado": "contador", "tema": "Análises", "p": "O que mostra o \"Desempenho por caminhão\"?", "r": "Está no <strong>Comparativo</strong> e lista, para cada caminhão com viagens finalizadas, a quantidade de viagens, km rodado, custo total, custo por km, litros e consumo médio (km/L). Rejeitados não entram, e km e consumo só aparecem quando foram informados."}, {"lado": "contador", "tema": "Análises", "p": "Como encontro rápido um motorista, uma placa ou um registro?", "r": "Use a <strong>busca</strong> no topo: ela procura motoristas, caminhões, viagens e registros ao mesmo tempo (a partir de 2 letras). Ao clicar no resultado, o sistema leva direto para o item."}, {"lado": "contador", "tema": "Análises", "p": "O PDF ou o Excel do relatório não abre. O que fazer?", "r": "O PDF abre em uma nova janela, então <strong>permita pop-ups</strong> no navegador. O Excel e os gráficos dependem de bibliotecas carregadas pela internet: se a conexão estiver ruim, aparece um aviso. Também é preciso ter ao menos um registro no filtro para exportar."}, {"lado": "contador", "tema": "Conta e avisos", "p": "O que são o \"!\" no menu e o sino no topo?", "r": "São os <strong>avisos</strong>. O \"!\" marca a aba com novidade (por exemplo, Registros quando um motorista lança ou comenta algo) e o sino soma o que ainda não foi visto. Ao abrir a aba, o aviso some."}, {"lado": "contador", "tema": "Conta e avisos", "p": "Como o motorista consegue falar comigo?", "r": "Na tela de Início dele existe o card <strong>Fale com o contador</strong>, com WhatsApp e e-mail. Para aparecer, preencha seu telefone e e-mail no perfil (clique no seu avatar no topo)."}, {"lado": "contador", "tema": "Viagens", "p": "Como informo o adiantamento entregue ao motorista?", "r": "Ao iniciar a viagem, no campo <strong>Adiantamento</strong>, ou depois: em <strong>Viagens</strong>, abra a viagem e clique em <strong>Informar adiantamento</strong>. O motorista não vê esse valor."}, {"lado": "contador", "tema": "Viagens", "p": "Como o saldo da viagem é calculado?", "r": "Saldo = adiantamento − despesas <strong>aprovadas</strong>. Se der positivo, o motorista devolve à empresa; se der negativo, a empresa reembolsa. Registros aguardando análise ficam fora até serem aprovados, e rejeitados não entram. O desconto definido não altera o saldo."}, {"lado": "contador", "tema": "Viagens", "p": "Como gero o fechamento da viagem em PDF?", "r": "Em <strong>Viagens</strong>, abra a viagem e clique em <strong>Fechamento em PDF</strong>. Na janela de impressão, escolha <strong>Salvar como PDF</strong>. O documento traz resumo, saldo do adiantamento, categorias, registros, fotos das notas e linhas de assinatura. Em viagem em andamento, o botão gera uma prévia."}, {"lado": "contador", "tema": "Combustível", "p": "Como confiro o cartão de combustível?", "r": "Abra <strong>Combustível</strong> no menu e envie o relatório do cartão (Excel ou CSV). O sistema sugere as colunas de data, placa, valor, litros e posto; confira e veja o resultado: conferidos, divergentes, declarados sem cartão e cartão sem registro."}, {"lado": "contador", "tema": "Combustível", "p": "Como o sistema decide que dois abastecimentos são o mesmo?", "r": "Mesma placa, data dentro da tolerância e valor dentro da tolerância (padrão: 1 dia e R$ 1,00). Se placa e data batem, mas o valor ou os litros diferem, o abastecimento vira <strong>divergente</strong>. Você pode ajustar as tolerâncias na própria tela."}, {"lado": "contador", "tema": "Combustível", "p": "O que significa Cartão sem registro?", "r": "O cartão mostra um abastecimento que nenhum motorista lançou. Se o caminhão estava em viagem na data, aparece em vermelho com o número da viagem. Sem viagem na data, aparece em cinza como <strong>Cartão sem viagem</strong>, em geral abastecimento de base."}, {"lado": "motorista", "tema": "Conversa e conta", "p": "Fiquei sem internet na estrada. Consigo lançar a despesa?", "r": "Consegue. Salve normalmente: o registro fica <strong>guardado no aparelho</strong> e aparece no bloco <strong>Guardados no aparelho</strong> em Início e Meus registros. Quando a internet voltar, ele é enviado sozinho e ganha o número (#). O indicador no topo mostra <strong>Offline</strong> enquanto estiver sem conexão. Não limpe os dados do navegador antes do envio."}, {"lado": "motorista", "tema": "Registros", "p": "Saí da tela no meio do lançamento. Perdi o que digitei?", "r": "Não. O formulário de <strong>Novo registro</strong> salva um <strong>rascunho</strong> automaticamente, e as fotos anexadas continuam lá enquanto você estiver no sistema. Ao voltar, é só continuar de onde parou."}, {"lado": "contador", "tema": "Conta e avisos", "p": "Preciso recarregar a página para ver registros novos?", "r": "Não. O sistema funciona <strong>em tempo real</strong>: registros, mensagens, viagens e avisos chegam na hora, com um aviso na tela e a linha piscando em azul. O indicador no topo mostra <strong>Tempo real</strong> quando está conectado, <strong>Sincronizando…</strong> enquanto envia alterações e <strong>Offline</strong> sem internet."}, {"lado": "operador", "tema": "Monitoramento", "p": "O que aparece no Monitoramento?", "r": "Todos os motoristas em rota, em tempo real: status atual (em trânsito, parado, chegou, ocorrência), há quanto tempo foi a última atualização, posição no <strong>mapa</strong> e as <strong>ocorrências abertas</strong> no topo. Quem está sem atualização há mais tempo que o limite escolhido fica em amarelo."}, {"lado": "operador", "tema": "Monitoramento", "p": "Um motorista está sem dar notícia. O que faço?", "r": "No cartão dele, toque em <strong>Pedir atualização</strong>: ele recebe um aviso no celular para atualizar o status. Se precisar falar na hora, use o atalho de <strong>WhatsApp</strong> do próprio cartão."}, {"lado": "operador", "tema": "Monitoramento", "p": "Como resolvo uma ocorrência?", "r": "Na caixa vermelha <strong>Ocorrências abertas</strong> (ou na linha do tempo da viagem), toque em <strong>Resolver</strong> e escreva como foi resolvida. O motorista é avisado e a solução fica no histórico da viagem."}, {"lado": "operador", "tema": "Monitoramento", "p": "Como mudo o tempo do alerta de “sem atualização”?", "r": "No topo do Monitoramento escolha entre 2, 4, 6, 8 ou 12 horas. A escolha fica salva neste navegador."}, {"lado": "operador", "tema": "Orçamentos", "p": "Como libero um orçamento?", "r": "Em <strong>Orçamentos</strong>, na aba Aguardando, toque em <strong>Liberar</strong>, confira o valor (pode liberar menos do que foi pedido) e escreva uma orientação se quiser. Se for <strong>Adiantamento extra</strong>, deixe marcada a opção de somar ao adiantamento da viagem para o saldo do fechamento ficar certo. Pedidos urgentes aparecem primeiro e em vermelho."}, {"lado": "operador", "tema": "Orçamentos", "p": "Posso negar um pedido?", "r": "Pode. Toque em <strong>Negar</strong> e informe o motivo, que é obrigatório e vai para o motorista na hora."}, {"lado": "operador", "tema": "Viagens", "p": "O que o operador pode fazer nas viagens?", "r": "Iniciar e agendar viagens, iniciar ou cancelar reservas, encerrar viagens, ver os registros de cada viagem e conversar nos registros. Aprovar despesas, dar descontos, ver adiantamento, relatórios e auditoria continuam sendo do contador."}, {"lado": "motorista", "tema": "Viagens", "p": "Para que serve o botão <strong>Atualizar status da viagem</strong>?", "r": "Ele avisa a operação, na hora, como está a viagem: <strong>Em trânsito</strong>, <strong>Parei</strong> (almoço, descanso, pernoite…), <strong>Cheguei</strong> ou <strong>Ocorrência</strong>. Marque <strong>Enviar minha localização</strong> para a operação ver você no mapa. Atualize sempre que parar ou voltar a rodar."}, {"lado": "motorista", "tema": "Viagens", "p": "Tive um problema na estrada. Como aviso?", "r": "No Início toque em <strong>Ocorrência</strong>, escolha o tipo (problema mecânico, pneu, acidente, atraso…) e escreva o que aconteceu. A operação e o contador recebem um alerta vermelho na hora. Se for grave, ligue também."}, {"lado": "motorista", "tema": "Status e descontos", "p": "Como peço dinheiro ou autorização para um gasto?", "r": "Vá em <strong>Orçamentos</strong>, escolha o tipo, informe o valor e explique para que é. Marque <strong>urgente</strong> se você estiver parado esperando. Você recebe um aviso quando o pedido for liberado ou negado, e pode cancelar enquanto ele estiver aguardando."}, {"lado": "contador", "tema": "Conta e avisos", "p": "Como cadastro um operador?", "r": "Em <strong>Equipe</strong>, toque em <strong>+ Novo operador</strong> e informe nome, e-mail, senha provisória, telefone e cargo. O operador acompanha os motoristas, abre viagens e libera orçamentos, mas não aprova despesas nem vê adiantamentos, relatórios e auditoria. Para bloquear, use <strong>Desativar</strong>."}];
+const DUVIDAS = [{"lado": "motorista", "tema": "Viagens", "p": "Por que não aparece o botão <strong>Novo registro</strong> no meu menu?", "r": "Porque os registros só podem ser lançados em uma <strong>viagem em andamento</strong>, aberta pelo contador. Se existir uma viagem <strong>agendada</strong> para você, ela começa na data de saída e o botão aparece sozinho. Confira em <strong>Minhas viagens</strong>. Se a viagem já deveria ter começado, use o card <strong>Fale com o contador</strong> na tela de Início."}, {"lado": "motorista", "tema": "Viagens", "p": "Terminei a viagem. Como eu encerro?", "r": "No <strong>Início</strong>, no cartão da viagem, toque em <strong>Encerrar viagem</strong>. Informe o <strong>km do painel</strong> na chegada e faça o checklist de chegada (carga entregue, canhotos, avarias…). A operação vê na hora. Depois disso o botão Novo registro some, mas tudo o que você lançou continua em <strong>Minhas viagens</strong>. O contador também pode encerrar por você."}, {"lado": "motorista", "tema": "Viagens", "p": "Para que servem a quilometragem inicial e final?", "r": "Você informa o km do painel ao <strong>iniciar</strong> e ao <strong>encerrar</strong> a viagem (o contador também pode preencher). Com eles o sistema calcula <strong>km rodado</strong>, <strong>custo por km</strong> e, se houver litros de combustível lançados, o <strong>consumo médio (km/L)</strong>."}, {"lado": "motorista", "tema": "Registros", "p": "Como lanço uma despesa?", "r": "Vá em <strong>Novo registro</strong>, escolha a categoria, informe valor, data e cidade, escreva a descrição (obrigatória) e anexe as fotos. Depois toque em <strong>Salvar registro</strong>. Os textos são convertidos para maiúsculas automaticamente e o registro fica como <strong>Aguardando</strong> análise."}, {"lado": "motorista", "tema": "Registros", "p": "Para que serve o campo <strong>Litros abastecidos</strong>?", "r": "Ele só aparece quando a categoria é <strong>Combustível</strong>. Com os litros o sistema calcula o preço por litro e o consumo médio da viagem. Se não souber os litros, o registro pode ser salvo sem eles, mas o consumo não será calculado."}, {"lado": "motorista", "tema": "Registros", "p": "Posso anexar mais de uma foto? E se ela sair torta ou escura?", "r": "Pode anexar várias fotos da nota ou do recibo, tirando na hora ou escolhendo da galeria. Antes de anexar, o <strong>editor de foto</strong> permite girar, cortar as bordas e ajustar brilho e contraste, para que o contador consiga ler tudo."}, {"lado": "motorista", "tema": "Registros", "p": "Apareceu um aviso de <strong>possível duplicidade</strong> ao salvar. O que faço?", "r": "O aviso surge quando já existe um registro com <strong>mesmo valor, data e categoria</strong> ou com a <strong>mesma foto</strong>. Se for outra despesa de verdade (por exemplo, dois abastecimentos iguais no mesmo dia), pode salvar mesmo assim: o contador será avisado e vai conferir. Se você lançou duas vezes sem querer, cancele e não salve."}, {"lado": "motorista", "tema": "Registros", "p": "Digitei o valor errado. Consigo corrigir?", "r": "Sim, enquanto o registro estiver <strong>Aguardando</strong>: abra o registro e toque em <strong>Editar</strong>. Depois que ele for aprovado ou rejeitado, só o contador pode alterar, então peça a correção pela conversa do próprio registro. Toda edição fica gravada no histórico."}, {"lado": "motorista", "tema": "Status e descontos", "p": "O que significam Aguardando, Aprovado e Rejeitado?", "r": "<strong>Aguardando</strong>: o contador ainda não analisou. <strong>Aprovado</strong>: a despesa foi aceita. <strong>Rejeitado</strong>: não foi aceita e o motivo fica registrado. Você acompanha tudo em <strong>Meus registros</strong> e recebe um aviso a cada mudança."}, {"lado": "motorista", "tema": "Status e descontos", "p": "Meu registro foi rejeitado. Como descubro o motivo?", "r": "O motivo aparece na coluna <strong>Observação</strong> de Meus registros, no detalhe do registro e na notificação que você recebe. Se ficou alguma dúvida, escreva na <strong>conversa do registro</strong> para combinar o próximo passo com o contador."}, {"lado": "motorista", "tema": "Status e descontos", "p": "O que é o card <strong>Valor para desconto</strong>?", "r": "É a soma dos descontos que o contador definiu nos seus registros, sempre com uma justificativa. Esse valor serve para <strong>conferência</strong>: o sistema não aplica nenhum desconto automaticamente em folha."}, {"lado": "motorista", "tema": "Conversa e conta", "p": "Posso tirar uma dúvida sobre um registro sem ele ser rejeitado?", "r": "Pode. Abra o registro e use a seção <strong>Conversa</strong>. O contador recebe um aviso, e a resposta dele chega para você como notificação. Enter envia a mensagem e Shift+Enter quebra a linha."}, {"lado": "motorista", "tema": "Conversa e conta", "p": "Como falo diretamente com o contador?", "r": "Na tela de <strong>Início</strong> há o card <strong>Fale com o contador</strong>, com atalhos de WhatsApp e e-mail quando ele tiver preenchido esses dados no perfil."}, {"lado": "motorista", "tema": "Conversa e conta", "p": "Como mudo meu telefone, minha foto ou ativo o tema escuro?", "r": "Toque no seu <strong>avatar</strong> (iniciais ou foto) no topo da tela para abrir o perfil. Lá você ajusta telefone com DDD, e-mail, foto e escolhe entre tema <strong>Claro</strong> e <strong>Escuro</strong>. Manter o telefone atualizado ajuda o contador a falar com você."}, {"lado": "motorista", "tema": "Conversa e conta", "p": "Como encontro um registro ou uma viagem antiga?", "r": "Use a <strong>busca</strong> no topo. Ela encontra seus registros por categoria, descrição, cidade, local, placa, valor ou data, e também suas viagens por origem, destino ou número."}, {"lado": "contador", "tema": "Viagens", "p": "Qual a diferença entre iniciar e agendar uma viagem?", "r": "Em <strong>Iniciar viagem</strong>, se a data de saída for hoje a viagem começa na hora. Se for uma data futura, ela fica <strong>agendada</strong>: apenas reserva motorista e caminhão naquele período e começa sozinha na data de saída (o botão muda para <strong>Agendar viagem</strong>)."}, {"lado": "contador", "tema": "Viagens", "p": "O motorista ou o caminhão aparece bloqueado com \"em rota\" ou \"reservado\". Por quê?", "r": "Porque já existe uma viagem ativa que ocupa aquele recurso no período escolhido. Uma viagem <strong>em andamento sem previsão de retorno</strong> ocupa o motorista e o caminhão por tempo indeterminado, então preencher a <strong>previsão de retorno</strong> libera as datas futuras para novos agendamentos."}, {"lado": "contador", "tema": "Viagens", "p": "O botão de salvar a viagem está travado. O que fazer?", "r": "A mensagem em vermelho informa que não há motorista ou caminhão disponível no período. Altere as datas ou <strong>encerre ou cancele</strong> uma viagem que esteja ocupando o recurso."}, {"lado": "contador", "tema": "Viagens", "p": "Como antecipo ou cancelo uma viagem agendada?", "r": "Em <strong>Viagens</strong>, abra a viagem agendada. <strong>Iniciar agora</strong> começa a viagem hoje, desde que motorista e caminhão estejam livres. <strong>Cancelar reserva</strong> libera os dois e avisa o motorista."}, {"lado": "contador", "tema": "Viagens", "p": "Como encerro uma viagem e o que o sistema calcula?", "r": "Em <strong>Viagens</strong>, abra a viagem em andamento e use <strong>Encerrar viagem</strong>. O sistema mostra quantos registros e qual total você está fechando e pede a quilometragem final (opcional, e precisa ser maior que a inicial). Com ela ele calcula km rodado, custo por km e consumo médio. Registros rejeitados não entram no custo."}, {"lado": "contador", "tema": "Registros", "p": "Como aprovo, rejeito ou defino desconto em um registro?", "r": "Em <strong>Registros</strong>: <strong>Aprovar</strong> aceita a despesa. <strong>Rejeitar</strong> exige um motivo, que é enviado ao motorista. <strong>Desconto</strong> pede o valor a descontar (não pode passar do valor informado; use 0 para nenhum) e uma justificativa obrigatória."}, {"lado": "contador", "tema": "Registros", "p": "O desconto é aplicado na folha do motorista?", "r": "Não. O desconto fica apenas <strong>registrado para conferência</strong>, com a justificativa, e o motorista é notificado. Nenhum valor é descontado automaticamente em folha."}, {"lado": "contador", "tema": "Registros", "p": "Como aprovo vários registros de uma vez?", "r": "Marque as caixas dos registros <strong>Aguardando</strong> (ou a caixa do cabeçalho para selecionar todos os pendentes da página). A barra mostra quantos estão selecionados e o total em reais. Toque em <strong>Aprovar selecionados</strong>. Se algum tiver possível duplicidade, o sistema avisa antes de confirmar."}, {"lado": "contador", "tema": "Registros", "p": "Como o sistema identifica uma possível duplicidade?", "r": "Ele compara cada registro com os demais (ignorando os rejeitados) e alerta quando há <strong>mesmo valor, data e categoria</strong> ou a <strong>mesma foto</strong>. Você vê o alerta no registro, no card <strong>Possíveis duplicidades</strong> do painel e no filtro da lista. É um aviso para conferir, não uma prova: duas despesas legítimas iguais também disparam o alerta."}, {"lado": "contador", "tema": "Registros", "p": "Posso corrigir um registro lançado pelo motorista?", "r": "Pode, a qualquer momento: abra <strong>Detalhes</strong> e toque em <strong>Editar</strong>. Cada mudança é gravada como \"antes → depois\" no histórico do registro e na Auditoria, e o motorista recebe um aviso."}, {"lado": "contador", "tema": "Registros", "p": "Devo rejeitar ou conversar com o motorista?", "r": "Se faltou algo simples, como uma foto mais legível, use a <strong>Conversa</strong> do registro para pedir o ajuste sem rejeitar. Rejeite quando a despesa não for aceita: o motivo é obrigatório e fica visível para o motorista."}, {"lado": "contador", "tema": "Registros", "p": "Preciso ligar para o motorista. Onde está o contato?", "r": "Nos detalhes do registro, nos detalhes da viagem e na lista <strong>Motoristas</strong> aparecem atalhos de WhatsApp e e-mail. Se mostrar \"Contato não informado\", o motorista ainda não preencheu o perfil."}, {"lado": "contador", "tema": "Análises", "p": "Como funciona o Comparativo de viagens?", "r": "Ele agrupa as viagens <strong>finalizadas</strong> pela mesma origem e destino e compara o custo de cada uma com a média da rota. Você escolhe o limite de alerta (+10%, +20%, +30% ou +50%) e o sistema destaca as viagens acima dele e a categoria que mais pesou. Rotas com apenas uma viagem ainda não entram na comparação, e registros rejeitados não contam."}, {"lado": "contador", "tema": "Análises", "p": "Como gero um relatório para fechar as contas?", "r": "Em <strong>Relatórios</strong>, filtre por motorista, caminhão, viagem, categoria, status e período, escolha se quer agrupar (por motorista, caminhão, viagem, categoria...) e use <strong>Exportar Excel</strong> ou <strong>Exportar PDF</strong>."}, {"lado": "contador", "tema": "Análises", "p": "Como sei quem fez o quê no sistema?", "r": "Na <strong>Auditoria</strong> ficam registradas todas as ações, com data e hora, usuário, perfil e detalhe. Dá para filtrar por usuário e por período."}, {"lado": "motorista", "tema": "Viagens", "p": "Posso estar em duas viagens ao mesmo tempo?", "r": "Não. O sistema não deixa o contador abrir ou agendar uma viagem se você ou o caminhão já estiverem em outra viagem no mesmo período. Uma viagem <strong>em andamento sem retorno previsto</strong> ocupa você e o caminhão até ser encerrada."}, {"lado": "motorista", "tema": "Viagens", "p": "O que significam Agendada, Em andamento, Finalizada e Cancelada?", "r": "<strong>Agendada</strong>: reservada para uma data futura e ainda sem registros. <strong>Em andamento</strong>: é a viagem atual, onde você lança despesas. <strong>Finalizada</strong>: encerrada pelo contador. <strong>Cancelada</strong>: a reserva foi cancelada pelo contador e você é avisado."}, {"lado": "motorista", "tema": "Viagens", "p": "Troquei de caminhão no meio da viagem. Como eu lanço as despesas?", "r": "Os registros usam o caminhão da viagem aberta. Antes de lançar, fale com o contador pelo card <strong>Fale com o contador</strong>: ele pode encerrar a viagem atual e abrir outra com o caminhão correto, para que as despesas fiquem na placa certa."}, {"lado": "motorista", "tema": "Registros", "p": "Qual categoria devo escolher?", "r": "As categorias são: Hospedagem, Alimentação, Combustível, Manutenção mecânica, Pneus, Peças e acessórios, Pedágios, Estacionamento, Lavagem, Serviços de terceiros e Outros. Se nenhuma servir direito, escolha <strong>Outros</strong> e explique bem na descrição."}, {"lado": "motorista", "tema": "Registros", "p": "Posso lançar uma despesa de ontem? E de uma data futura?", "r": "Pode lançar de dias anteriores, basta escolher a data real da despesa. <strong>Datas futuras não são aceitas</strong>, porque a despesa precisa já ter acontecido."}, {"lado": "motorista", "tema": "Registros", "p": "Esqueci de anexar a foto ou quero trocar uma foto. E agora?", "r": "A edição de um registro já salvo altera os dados, mas <strong>não troca as fotos</strong>. Escreva na <strong>Conversa</strong> do registro avisando o contador, ou fale com ele pelo card Fale com o contador. Para os próximos lançamentos, anexe as fotos antes de salvar."}, {"lado": "motorista", "tema": "Registros", "p": "Lancei a mesma despesa duas vezes sem querer. Posso excluir?", "r": "O motorista não exclui registros. Avise o contador pela <strong>Conversa</strong> do registro repetido para que ele o rejeite com o motivo. Assim fica tudo documentado no histórico."}, {"lado": "motorista", "tema": "Status e descontos", "p": "Não concordo com um desconto. O que faço?", "r": "Abra o registro e escreva na <strong>Conversa</strong> explicando o que aconteceu, anexando informações que ajudem. Cada desconto tem uma justificativa registrada pelo contador, e vocês podem acertar a decisão por ali."}, {"lado": "motorista", "tema": "Status e descontos", "p": "Quanto tempo leva para o contador aprovar?", "r": "O sistema não define prazo: depende da análise do contador. Quando ele aprovar, rejeitar, editar ou definir desconto, você recebe um aviso e o registro muda de status em <strong>Meus registros</strong>."}, {"lado": "motorista", "tema": "Conversa e conta", "p": "O que são o \"!\" no menu e o sino no topo?", "r": "São os <strong>avisos</strong>. O \"!\" marca a aba onde há novidade (por exemplo, Meus registros depois de uma edição do contador) e o sino soma tudo que ainda não foi visto. Ao abrir a aba, o \"!\" some."}, {"lado": "motorista", "tema": "Conversa e conta", "p": "Posso usar o sistema no celular?", "r": "Sim. O sistema se adapta à tela do celular: as tabelas viram cartões e o botão <strong>Tirar foto</strong> abre a câmera para fotografar a nota na hora."}, {"lado": "motorista", "tema": "Conversa e conta", "p": "Como saio do sistema?", "r": "Use o botão <strong>Sair</strong> no topo da tela. Em aparelho compartilhado, saia sempre que terminar para que ninguém veja seus registros."}, {"lado": "contador", "tema": "Viagens", "p": "Como vejo quais motoristas e caminhões estão livres?", "r": "Em <strong>Motoristas</strong> e <strong>Caminhões</strong> cada item aparece como <strong>Em rota</strong> (com a viagem) ou <strong>Disponível</strong>, e as reservas futuras aparecem logo abaixo. Ao criar uma viagem, quem estiver ocupado no período aparece bloqueado no seletor."}, {"lado": "contador", "tema": "Viagens", "p": "O motorista trocou de caminhão no meio da viagem. Como ajusto?", "r": "Nesta versão não há edição de viagem. O caminho é <strong>encerrar</strong> a viagem atual e abrir outra com o caminhão correto, informando o km final da primeira e o km inicial da segunda."}, {"lado": "contador", "tema": "Viagens", "p": "A viagem agendada não começou sozinha. Por quê?", "r": "Ela começa quando chega a data de saída, desde que o motorista e o caminhão não estejam em outra viagem em andamento. Se algum deles ainda estiver ocupado, encerre a outra viagem e use <strong>Iniciar agora</strong> nos detalhes da agendada."}, {"lado": "contador", "tema": "Registros", "p": "Como filtro e ordeno a lista de registros?", "r": "Em <strong>Registros</strong> você busca por motorista, placa ou descrição e filtra por status, categoria, período e somente possíveis duplicidades. Clique no título de uma coluna para ordenar. A lista mostra 15 registros por página."}, {"lado": "contador", "tema": "Registros", "p": "Aprovei um registro por engano. Dá para desfazer?", "r": "Nesta versão não existe botão para desfazer uma aprovação. Por isso confira bem antes de aprovar, principalmente quando houver alerta de duplicidade. Para ajustar valores, use <strong>Editar</strong> ou <strong>Desconto</strong>, que ficam registrados no histórico e na Auditoria."}, {"lado": "contador", "tema": "Registros", "p": "Como os registros rejeitados entram nos totais?", "r": "O <strong>Total informado</strong> soma tudo que foi lançado, e o <strong>Rejeitado</strong> aparece separado. Já o custo da viagem, o custo por km, o consumo, o comparativo e o desempenho por caminhão <strong>desconsideram os rejeitados</strong>."}, {"lado": "contador", "tema": "Registros", "p": "O que é o card \"Definido para desconto\" no painel?", "r": "É a soma dos descontos que você definiu nos registros do período filtrado no painel. É um valor de conferência e não é aplicado automaticamente em folha."}, {"lado": "contador", "tema": "Registros", "p": "Como confiro as fotos da nota?", "r": "Nos <strong>Detalhes</strong> do registro há a galeria de fotos. Clique em uma foto para ampliar. Fotos iguais em registros diferentes disparam o alerta de <strong>possível duplicidade</strong>."}, {"lado": "contador", "tema": "Análises", "p": "Como filtro o painel por período?", "r": "No topo do <strong>Painel</strong> há os campos de data inicial e final. Eles atualizam os cards de valores e os gráficos por mês, categoria, motorista e caminhão. Os contadores de viagens mostram sempre a situação atual."}, {"lado": "contador", "tema": "Análises", "p": "O que mostra o \"Desempenho por caminhão\"?", "r": "Está no <strong>Comparativo</strong> e lista, para cada caminhão com viagens finalizadas, a quantidade de viagens, km rodado, custo total, custo por km, litros e consumo médio (km/L). Rejeitados não entram, e km e consumo só aparecem quando foram informados."}, {"lado": "contador", "tema": "Análises", "p": "Como encontro rápido um motorista, uma placa ou um registro?", "r": "Use a <strong>busca</strong> no topo: ela procura motoristas, caminhões, viagens e registros ao mesmo tempo (a partir de 2 letras). Ao clicar no resultado, o sistema leva direto para o item."}, {"lado": "contador", "tema": "Análises", "p": "O PDF ou o Excel do relatório não abre. O que fazer?", "r": "O PDF abre em uma nova janela, então <strong>permita pop-ups</strong> no navegador. O Excel e os gráficos dependem de bibliotecas carregadas pela internet: se a conexão estiver ruim, aparece um aviso. Também é preciso ter ao menos um registro no filtro para exportar."}, {"lado": "contador", "tema": "Conta e avisos", "p": "O que são o \"!\" no menu e o sino no topo?", "r": "São os <strong>avisos</strong>. O \"!\" marca a aba com novidade (por exemplo, Registros quando um motorista lança ou comenta algo) e o sino soma o que ainda não foi visto. Ao abrir a aba, o aviso some."}, {"lado": "contador", "tema": "Conta e avisos", "p": "Como o motorista consegue falar comigo?", "r": "Na tela de Início dele existe o card <strong>Fale com o contador</strong>, com WhatsApp e e-mail. Para aparecer, preencha seu telefone e e-mail no perfil (clique no seu avatar no topo)."}, {"lado": "contador", "tema": "Viagens", "p": "Como informo o adiantamento entregue ao motorista?", "r": "Ao iniciar a viagem, no campo <strong>Adiantamento</strong>, ou depois: em <strong>Viagens</strong>, abra a viagem e clique em <strong>Informar adiantamento</strong>. O motorista não vê esse valor."}, {"lado": "contador", "tema": "Viagens", "p": "Como o saldo da viagem é calculado?", "r": "Saldo = adiantamento − despesas <strong>aprovadas</strong>. Se der positivo, o motorista devolve à empresa; se der negativo, a empresa reembolsa. Registros aguardando análise ficam fora até serem aprovados, e rejeitados não entram. O desconto definido não altera o saldo."}, {"lado": "contador", "tema": "Viagens", "p": "Como gero o fechamento da viagem em PDF?", "r": "Em <strong>Viagens</strong>, abra a viagem e clique em <strong>Fechamento em PDF</strong>. Na janela de impressão, escolha <strong>Salvar como PDF</strong>. O documento traz resumo, saldo do adiantamento, categorias, registros, fotos das notas e linhas de assinatura. Em viagem em andamento, o botão gera uma prévia."}, {"lado": "contador", "tema": "Combustível", "p": "Como confiro o cartão de combustível?", "r": "Abra <strong>Combustível</strong> no menu e envie o relatório do cartão (Excel ou CSV). O sistema sugere as colunas de data, placa, valor, litros e posto; confira e veja o resultado: conferidos, divergentes, declarados sem cartão e cartão sem registro."}, {"lado": "contador", "tema": "Combustível", "p": "Como o sistema decide que dois abastecimentos são o mesmo?", "r": "Mesma placa, data dentro da tolerância e valor dentro da tolerância (padrão: 1 dia e R$ 1,00). Se placa e data batem, mas o valor ou os litros diferem, o abastecimento vira <strong>divergente</strong>. Você pode ajustar as tolerâncias na própria tela."}, {"lado": "contador", "tema": "Combustível", "p": "O que significa Cartão sem registro?", "r": "O cartão mostra um abastecimento que nenhum motorista lançou. Se o caminhão estava em viagem na data, aparece em vermelho com o número da viagem. Sem viagem na data, aparece em cinza como <strong>Cartão sem viagem</strong>, em geral abastecimento de base."}, {"lado": "motorista", "tema": "Conversa e conta", "p": "Fiquei sem internet na estrada. Consigo lançar a despesa?", "r": "Consegue. Salve normalmente: o registro fica <strong>guardado no aparelho</strong> e aparece no bloco <strong>Guardados no aparelho</strong> em Início e Meus registros. Quando a internet voltar, ele é enviado sozinho e ganha o número (#). O indicador no topo mostra <strong>Offline</strong> enquanto estiver sem conexão. Não limpe os dados do navegador antes do envio."}, {"lado": "motorista", "tema": "Registros", "p": "Saí da tela no meio do lançamento. Perdi o que digitei?", "r": "Não. O formulário de <strong>Novo registro</strong> salva um <strong>rascunho</strong> automaticamente, e as fotos anexadas continuam lá enquanto você estiver no sistema. Ao voltar, é só continuar de onde parou."}, {"lado": "contador", "tema": "Conta e avisos", "p": "Preciso recarregar a página para ver registros novos?", "r": "Não. O sistema funciona <strong>em tempo real</strong>: registros, mensagens, viagens e avisos chegam na hora, com um aviso na tela e a linha piscando em azul. O indicador no topo mostra <strong>Tempo real</strong> quando está conectado, <strong>Sincronizando…</strong> enquanto envia alterações e <strong>Offline</strong> sem internet."}, {"lado": "operador", "tema": "Monitoramento", "p": "O que aparece no Monitoramento?", "r": "Todos os motoristas em rota, em tempo real: status atual (em trânsito, parado, chegou, ocorrência), há quanto tempo foi a última atualização, posição no <strong>mapa</strong> e as <strong>ocorrências abertas</strong> no topo. Quem está sem atualização há mais tempo que o limite escolhido fica em amarelo."}, {"lado": "operador", "tema": "Monitoramento", "p": "Um motorista está sem dar notícia. O que faço?", "r": "No cartão dele, toque em <strong>Pedir atualização</strong>: ele recebe um aviso no celular para atualizar o status. Se precisar falar na hora, use o atalho de <strong>WhatsApp</strong> do próprio cartão."}, {"lado": "operador", "tema": "Monitoramento", "p": "Como resolvo uma ocorrência?", "r": "Na caixa vermelha <strong>Ocorrências abertas</strong> (ou na linha do tempo da viagem), toque em <strong>Resolver</strong> e escreva como foi resolvida. O motorista é avisado e a solução fica no histórico da viagem."}, {"lado": "operador", "tema": "Monitoramento", "p": "Como mudo o tempo do alerta de “sem atualização”?", "r": "No topo do Monitoramento escolha entre 2, 4, 6, 8 ou 12 horas. A escolha fica salva neste navegador."}, {"lado": "operador", "tema": "Orçamentos", "p": "Como libero um orçamento?", "r": "Em <strong>Orçamentos</strong>, na aba Aguardando, toque em <strong>Liberar</strong>, confira o valor (pode liberar menos do que foi pedido) e escreva uma orientação se quiser. Se for <strong>Adiantamento extra</strong>, deixe marcada a opção de somar ao adiantamento da viagem para o saldo do fechamento ficar certo. Pedidos urgentes aparecem primeiro e em vermelho."}, {"lado": "operador", "tema": "Orçamentos", "p": "Posso negar um pedido?", "r": "Pode. Toque em <strong>Negar</strong> e informe o motivo, que é obrigatório e vai para o motorista na hora."}, {"lado": "operador", "tema": "Viagens", "p": "O que o operador pode fazer nas viagens?", "r": "Iniciar e agendar viagens, iniciar ou cancelar reservas, encerrar viagens, ver os registros de cada viagem e conversar nos registros. Aprovar despesas, dar descontos, ver adiantamento, relatórios e auditoria continuam sendo do contador."}, {"lado": "motorista", "tema": "Viagens", "p": "Para que serve o botão <strong>Atualizar status da viagem</strong>?", "r": "Ele avisa a operação, na hora, como está a viagem: <strong>Em trânsito</strong>, <strong>Parei</strong> (almoço, descanso, pernoite…), <strong>Cheguei</strong> ou <strong>Ocorrência</strong>. Marque <strong>Enviar minha localização</strong> para a operação ver você no mapa. Atualize sempre que parar ou voltar a rodar."}, {"lado": "motorista", "tema": "Viagens", "p": "Tive um problema na estrada. Como aviso?", "r": "No Início toque em <strong>Ocorrência</strong>, escolha o tipo (problema mecânico, pneu, acidente, atraso…) e escreva o que aconteceu. A operação e o contador recebem um alerta vermelho na hora. Se for grave, ligue também."}, {"lado": "motorista", "tema": "Status e descontos", "p": "Como peço dinheiro ou autorização para um gasto?", "r": "Vá em <strong>Orçamentos</strong>, escolha o tipo, informe o valor e explique para que é. Marque <strong>urgente</strong> se você estiver parado esperando. Você recebe um aviso quando o pedido for liberado ou negado, e pode cancelar enquanto ele estiver aguardando."}, {"lado": "contador", "tema": "Conta e avisos", "p": "Como cadastro um operador?", "r": "Em <strong>Equipe</strong>, toque em <strong>+ Novo operador</strong> e informe nome, e-mail, senha provisória, telefone e cargo. O operador acompanha os motoristas, abre viagens e libera orçamentos, mas não aprova despesas nem vê adiantamentos, relatórios e auditoria. Para bloquear, use <strong>Desativar</strong>."}, {"lado": "motorista", "tema": "Conversa e conta", "p": "Como entro no sistema pela primeira vez (SOU MOTORISTA)?", "r": "Na tela de login toque em <strong>SOU MOTORISTA</strong> → <strong>Primeiro acesso</strong>. Informe nome, sobrenome e telefone com DDD, e se quiser base, CNH e contato de emergência. Crie um <strong>PIN de 6 números</strong>. O contador aprova o cadastro e, a partir daí, você entra só com <strong>telefone + PIN</strong>."}, {"lado": "motorista", "tema": "Conversa e conta", "p": "Esqueci meu PIN. E agora?", "r": "Fale com o contador. Ele apaga o seu acesso antigo e você faz o <strong>Primeiro acesso</strong> de novo com um PIN novo; ao aprovar, ele liga o novo acesso ao seu cadastro e nada do seu histórico se perde."}, {"lado": "motorista", "tema": "Viagens", "p": "Como inicio minha viagem?", "r": "No dia da saída aparece no Início o cartão verde <strong>PRONTA PARA SAIR</strong>. Toque em <strong>Iniciar viagem</strong>, informe o km do painel e marque OK ou Problema em cada item do <strong>checklist</strong> (pneus, freios, luzes, óleo, documentos, extintor, tacógrafo, carga). Se marcar Problema, descreva: a operação é avisada na hora."}, {"lado": "motorista", "tema": "Viagens", "p": "O que é o aviso de tempo dirigindo?", "r": "O Início mostra há quanto tempo você está dirigindo desde a última parada. Pela lei do motorista (Lei 13.103) são no máximo <strong>5h30 seguidas ao volante</strong>, com 30 minutos de descanso. O aviso fica amarelo perto do limite e vermelho quando passa. Para o relógio funcionar, marque <strong>Parei</strong> e <strong>Em trânsito</strong> em Atualizar status."}, {"lado": "contador", "tema": "Conta e avisos", "p": "Um motorista se cadastrou pelo SOU MOTORISTA. Como aprovo?", "r": "Em <strong>Motoristas</strong> aparece o bloco amarelo <strong>Cadastros aguardando aprovação</strong> (também na Central do gestor). Se o motorista já tinha cadastro antigo, escolha-o em <strong>Vincular a</strong> para manter o histórico; senão deixe <strong>Novo motorista</strong>. Toque em <strong>Aprovar</strong> ou <strong>Recusar</strong>."}, {"lado": "operador", "tema": "Monitoramento", "p": "Onde vejo o checklist que o motorista fez?", "r": "No acompanhamento de cada viagem aparecem o <strong>Checklist de saída</strong> e o <strong>de chegada</strong>, com km, horário e os itens marcados como problema. Viagens sem checklist ou com problema aparecem na Central do gestor."}];
 const dvPorUsuario = {};
 function renderDuvidas(c){
   const perfil = usuarioAtual.perfil === 'admin' ? 'contador' : usuarioAtual.perfil === 'operador' ? 'operador' : 'motorista';
@@ -3503,7 +3905,7 @@ function contarAvisos(){
 }
 function atualizarMenuAvisos(){
   document.querySelectorAll('[data-rota]').forEach(b => {
-    const ativo = !!(usuarioAtual && (avisos[b.dataset.rota] || 0) > 0);
+    const ativo = !!(usuarioAtual && ((avisos[b.dataset.rota] || 0) > 0 || (b.dataset.rota === 'motoristas' && ehAdmin() && cadastrosPendentes.length)));
     const el = b.querySelector('.aviso-aba');
     if(ativo && !el) b.insertAdjacentHTML('beforeend', '<span class="aviso-aba" aria-label="Novidade">!</span>');
     if(!ativo && el) el.remove();
@@ -3569,7 +3971,7 @@ function abrirNovoUsuario(tipo){
       <div class="erro oculto" id="nm-erro"></div>
       <div class="campo"><label for="nm-nome">Nome completo</label><input id="nm-nome" autocomplete="off"></div>
       <div class="campo"><label for="nm-email">E-mail (será o login)</label><input id="nm-email" type="email" autocomplete="off"></div>
-      <div class="campo"><label for="nm-senha">Senha provisória (mín. 6 caracteres)</label><input id="nm-senha" type="text" autocomplete="off"></div>
+      <div class="campo"><label for="nm-senha">Senha provisória (mín. 6 caracteres)</label><input id="nm-senha" type="password" autocomplete="new-password"></div>
       <div class="campo"><label for="nm-tel">Telefone (WhatsApp)</label><input id="nm-tel" type="tel" inputmode="tel" placeholder="(98) 99999-9999" autocomplete="off"></div>
       ${op ? '<div class="campo"><label for="nm-cargo">Cargo</label><input id="nm-cargo" value="Operador de logística" autocomplete="off"></div>' : ''}
       <div class="rodape-editor"><button type="submit" class="btn btn-primario btn-pequeno">${op ? 'Criar operador' : 'Criar motorista'}</button></div>
@@ -3634,7 +4036,7 @@ function abrirPerfil(primeiroAcesso){
   ov.innerHTML = `<div class="modal modal-perfil">
     <div class="modal-topo"><h2 style="margin:0;font-size:20px">${primeiroAcesso ? 'Complete seu cadastro' : 'Meu perfil'}</h2>
       ${primeiroAcesso ? '' : '<button type="button" class="btn btn-pequeno btn-contorno" data-fechar>Fechar</button>'}</div>
-    <p class="mini" style="margin:8px 0 0">${primeiroAcesso ? 'Informe seus contatos e uma foto. Você pode alterar isso depois.' : esc((u.cargo || ROTULO_PERFIL[u.perfil] || 'Motorista')) + ' · ' + esc(u.usuario)}</p>
+    <p class="mini" style="margin:8px 0 0">${primeiroAcesso ? 'Informe seus contatos e uma foto. Você pode alterar isso depois.' : esc((u.cargo || ROTULO_PERFIL[u.perfil] || 'Motorista')) + ' · ' + esc(loginExibicao(u))}</p>
     <form id="form-perfil" style="margin-top:16px">
       <div class="perfil-foto">
         <div class="avatar-grande" data-previa-foto></div>
@@ -3648,6 +4050,12 @@ function abrirPerfil(primeiroAcesso){
       </div>
       <div class="grade-form" style="margin-top:14px">
         <div class="campo inteiro"><label>Nome</label><input value="${esc(u.nome)}" disabled></div>
+        ${u.perfil === 'motorista' ? `
+        <div class="campo"><label for="p-base">Base</label><select id="p-base"><option value="">—</option>${['São Luís - MA', 'Belém - PA', 'Araguaína - TO'].map(x => `<option ${u.baseCidade === x ? 'selected' : ''}>${x}</option>`).join('')}</select></div>
+        <div class="campo"><label for="p-cnh">Categoria da CNH</label><select id="p-cnh"><option value="">—</option>${['B', 'C', 'D', 'E', 'AB', 'AC', 'AD', 'AE'].map(x => `<option ${u.cnhCategoria === x ? 'selected' : ''}>${x}</option>`).join('')}</select></div>
+        <div class="campo"><label for="p-cnhval">Validade da CNH</label><input id="p-cnhval" type="date" value="${esc(u.cnhValidade || '')}"></div>
+        <div class="campo"><label for="p-emnome">Contato de emergência</label><input id="p-emnome" value="${esc(u.emergenciaNome || '')}" placeholder="Nome"></div>
+        <div class="campo"><label for="p-emtel">Telefone de emergência</label><input id="p-emtel" type="tel" inputmode="tel" value="${esc(u.emergenciaTelefone || '')}" placeholder="(98) 99999-9999"></div>` : ''}
         ${u.cargo || u.empresa ? `<div class="campo"><label>Cargo</label><input value="${esc([u.cargo, u.setor].filter(Boolean).join(' · '))}" disabled></div>
         <div class="campo"><label>Empresa</label><input value="${esc(u.empresa || '')}" disabled></div>` : ''}
         <div class="campo"><label for="p-telefone">Telefone (WhatsApp)</label><input id="p-telefone" type="tel" inputmode="tel" placeholder="(98) 99999-9999" value="${esc(u.telefone || '')}"></div>
@@ -3698,6 +4106,12 @@ function abrirPerfil(primeiroAcesso){
     try {
       const fotoFinal = novaFoto ? await reduzirFoto(novaFoto, 480) : '';
       const dados = { telefone: tel, email, foto: fotoFinal, tema: temaEscolhido, cadastroFeito: true };
+      if(u.perfil === 'motorista'){
+        const emTel = ov.querySelector('#p-emtel').value.trim();
+        if(emTel && emTel.replace(/\D/g,'').length < 10){ btnSalvar.disabled = false; mostrarMensagem('Telefone de emergência inválido.', true); return; }
+        Object.assign(dados, { baseCidade: ov.querySelector('#p-base').value, cnhCategoria: ov.querySelector('#p-cnh').value, cnhValidade: ov.querySelector('#p-cnhval').value,
+          emergenciaNome: ov.querySelector('#p-emnome').value.trim(), emergenciaTelefone: emTel });
+      }
       if(window.RofeAuth && u.uid) await window.RofeAuth.salvarPerfil(u.uid, dados);   /* grava no Firestore */
       /* contato do contador fica público para os motoristas (card "Fale com o contador") */
       if(u.perfil === 'admin' && window.RofeDB) gravar(RofeDB.set('config', 'contador', { nome: u.nome, telefone: tel, email }, true));
@@ -4070,7 +4484,8 @@ function textoReservas(campo, valor){
   }).join('');
 }
 function promoverAgendadas(){
-  if(!usuarioAtual || !Sync.pronto.viagens) return;
+  /* o motorista inicia a própria viagem pelo botão "Iniciar viagem" (com checklist e km); a equipe promove automaticamente */
+  if(!usuarioAtual || !Sync.pronto.viagens || usuarioAtual.perfil === 'motorista') return;
   const hoje = hojeIso();
   viagens.filter(v => v.status === 'agendada' && v.saida <= hoje && !Sync.promovidas.has(v.id)).forEach(v => {
     if(viagens.some(o => o.id !== v.id && o.status === 'em andamento' && (o.motoristaId === v.motoristaId || o.placa === v.placa))) return;
@@ -4637,8 +5052,11 @@ function iniciarSincronizacao(){
     agendarAtualizacaoTela();
   });
   if(adm){
-    ouvir('usuarios', ehAdmin() ? { col: 'usuarios', where: [['perfil', 'in', ['motorista', 'operador']]] } : { col: 'usuarios', where: [['perfil', '==', 'motorista']] }, docs => {
+    ouvir('usuarios', ehAdmin() ? { col: 'usuarios', where: [['perfil', 'in', ['motorista', 'operador']]] } : { col: 'usuarios', where: [['perfil', '==', 'motorista']] }, (docs, mud, prim) => {
       mesclarMotoristas(docs.map(d => ({ uid: d._id, ...d })));
+      if(ehAdmin()) mud.filter(c => c.tipo === 'added' && !c.local && c.dados.cadastroStatus === 'pendente' && !prim)
+        .forEach(c => mostrarMensagem('Novo cadastro de motorista: ' + c.dados.nome + '. Aprove em Cadastros → Motoristas.'));
+      atualizarMenuAvisos();
       agendarAtualizacaoTela();
     });
   }
@@ -4945,6 +5363,19 @@ const ehOperador = () => !!usuarioAtual && usuarioAtual.perfil === 'operador';
 const ehEquipe = () => ehAdmin() || ehOperador();   /* contador + operadores (acompanham os motoristas) */
 const rotaInicial = () => ehOperador() ? 'monitor' : 'inicio';
 const ROTULO_PERFIL = { admin: 'Contador', operador: 'Operador', motorista: 'Motorista' };
+/* login exibido: telefone para quem entra por "SOU MOTORISTA", e-mail para os demais */
+function loginExibicao(u){
+  if(!u) return '';
+  const l = String(u.usuario || '');
+  if(u.loginPorTelefone || /@motorista\.rofe-finance\.firebaseapp\.com$/.test(l) || u.loginTelefone) return 'Login: telefone ' + (u.telefone || l.split('@')[0]);
+  return l;
+}
+/* situação da CNH: vencida, vence em até 30 dias ou ok */
+function situacaoCNH(u){
+  if(!u || !u.cnhValidade) return null;
+  const dias = Math.round((new Date(u.cnhValidade + 'T12:00') - new Date(hojeIso() + 'T12:00')) / 864e5);
+  return { dias, vencida: dias < 0, vencendo: dias >= 0 && dias <= 30 };
+}
 
 /* ----- Adiantamento e saldo ----- */
 function saldoViagem(v){
@@ -5622,6 +6053,26 @@ window.RofeAuth.criarAdministrador = async (dados, senha) => {
   }
 };
 
+/* ===== Motorista: entra com TELEFONE + PIN (o telefone vira um login interno do Firebase) ===== */
+const DOMINIO_MOTORISTA = '@motorista.rofe-finance.firebaseapp.com';
+const normTel = t => { let d = String(t || '').replace(/\D/g, ''); if(d.length <= 11) d = '55' + d; return d; };
+window.RofeAuth.emailDoTelefone = tel => normTel(tel) + DOMINIO_MOTORISTA;
+window.RofeAuth.ehLoginTelefone = email => String(email || '').endsWith(DOMINIO_MOTORISTA);
+window.RofeAuth.entrarMotorista = (tel, pin) => signInWithEmailAndPassword(auth, normTel(tel) + DOMINIO_MOTORISTA, pin);
+/* Autocadastro: cria o login e o perfil "aguardando aprovação". Só entra depois que o contador aprovar. */
+window.RofeAuth.cadastrarMotorista = async (dados, pin) => {
+  criandoAdmin = true;   /* segura o onAuthStateChanged: o perfil ainda não existe */
+  try {
+    const email = normTel(dados.telefone) + DOMINIO_MOTORISTA;
+    const cred = await createUserWithEmailAndPassword(auth, email, pin);
+    await setDoc(doc(db, 'usuarios', cred.user.uid), {
+      ...dados, perfil: 'motorista', ativo: false, cadastroStatus: 'pendente', origem: 'autocadastro',
+      login: email, loginTelefone: normTel(dados.telefone), cadastroFeito: true, criadoEm: Date.now()
+    });
+    await signOut(auth);
+  } finally { criandoAdmin = false; }
+};
+
 /* Dispara ao entrar e também ao recarregar a página com sessão ativa */
 onAuthStateChanged(auth, user => { if(user && !criandoAdmin) carregarSessao(user); });
 window.rofeVerificarInstalacao();
@@ -5633,6 +6084,14 @@ async function carregarSessao(user){
       return window.rofeLoginErro('Seu usuário não tem perfil cadastrado. Fale com o administrador.');
     }
     const perfil = snap.data();
+    if(perfil.cadastroStatus === 'pendente'){
+      await signOut(auth);
+      return window.rofeLoginErro('Seu cadastro foi recebido e está aguardando a aprovação do contador. Assim que for aprovado, você já consegue entrar.', true);
+    }
+    if(perfil.cadastroStatus === 'recusado'){
+      await signOut(auth);
+      return window.rofeLoginErro('Seu cadastro não foi aprovado. Fale com o contador.');
+    }
     if(perfil.ativo === false){
       await signOut(auth);
       return window.rofeLoginErro('Seu acesso está desativado.');
