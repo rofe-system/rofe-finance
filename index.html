@@ -171,7 +171,8 @@ button{cursor:pointer}
   .card-login .btn-primario{min-height:54px;font-size:16px}
 }
 /* ===== v40.1: menu lateral em grupos + gaveta no celular ===== */
-.menu-lateral{position:sticky;top:0;align-self:flex-start;height:100vh;overflow-y:auto;gap:3px;transition:width .25s ease}
+.menu-lateral{position:sticky;top:0;align-self:flex-start;height:100vh;overflow-y:auto;gap:3px;transition:width .25s ease,flex-basis .25s ease;flex:0 0 240px}
+.conteudo{min-width:0}
 .menu-lateral .m-item,.menu-lateral .m-grupo-cab{width:100%}
 .m-grupo{display:flex;flex-direction:column}
 .menu-lateral .m-grupo-cab{color:rgba(255,255,255,.72)}
@@ -192,7 +193,7 @@ button{cursor:pointer}
 body:not([data-perfil="motorista"]) .m-rodape + .m-recolher{margin-top:8px}
 body[data-perfil="motorista"] .m-recolher{margin-top:auto}
 /* menu recolhido (só ícones) */
-body.menu-recolhido .menu-lateral{width:78px;padding-left:12px;padding-right:12px}
+body.menu-recolhido .menu-lateral{flex-basis:78px;width:78px;padding-left:12px;padding-right:12px}
 body.menu-recolhido .m-rot,body.menu-recolhido .m-seta,body.menu-recolhido .menu-lateral .aviso-aba{display:none}
 body.menu-recolhido .m-grupo-cab{display:none!important}
 body.menu-recolhido .m-sub{display:flex;margin:6px 0;padding:6px 0 0;border-left:0;border-top:1px solid rgba(255,255,255,.12)}
@@ -213,9 +214,60 @@ body.gaveta-aberta .btn-gaveta span:nth-child(3){transform:translateY(-6px) rota
   body:not([data-perfil="motorista"]) .menu-mobile{display:none}
   body:not([data-perfil="motorista"]) .conteudo{padding-bottom:40px}
   .menu-lateral .m-recolher{display:none}
-  body.menu-recolhido .menu-lateral{width:min(84vw,300px)}
+  body.menu-recolhido .menu-lateral{width:min(84vw,300px);flex-basis:auto}
 }
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+/* ===== v41: Central do gestor ===== */
+.g-abas{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 18px;padding:6px;background:var(--branco);border-radius:16px;box-shadow:0 4px 14px rgba(11,42,74,.05)}
+.g-abas button{display:flex;align-items:center;gap:7px;border:0;background:transparent;color:var(--texto-suave);font:inherit;font-weight:700;font-size:13.5px;padding:9px 14px;border-radius:12px;cursor:pointer}
+.g-abas button .ico{width:16px;height:16px}
+.g-abas button:hover{background:var(--cinza)}
+.g-abas button.ativo{background:var(--azul);color:#fff}
+.g-cont{min-width:20px;height:20px;padding:0 6px;border-radius:999px;background:var(--vermelho);color:#fff;font-size:11px;display:grid;place-items:center}
+.g-pend{border-left:4px solid var(--azul)}
+.g-pend.g-alta{border-left-color:var(--vermelho)}.g-pend.g-media{border-left-color:#E0A100}
+.g-pend-topo{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;flex-wrap:wrap}
+.g-pend h2{margin:0;display:flex;align-items:center;gap:8px}
+.g-qtd{min-width:26px;height:26px;padding:0 8px;border-radius:999px;background:var(--cinza);font-size:13px;display:grid;place-items:center}
+.g-alta .g-qtd{background:var(--vermelho);color:#fff}.g-media .g-qtd{background:#FFF4D6;color:#8A6200}
+.g-lista{margin:10px 0 0;padding:0;list-style:none}
+.g-lista li{padding:8px 0;border-top:1px solid var(--cinza-borda);font-size:13.5px}
+.g-link{color:var(--azul);font-weight:700;text-decoration:underline;text-underline-offset:2px}
+.g-verm{color:var(--vermelho)}
+.g-linha{display:flex;justify-content:space-between;gap:10px;padding:9px 0;border-top:1px solid var(--cinza-borda)}
+.g-total{font-size:15px}
+.g-var{font-size:11.5px;font-weight:800;padding:2px 7px;border-radius:999px;background:var(--cinza);white-space:nowrap}
+.g-sobe{background:var(--vermelho-claro);color:var(--vermelho)}.g-desce{background:var(--verde-claro);color:var(--verde)}
+.g-barra-linha{display:grid;grid-template-columns:170px 1fr 190px;gap:12px;align-items:center;padding:7px 0;border-top:1px solid var(--cinza-borda);font-size:13.5px}
+.g-barras{display:flex;flex-direction:column;gap:3px}
+.g-barra{height:12px;border-radius:6px;background:var(--azul);min-width:2px;transition:width .4s}
+.g-barra-ant{height:6px;background:#B9CCE6}
+.g-barra-val{text-align:right}
+.g-alerta{display:inline-block;font-size:12px;font-weight:800;padding:3px 9px;border-radius:999px;margin-bottom:3px}
+.g-grav1{background:var(--cinza);color:var(--texto-suave)}.g-grav2{background:#FFF4D6;color:#8A6200}.g-grav3{background:var(--vermelho-claro);color:var(--vermelho)}
+.g-feed{list-style:none;margin:0;padding:0}
+.g-feed li{display:grid;grid-template-columns:64px 1fr;gap:12px;padding:10px 0;border-top:1px solid var(--cinza-borda);font-size:13.5px}
+.g-feed li:first-child{border-top:0}
+.g-hora{font-weight:800;color:var(--azul)}
+.g-feed-status .g-hora{color:var(--verde)}
+.g-check{list-style:none;margin:6px 0 0;padding:0}
+.g-check li{padding:7px 0;font-weight:700}
+.g-check li.ok{color:var(--verde)}.g-check li.pend{color:#B26A00}
+.g-fech-ok{border-left:4px solid var(--verde)}.g-fech-pend{border-left:4px solid #E0A100}
+.g-banner{display:flex;align-items:center;gap:12px;padding:14px 18px;margin:0 0 18px;border-radius:16px;background:#FFF4D6;color:#6B4C00;cursor:pointer;transition:transform .15s}
+.g-banner:hover{transform:translateY(-2px)}
+.g-banner .ico{width:22px;height:22px;flex-shrink:0}
+.g-banner > .ico:last-child{margin-left:auto;transform:rotate(-90deg)}
+.g-banner-alta{background:var(--vermelho-claro);color:var(--vermelho)}
+.g-banner-ok{background:var(--verde-claro);color:var(--verde)}
+[data-tema="escuro"] .g-abas{background:#172339}
+[data-tema="escuro"] .g-abas button:hover,[data-tema="escuro"] .g-qtd,[data-tema="escuro"] .g-var{background:#1B2A42}
+@media (max-width:820px){
+  .g-abas{flex-wrap:nowrap;overflow-x:auto}
+  .g-abas button{flex:0 0 auto}
+  .g-barra-linha{grid-template-columns:1fr;gap:4px}
+  .g-barra-val{text-align:left}
+}
 .link-esqueci{display:block;margin:14px auto 0;background:none;border:0;color:var(--azul);font:inherit;font-size:13.5px;font-weight:700;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
 .link-esqueci:hover{opacity:.8}
 .ok-msg{background:#E7F5EC;color:#1B5E20;border-radius:12px;padding:12px 14px;font-size:13.5px;line-height:1.45;margin-bottom:14px}
@@ -937,7 +989,9 @@ const ICON_PATHS = {
   flag:'<path d="M5 21V4"/><path d="M5 4h11l-2 4 2 4H5"/>',
   send:'<path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4z"/>',
   refresh:'<path d="M21 12a9 9 0 1 1-2.6-6.4"/><path d="M21 3v6h-6"/>',
-  chevron:'<path d="m6 9 6 6 6-6"/>'
+  chevron:'<path d="m6 9 6 6 6-6"/>',
+  eye:'<path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/>',
+  download:'<path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/>'
 };
 function icon(nome){
   return `<svg class="ico" viewBox="0 0 24 24" aria-hidden="true">${ICON_PATHS[nome]||ICON_PATHS.bars}</svg>`;
@@ -1300,7 +1354,7 @@ function sair(){
 function itensMenu(){
   if(usuarioAtual.perfil === 'admin'){
     return [
-      ['inicio','Painel'], ['monitor','Monitoramento'], ['solicitacoes','Orçamentos'], ['nova','Iniciar viagem'], ['registros','Registros'], ['viagens','Viagens'],
+      ['inicio','Painel'], ...(ehDono() ? [['gestor','Central do gestor']] : []), ['monitor','Monitoramento'], ['solicitacoes','Orçamentos'], ['nova','Iniciar viagem'], ['registros','Registros'], ['viagens','Viagens'],
       ['comparativo','Comparativo'], ['combustivel','Combustível'], ['caminhoes','Caminhões'], ['motoristas','Motoristas'], ['equipe','Equipe'],
       ['relatorios','Relatórios'], ['auditoria','Auditoria'], ['duvidas','Dúvidas?']
     ];
@@ -1316,7 +1370,7 @@ function itensMenu(){
   ];
 }
 const ICONE_MENU = {
-  inicio:'home', viagem:'route', novo:'plus', meus:'receipt', registros:'list', monitor:'radar', solicitacoes:'wallet', orcamentos:'wallet', equipe:'shield',
+  inicio:'home', gestor:'eye', viagem:'route', novo:'plus', meus:'receipt', registros:'list', monitor:'radar', solicitacoes:'wallet', orcamentos:'wallet', equipe:'shield',
   viagens:'route', nova:'play', auditoria:'list', duvidas:'help', caminhoes:'truck', motoristas:'users', relatorios:'chart', comparativo:'bars', combustivel:'fuel'
 };
 /* Menu lateral em grupos (contador e operador). O motorista mantém o menu simples. */
@@ -1627,6 +1681,7 @@ const TELAS_ADMIN = {
     const t = totaisRelatorio(lista);
     const emAndamento = viagens.filter(v => v.status === 'em andamento');
     c.innerHTML = `
+      ${bannerGestor()}
       <div class="cabecalho-pagina"><div><h1>Painel principal</h1><p>Visão geral da prestação de contas.</p></div>
         <div class="filtros" style="margin:0">
           <input type="date" id="d-de" value="${filtroDash.de}" title="Data inicial">
@@ -2831,6 +2886,389 @@ function avisarMudancasAcompanhamento(col, mud){
       try { if(navigator.vibrate) navigator.vibrate([200, 80, 200]); } catch(e){}
     });
   }
+}
+
+/* ==========================================================
+   v41 — CENTRAL DO GESTOR (exclusiva do administrador principal)
+   Pendências, dinheiro na rua, custos, vistoria automática,
+   movimentações, ranking de motoristas e fechamento do mês.
+   ========================================================== */
+const EMAIL_DONO = 'danilogaudencio12@gmail.com';
+const ehDono = () => ehAdmin() && [usuarioAtual.email, usuarioAtual.login, usuarioAtual.usuario].some(x => String(x || '').trim().toLowerCase() === EMAIL_DONO);
+let abaGestor = 'pendencias';
+let mesGestor = '';
+let filtroVistoria = '';
+let filtroMov = { dia: '', quem: '', texto: '' };
+let ordemRanking = 'gastoDia';
+const mesDe = iso => String(iso || '').slice(0, 7);
+const mesAnterior = m => { const [a, b] = m.split('-').map(Number); return b === 1 ? (a - 1) + '-12' : a + '-' + String(b - 1).padStart(2, '0'); };
+const nomeMes = m => { const [a, b] = m.split('-').map(Number); return new Date(a, b - 1, 1).toLocaleDateString('pt-BR', { month: 'long', year: 'numeric' }); };
+const diasAte = (a, b) => Math.round((new Date(b + 'T12:00') - new Date(a + 'T12:00')) / 864e5);
+const validas = () => despesas.filter(d => d.status !== 'rejeitado');
+function mediana(arr){ if(!arr.length) return 0; const s = arr.slice().sort((a, b) => a - b), m = Math.floor(s.length / 2); return s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2; }
+function caminhaoDe(v){ return CAMINHOES.find(c => c.id === v.caminhaoId || c.placa === v.placa); }
+function linkReg(id){ return `<span class="linha-clicavel g-link" data-abrir-det="${id}">#${id}</span>`; }
+function linkViagem(id){ return `<span class="linha-clicavel g-link" data-viagem-atalho="${id}">viagem #${id}</span>`; }
+
+/* ---------- 1. Pendências ---------- */
+function calcularPendencias(){
+  const agora = Date.now(), hoje = hojeIso(), lim = limiteHoras();
+  const aguard = despesas.filter(d => d.status === 'aguardando');
+  const velhos = aguard.filter(d => (d.criadoEm || new Date(d.data + 'T12:00').getTime()) < agora - 48 * 3.6e6);
+  const dups = aguard.filter(d => duplicidadesDe(d).length);
+  const orc = solicitacoes.filter(s => s.status === 'pendente');
+  const ocs = ocorrenciasAbertas(null);
+  const ativas = viagens.filter(v => v.status === 'em andamento');
+  const semNoticia = ativas.filter(v => horasSemAtualizacao(v) >= lim);
+  const atrasadas = ativas.filter(v => v.previsaoRetorno && v.previsaoRetorno < hoje);
+  const travadas = viagens.filter(v => v.status === 'finalizada' && despesas.some(d => d.viagemId === v.id && d.status === 'aguardando'));
+  const devolver = viagens.filter(v => v.status === 'finalizada' && saldoViagem(v).saldo > 0.009);
+  const L = [];
+  const add = (nivel, titulo, lista, desc, acao, itemHtml) => { if(lista.length) L.push({ nivel, titulo, lista, desc, acao, itemHtml }); };
+  add('alta', 'Ocorrências abertas na estrada', ocs, 'Motoristas com problema relatado e ainda sem solução.', 'monitor',
+    e => `${esc(e.detalhe)} · ${esc(e.motoristaNome || nomeMotorista(e.motoristaId))} · ${linkViagem(e.viagemId)} · ${tempoDesde(e.ts)}`);
+  add('alta', 'Orçamentos aguardando resposta', orc, orc.filter(s => s.urgente).length ? orc.filter(s => s.urgente).length + ' urgente(s): motorista parado esperando.' : 'Pedidos de liberação de valor.', 'solicitacoes',
+    s => `${s.urgente ? '<strong class="g-verm">URGENTE</strong> · ' : ''}${esc(s.tipo)} · ${fmtBRL(s.valor)} · ${esc(s.motoristaNome || nomeMotorista(s.motoristaId))} · ${tempoDesde(s.criadoEm)}`);
+  add('alta', 'Registros parados há mais de 48 h', velhos, 'Despesas que o motorista lançou e ninguém analisou.', 'registros:aguardando',
+    d => `${linkReg(d.id)} · ${esc(d.categoria)} · ${fmtBRL(d.valor)} · ${esc(nomeMotorista(d.motoristaId))} · ${tempoDesde(d.criadoEm || new Date(d.data + 'T12:00').getTime())}`);
+  add('media', 'Possíveis duplicidades a analisar', dups, 'Mesmo valor, data e categoria, ou a mesma foto de outro registro.', 'registros:dup',
+    d => `${linkReg(d.id)} · ${esc(d.categoria)} · ${fmtBRL(d.valor)} · parecido com ${duplicidadesDe(d).map(x => '#' + x.id).join(', ')}`);
+  add('media', 'Viagens atrasadas', atrasadas, 'Passaram da data prevista de retorno e continuam abertas.', 'viagens',
+    v => `${linkViagem(v.id)} · ${esc(nomeMotorista(v.motoristaId))} · ${esc(v.origem)} → ${esc(v.destino)} · previsto ${fmtData(v.previsaoRetorno)} (${diasAte(v.previsaoRetorno, hoje)} dia(s) de atraso)`);
+  add('media', 'Motoristas sem dar notícia', semNoticia, 'Sem atualização de status há mais de ' + lim + ' horas.', 'monitor',
+    v => `${esc(nomeMotorista(v.motoristaId))} · ${linkViagem(v.id)} · última atualização ${tempoDesde(statusAtual(v).ts)}`);
+  add('media', 'Viagens encerradas com registros pendentes', travadas, 'O fechamento dessas viagens depende da sua análise.', 'viagens',
+    v => `${linkViagem(v.id)} · ${esc(nomeMotorista(v.motoristaId))} · ${saldoViagem(v).nAguard} registro(s) aguardando`);
+  add('baixa', 'Saldo a devolver pelo motorista', devolver, 'Viagens encerradas em que o adiantamento foi maior que o comprovado.', 'gestor:dinheiro',
+    v => `${linkViagem(v.id)} · ${esc(nomeMotorista(v.motoristaId))} · devolver ${fmtBRL(saldoViagem(v).saldo)}`);
+  add('baixa', 'Registros aguardando análise', aguard.filter(d => !velhos.includes(d)), 'Lançados nas últimas 48 horas.', 'registros:aguardando',
+    d => `${linkReg(d.id)} · ${esc(d.categoria)} · ${fmtBRL(d.valor)} · ${esc(nomeMotorista(d.motoristaId))}`);
+  return L;
+}
+
+/* ---------- 2. Dinheiro na rua ---------- */
+function calcularDinheiro(){
+  const linhas = viagens.filter(v => v.status === 'em andamento' || (v.status === 'finalizada' && Math.abs(saldoViagem(v).saldo) > 0.009))
+    .map(v => { const sv = saldoViagem(v); return { v, ...sv, semComprov: Math.max(0, sv.adiant - sv.aprovado - sv.aguardando) }; })
+    .filter(x => x.adiant > 0 || x.v.status === 'em andamento');
+  const porMot = {};
+  linhas.forEach(x => {
+    const k = x.v.motoristaId, o = porMot[k] || (porMot[k] = { id: k, adiant: 0, aprovado: 0, aguardando: 0, semComprov: 0, viagens: 0 });
+    o.adiant += x.adiant; o.aprovado += x.aprovado; o.aguardando += x.aguardando; o.semComprov += x.semComprov; o.viagens++;
+  });
+  const tot = linhas.reduce((t, x) => ({ adiant: t.adiant + x.adiant, aprovado: t.aprovado + x.aprovado, aguardando: t.aguardando + x.aguardando, semComprov: t.semComprov + x.semComprov }), { adiant: 0, aprovado: 0, aguardando: 0, semComprov: 0 });
+  return { linhas, porMot: Object.values(porMot).sort((a, b) => b.semComprov - a.semComprov), tot };
+}
+function descontosDoMes(m){
+  const por = {};
+  despesas.filter(d => (d.desconto || 0) > 0 && mesDe(d.data) === m).forEach(d => {
+    const o = por[d.motoristaId] || (por[d.motoristaId] = { id: d.motoristaId, total: 0, regs: [] });
+    o.total += d.desconto; o.regs.push(d);
+  });
+  return Object.values(por).sort((a, b) => b.total - a.total);
+}
+
+/* ---------- 3. Custos ---------- */
+function calcularCustos(m){
+  const doMes = validas().filter(d => mesDe(d.data) === m), antes = validas().filter(d => mesDe(d.data) === mesAnterior(m));
+  const soma = l => l.reduce((s, d) => s + d.valor, 0);
+  const cats = CATEGORIAS.map(c => ({ c, atual: soma(doMes.filter(d => d.categoria === c)), ant: soma(antes.filter(d => d.categoria === c)) })).filter(x => x.atual || x.ant).sort((a, b) => b.atual - a.atual);
+  const vIds = [...new Set(doMes.map(d => d.viagemId).filter(x => x != null))];
+  const porViagem = vIds.map(id => viagens.find(v => v.id === id)).filter(Boolean).map(v => ({ v, ...metricasViagem(v) })).sort((a, b) => b.custo - a.custo);
+  const porCam = {};
+  porViagem.forEach(x => {
+    const k = x.v.placa, o = porCam[k] || (porCam[k] = { placa: k, cam: caminhaoDe(x.v), custo: 0, km: 0, litros: 0, viagens: 0, kmLitros: 0 });
+    o.custo += x.custo; o.viagens++;
+    if(x.km){ o.km += x.km; if(x.litros > 0){ o.kmLitros += x.km; o.litros += x.litros; } }
+  });
+  return { total: soma(doMes), totalAnt: soma(antes), n: doMes.length, cats, porViagem, porCam: Object.values(porCam).sort((a, b) => b.custo - a.custo) };
+}
+function setaVar(atual, ant){
+  if(!ant) return atual ? '<span class="g-var g-sobe">novo</span>' : '';
+  const p = (atual - ant) / ant * 100;
+  if(Math.abs(p) < 1) return '<span class="g-var">=</span>';
+  return `<span class="g-var ${p > 0 ? 'g-sobe' : 'g-desce'}">${p > 0 ? '▲' : '▼'} ${Math.abs(p).toFixed(0)}%</span>`;
+}
+
+/* ---------- 4. Vistoria automática ---------- */
+const TIPOS_VISTORIA = {
+  acima: 'Valor acima do normal', preco: 'Preço do litro fora do padrão', mesmoDia: 'Vários abastecimentos no mesmo dia',
+  tardio: 'Lançado com atraso', semFoto: 'Sem foto da nota', dup: 'Possível duplicidade'
+};
+function calcularVistoria(){
+  const base = validas();
+  const med = {};
+  CATEGORIAS.forEach(c => { const vals = base.filter(d => d.categoria === c).map(d => d.valor); med[c] = { m: mediana(vals), n: vals.length }; });
+  const A = [];
+  const add = (tipo, d, motivo, grav) => A.push({ tipo, d, motivo, grav });
+  base.forEach(d => {
+    const md = med[d.categoria];
+    if(md && md.n >= 5 && md.m > 0 && d.valor >= md.m * 3) add('acima', d, `${fmtBRL(d.valor)} é ${(d.valor / md.m).toFixed(1)}× o valor típico de ${d.categoria} (${fmtBRL(md.m)})`, 2);
+    if(d.categoria === 'Combustível' && d.litros > 0){
+      const pl = d.valor / d.litros;
+      if(pl < 3.5 || pl > 9.5) add('preco', d, `${fmtBRL(pl)} por litro (${fmtNum(d.litros, 1)} L por ${fmtBRL(d.valor)}). Confira se os litros foram digitados certo.`, 2);
+    }
+    if(d.criadoEm && d.data){
+      const atraso = diasAte(d.data, new Date(d.criadoEm - new Date().getTimezoneOffset() * 6e4).toISOString().slice(0, 10));
+      if(atraso > 7) add('tardio', d, `Nota de ${fmtData(d.data)} lançada ${atraso} dias depois.`, 1);
+    }
+    if(!(d.fotos > 0) && !(d.fotoIds || []).length) add('semFoto', d, 'Registro sem foto da nota.', 1);
+    if(d.status === 'aguardando'){ const dp = duplicidadesDe(d); if(dp.length) add('dup', d, 'Parecido com ' + dp.map(x => '#' + x.id + ' (' + x.motivos.join(' e ') + ')').join(', '), 3); }
+  });
+  const comb = {};
+  base.filter(d => d.categoria === 'Combustível').forEach(d => { const k = (d.placa || d.motoristaId) + '|' + d.data; (comb[k] = comb[k] || []).push(d); });
+  Object.values(comb).filter(l => l.length > 1).forEach(l => l.forEach(d => add('mesmoDia', d, `${l.length} abastecimentos em ${fmtData(d.data)} (${esc(d.placa || '')}): ${l.map(x => '#' + x.id).join(', ')}`, 2)));
+  return A.sort((a, b) => (b.grav - a.grav) || (b.d.id - a.d.id));
+}
+
+/* ---------- 5. Movimentações ---------- */
+function calcularMovimentos(){
+  const itens = auditoria.map(a => ({ ts: a.tsLocal || 0, quem: a.quem, perfil: a.perfil, texto: a.acao, detalhe: a.detalhe, tipo: 'acao' }))
+    .concat(eventos.filter(e => e.tipo !== 'ocorrencia').map(e => ({ ts: e.ts, quem: e.motoristaNome || nomeMotorista(e.motoristaId), perfil: 'motorista',
+      texto: (STATUS_VIAGEM[e.tipo] || {}).rot + (e.detalhe ? ' · ' + e.detalhe : ''), detalhe: 'Viagem #' + e.viagemId + (e.obs ? ' — ' + e.obs : ''), tipo: 'status' })));
+  return itens.filter(x => x.ts).sort((a, b) => b.ts - a.ts);
+}
+
+/* ---------- 6. Ranking ---------- */
+function calcularRanking(m){
+  const mots = USUARIOS.filter(u => u.perfil === 'motorista');
+  return mots.map(u => {
+    const regs = despesas.filter(d => d.motoristaId === u.id && mesDe(d.data) === m);
+    const val = regs.filter(d => d.status !== 'rejeitado');
+    const gasto = val.reduce((s, d) => s + d.valor, 0);
+    const vs = viagens.filter(v => v.motoristaId === u.id && v.status !== 'cancelada' && v.status !== 'agendada' && (mesDe(v.saida) === m || mesDe(v.chegada) === m || (v.status === 'em andamento' && mesDe(v.saida) <= m)));
+    const dias = vs.reduce((s, v) => s + Math.max(1, diasAte(v.saida, v.chegada || hojeIso()) + 1), 0);
+    const atrasos = regs.filter(d => d.criadoEm).map(d => Math.max(0, diasAte(d.data, new Date(d.criadoEm - new Date().getTimezoneOffset() * 6e4).toISOString().slice(0, 10))));
+    const evs = eventos.filter(e => e.motoristaId === u.id && vs.some(v => v.id === e.viagemId));
+    return { u, viagens: vs.length, dias, gasto, gastoDia: dias ? gasto / dias : 0, n: regs.length,
+      rejeit: regs.length ? regs.filter(d => d.status === 'rejeitado').length / regs.length * 100 : 0,
+      atraso: atrasos.length ? atrasos.reduce((a, b) => a + b, 0) / atrasos.length : 0,
+      status: vs.length ? evs.filter(e => e.tipo !== 'ocorrencia').length / vs.length : 0,
+      ocs: evs.filter(e => e.tipo === 'ocorrencia').length,
+      desconto: regs.reduce((s, d) => s + (d.desconto || 0), 0) };
+  }).filter(r => r.n || r.viagens);
+}
+
+/* ---------- 7. Fechamento ---------- */
+function exportarFechamentoCSV(m){
+  const linhas = [['Registro', 'Data', 'Motorista', 'Placa', 'Viagem', 'Categoria', 'Cidade', 'Descrição', 'Valor', 'Litros', 'Status', 'Desconto', 'Motivo']];
+  despesas.filter(d => mesDe(d.data) === m).sort((a, b) => a.data.localeCompare(b.data) || a.id - b.id).forEach(d => linhas.push([
+    d.id, fmtData(d.data), nomeMotorista(d.motoristaId), d.placa || '', d.viagemId || '', d.categoria, d.cidade || '', d.descricao || '',
+    String(d.valor.toFixed(2)).replace('.', ','), d.litros ? String(d.litros).replace('.', ',') : '', rotulosStatus[d.status] || d.status,
+    String((d.desconto || 0).toFixed(2)).replace('.', ','), d.motivo || '']));
+  const csv = '﻿' + linhas.map(l => l.map(c => '"' + String(c).replace(/"/g, '""') + '"').join(';')).join('\r\n');
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([csv], { type: 'text/csv;charset=utf-8' }));
+  a.download = 'rofe_fechamento_' + m + '.csv';
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(a.href), 2000);
+  auditar('Exportou fechamento do mês', nomeMes(m));
+}
+function imprimirFechamento(m){
+  const alvo = document.getElementById('g-fech');
+  if(!alvo) return;
+  const w = window.open('', '_blank');
+  if(!w){ mostrarMensagem('Permita pop-ups para imprimir.', true); return; }
+  w.document.write(`<!DOCTYPE html><html lang="pt-BR"><head><meta charset="utf-8"><title>Fechamento ${nomeMes(m)} — ROFE</title>
+    <style>body{font-family:Arial,sans-serif;color:#0B2A4A;padding:24px;font-size:13px}h1{font-size:20px}h2{font-size:15px;margin:18px 0 6px}table{width:100%;border-collapse:collapse;margin:6px 0}th,td{border-bottom:1px solid #ddd;padding:6px;text-align:left}th{background:#F1F4F8}.ok{color:#1E7B3A}.pend{color:#B26A00}.g-link{color:inherit}button{display:none}.g-check{list-style:none;padding:0}.g-check li{padding:5px 0}</style></head>
+    <body><h1>ROFE — Fechamento de ${nomeMes(m)}</h1><p>Emitido em ${new Date().toLocaleString('pt-BR')} por ${esc(usuarioAtual.nome)}</p>${alvo.innerHTML}<script>setTimeout(()=>print(),300)<\/script></body></html>`);
+  w.document.close();
+}
+
+/* ---------- Tela ---------- */
+const ABAS_GESTOR = [['pendencias', 'Pendências', 'alert'], ['dinheiro', 'Dinheiro na rua', 'wallet'], ['custos', 'Custos', 'chart'], ['vistoria', 'Vistoria', 'shield'],
+  ['movimentos', 'Movimentações', 'clock'], ['ranking', 'Ranking', 'bars'], ['fechamento', 'Fechamento do mês', 'check']];
+TELAS_ADMIN.gestor = function(c){
+  if(!ehDono()){ irPara('inicio'); return; }
+  if(!mesGestor) mesGestor = hojeIso().slice(0, 7);
+  const pend = calcularPendencias(), vist = calcularVistoria();
+  const contAbas = { pendencias: pend.filter(p => p.nivel !== 'baixa').reduce((s, p) => s + p.lista.length, 0), vistoria: vist.length };
+  const meses = [...new Set(despesas.map(d => mesDe(d.data)).concat([hojeIso().slice(0, 7)]))].filter(Boolean).sort().reverse();
+  c.innerHTML = `
+    <div class="cabecalho-pagina"><div><h1>Central do gestor</h1><p>Visão completa da operação e do dinheiro. Só você vê esta área.</p></div>
+      <div class="filtros" style="margin:0"><label class="mini" for="g-mes" style="align-self:center">Mês de referência</label>
+        <select id="g-mes">${meses.map(m => `<option value="${m}" ${m === mesGestor ? 'selected' : ''}>${nomeMes(m)}</option>`).join('')}</select></div></div>
+    <div class="g-abas" role="tablist">${ABAS_GESTOR.map(([k, r, ic]) => `<button type="button" role="tab" data-aba-g="${k}" class="${k === abaGestor ? 'ativo' : ''}">${icon(ic)}<span>${r}</span>${contAbas[k] ? `<b class="g-cont">${contAbas[k]}</b>` : ''}</button>`).join('')}</div>
+    <div id="g-corpo"></div>`;
+  c.querySelectorAll('[data-aba-g]').forEach(b => b.addEventListener('click', () => { abaGestor = b.dataset.abaG; irPara('gestor'); }));
+  c.querySelector('#g-mes').addEventListener('change', e => { mesGestor = e.target.value; irPara('gestor'); });
+  const corpo = c.querySelector('#g-corpo');
+  ({ pendencias: () => abaPendencias(corpo, pend), dinheiro: () => abaDinheiro(corpo), custos: () => abaCustos(corpo), vistoria: () => abaVistoria(corpo, vist),
+     movimentos: () => abaMovimentos(corpo), ranking: () => abaRanking(corpo), fechamento: () => abaFechamento(corpo) }[abaGestor] || (() => abaPendencias(corpo, pend)))();
+};
+function abaPendencias(el, pend){
+  const n = nv => pend.filter(p => p.nivel === nv).reduce((s, p) => s + p.lista.length, 0);
+  el.innerHTML = `
+    <div class="cards">
+      <div class="card vermelho"><div class="rotulo">Urgentes</div><div class="valor">${n('alta')}</div></div>
+      <div class="card amarelo"><div class="rotulo">Atenção</div><div class="valor">${n('media')}</div></div>
+      <div class="card azul"><div class="rotulo">Rotina</div><div class="valor">${n('baixa')}</div></div>
+    </div>
+    ${pend.length ? pend.map(p => `<div class="painel-bloco g-pend g-${p.nivel}">
+      <div class="g-pend-topo"><div><h2>${esc(p.titulo)} <span class="g-qtd">${p.lista.length}</span></h2><p class="mini" style="margin:2px 0 0">${esc(p.desc)}</p></div>
+        <button type="button" class="btn btn-pequeno btn-contorno" data-ir-pend="${p.acao}">Resolver</button></div>
+      <ul class="g-lista">${p.lista.slice(0, 6).map(x => `<li>${p.itemHtml(x)}</li>`).join('')}${p.lista.length > 6 ? `<li class="mini">+ ${p.lista.length - 6} outro(s)</li>` : ''}</ul>
+    </div>`).join('') : `<div class="card vazio">${icon('check')} Tudo em dia. Nenhuma pendência agora.</div>`}`;
+}
+function abaDinheiro(el){
+  const { linhas, porMot, tot } = calcularDinheiro();
+  const desc = descontosDoMes(mesGestor);
+  el.innerHTML = `
+    <div class="cards">
+      <div class="card azul"><div class="rotulo">Adiantado (viagens abertas e saldos)</div><div class="valor">${fmtBRL(tot.adiant)}</div></div>
+      <div class="card verde"><div class="rotulo">Já comprovado (aprovado)</div><div class="valor">${fmtBRL(tot.aprovado)}</div></div>
+      <div class="card amarelo"><div class="rotulo">Em análise</div><div class="valor">${fmtBRL(tot.aguardando)}</div></div>
+      <div class="card vermelho"><div class="rotulo">Sem comprovação</div><div class="valor">${fmtBRL(tot.semComprov)}</div></div>
+    </div>
+    <div class="painel-bloco"><h2>Por motorista</h2>
+      ${porMot.length ? `<div class="tabela-wrap" style="box-shadow:none"><table><thead><tr><th>MOTORISTA</th><th>VIAGENS</th><th>ADIANTADO</th><th>COMPROVADO</th><th>EM ANÁLISE</th><th>SEM COMPROVAÇÃO</th></tr></thead><tbody>
+        ${porMot.map(o => `<tr><td><strong>${esc(nomeMotorista(o.id))}</strong></td><td class="num">${o.viagens}</td><td class="num">${fmtBRL(o.adiant)}</td><td class="num">${fmtBRL(o.aprovado)}</td><td class="num">${fmtBRL(o.aguardando)}</td><td class="num ${o.semComprov > 0 ? 'g-verm' : ''}"><strong>${fmtBRL(o.semComprov)}</strong></td></tr>`).join('')}
+      </tbody></table></div>` : '<div class="vazio">Nenhum adiantamento em aberto.</div>'}</div>
+    <div class="painel-bloco"><h2>Por viagem</h2>
+      ${linhas.length ? `<div class="tabela-wrap" style="box-shadow:none"><table><thead><tr><th>VIAGEM</th><th>MOTORISTA</th><th>SITUAÇÃO</th><th>ADIANTADO</th><th>COMPROVADO</th><th>EM ANÁLISE</th><th>SALDO</th></tr></thead><tbody>
+        ${linhas.map(x => `<tr class="linha-clicavel" data-viagem-atalho="${x.v.id}"><td>#${x.v.id} ${esc(x.v.origem)} → ${esc(x.v.destino)}</td><td>${esc(nomeMotorista(x.v.motoristaId))}</td><td>${esc(x.v.status)}</td><td class="num">${fmtBRL(x.adiant)}</td><td class="num">${fmtBRL(x.aprovado)}</td><td class="num">${fmtBRL(x.aguardando)}</td><td class="num"><strong>${fmtBRL(Math.abs(x.saldo))}</strong><div class="mini">${rotuloSaldo(x.saldo)}</div></td></tr>`).join('')}
+      </tbody></table></div>` : '<div class="vazio">Nada em aberto.</div>'}</div>
+    <div class="painel-bloco"><h2>Descontos a lançar em folha · ${nomeMes(mesGestor)}</h2>
+      ${desc.length ? desc.map(o => `<div class="g-linha"><span><strong>${esc(nomeMotorista(o.id))}</strong> <span class="mini">${o.regs.map(d => linkReg(d.id)).join(' ')}</span></span><strong class="g-verm">${fmtBRL(o.total)}</strong></div>`).join('')
+        + `<div class="g-linha g-total"><span>Total</span><strong>${fmtBRL(desc.reduce((s, o) => s + o.total, 0))}</strong></div>` : '<div class="vazio">Nenhum desconto neste mês.</div>'}</div>`;
+}
+function abaCustos(el){
+  const k = calcularCustos(mesGestor);
+  const maxCat = Math.max(1, ...k.cats.map(x => Math.max(x.atual, x.ant)));
+  const kmTot = k.porCam.reduce((s, o) => s + o.km, 0);
+  const litTot = k.porCam.reduce((s, o) => s + o.litros, 0), kmLit = k.porCam.reduce((s, o) => s + o.kmLitros, 0);
+  el.innerHTML = `
+    <div class="cards">
+      <div class="card azul"><div class="rotulo">Gasto em ${nomeMes(mesGestor).split(' ')[0]}</div><div class="valor">${fmtBRL(k.total)}</div><div class="mini">${setaVar(k.total, k.totalAnt)} vs mês anterior (${fmtBRL(k.totalAnt)})</div></div>
+      <div class="card"><div class="rotulo">Custo médio por km</div><div class="valor">${kmTot ? fmtBRL(k.porViagem.filter(x => x.km).reduce((s, x) => s + x.custo, 0) / kmTot) : '—'}</div><div class="mini">${kmTot ? fmtNum(kmTot, 0) + ' km com km inicial e final' : 'Informe km inicial e final nas viagens'}</div></div>
+      <div class="card verde"><div class="rotulo">Consumo médio</div><div class="valor">${litTot ? fmtNum(kmLit / litTot, 2) + ' km/L' : '—'}</div><div class="mini">${litTot ? fmtNum(litTot, 0) + ' litros' : 'Sem litros informados'}</div></div>
+      <div class="card"><div class="rotulo">Viagens com gasto</div><div class="valor">${k.porViagem.length}</div><div class="mini">${k.n} registro(s)</div></div>
+    </div>
+    <div class="painel-bloco"><h2>Gasto por categoria <span class="mini" style="font-weight:600">· barra escura = este mês, clara = mês anterior</span></h2>
+      ${k.cats.length ? k.cats.map(x => `<div class="g-barra-linha"><span class="g-barra-rot">${esc(x.c)}</span>
+        <div class="g-barras"><div class="g-barra" style="width:${x.atual / maxCat * 100}%"></div><div class="g-barra g-barra-ant" style="width:${x.ant / maxCat * 100}%"></div></div>
+        <span class="g-barra-val"><strong>${fmtBRL(x.atual)}</strong> ${setaVar(x.atual, x.ant)}</span></div>`).join('') : '<div class="vazio">Sem gastos neste mês.</div>'}</div>
+    <div class="painel-bloco"><h2>Por caminhão</h2>
+      ${k.porCam.length ? `<div class="tabela-wrap" style="box-shadow:none"><table><thead><tr><th>CAMINHÃO</th><th>VIAGENS</th><th>GASTO</th><th>KM</th><th>R$/KM</th><th>KM/L</th></tr></thead><tbody>
+        ${k.porCam.map(o => `<tr><td><strong>${esc(o.placa)}</strong><div class="mini">${esc(o.cam ? o.cam.modelo + ' · ' + o.cam.tipo : '')}</div></td><td class="num">${o.viagens}</td><td class="num">${fmtBRL(o.custo)}</td><td class="num">${o.km ? fmtNum(o.km, 0) : '—'}</td><td class="num">${o.km ? fmtBRL(o.custo / o.km) : '—'}</td><td class="num">${o.litros ? fmtNum(o.kmLitros / o.litros, 2) : '—'}</td></tr>`).join('')}
+      </tbody></table></div>` : '<div class="vazio">Sem viagens com gasto neste mês.</div>'}</div>
+    <div class="painel-bloco"><h2>Por viagem</h2>
+      ${k.porViagem.length ? `<div class="tabela-wrap" style="box-shadow:none"><table><thead><tr><th>VIAGEM</th><th>MOTORISTA</th><th>GASTO</th><th>KM</th><th>R$/KM</th><th>KM/L</th></tr></thead><tbody>
+        ${k.porViagem.map(x => `<tr class="linha-clicavel" data-viagem-atalho="${x.v.id}"><td>#${x.v.id} ${esc(x.v.origem)} → ${esc(x.v.destino)}<div class="mini">${esc(x.v.placa)}</div></td><td>${esc(nomeMotorista(x.v.motoristaId))}</td><td class="num">${fmtBRL(x.custo)}</td><td class="num">${x.km ? fmtNum(x.km, 0) : '—'}</td><td class="num">${x.custoKm ? fmtBRL(x.custoKm) : '—'}</td><td class="num">${x.consumo ? fmtNum(x.consumo, 2) : '—'}</td></tr>`).join('')}
+      </tbody></table></div>` : '<div class="vazio">Sem viagens com gasto neste mês.</div>'}</div>`;
+}
+function abaVistoria(el, vist){
+  const cont = {};
+  vist.forEach(a => cont[a.tipo] = (cont[a.tipo] || 0) + 1);
+  const lista = vist.filter(a => !filtroVistoria || a.tipo === filtroVistoria);
+  el.innerHTML = `
+    <p class="mini" style="margin:0 0 12px">O sistema analisa todos os registros e marca o que foge do padrão. Um alerta não quer dizer erro: é um convite para conferir.</p>
+    <div class="abas-filtro"><button type="button" data-filtro-vist="" class="${!filtroVistoria ? 'ativo' : ''}">Todos (${vist.length})</button>
+      ${Object.entries(TIPOS_VISTORIA).map(([k, r]) => `<button type="button" data-filtro-vist="${k}" class="${filtroVistoria === k ? 'ativo' : ''}">${r} (${cont[k] || 0})</button>`).join('')}</div>
+    ${lista.length ? `<div class="tabela-wrap"><table><thead><tr><th>REGISTRO</th><th>MOTORISTA</th><th>CATEGORIA</th><th>VALOR</th><th>ALERTA</th><th>SITUAÇÃO</th></tr></thead><tbody>
+      ${lista.slice(0, 200).map(a => `<tr class="linha-clicavel" data-abrir-det="${a.d.id}"><td>#${a.d.id}<div class="mini">${fmtData(a.d.data)}</div></td><td>${esc(nomeMotorista(a.d.motoristaId))}</td><td>${esc(a.d.categoria)}</td><td class="num">${fmtBRL(a.d.valor)}</td>
+        <td><span class="g-alerta g-grav${a.grav}">${esc(TIPOS_VISTORIA[a.tipo])}</span><div class="mini">${a.motivo}</div></td><td><span class="tag ${a.d.status}">${rotulosStatus[a.d.status]}</span></td></tr>`).join('')}
+    </tbody></table></div>` : `<div class="card vazio">${icon('check')} Nenhum alerta${filtroVistoria ? ' deste tipo' : ''}.</div>`}`;
+  el.querySelectorAll('[data-filtro-vist]').forEach(b => b.addEventListener('click', () => { filtroVistoria = b.dataset.filtroVist; irPara('gestor'); }));
+}
+function abaMovimentos(el){
+  const todos = calcularMovimentos();
+  if(!filtroMov.dia) filtroMov.dia = hojeIso();
+  const pessoas = [...new Set(todos.map(x => x.quem).filter(Boolean))].sort();
+  const diaDe = ts => new Date(ts - new Date().getTimezoneOffset() * 6e4).toISOString().slice(0, 10);
+  const t = filtroMov.texto.toLowerCase();
+  const lista = todos.filter(x => (filtroMov.dia === 'todos' || diaDe(x.ts) === filtroMov.dia) && (!filtroMov.quem || x.quem === filtroMov.quem)
+    && (!t || (x.texto + ' ' + x.detalhe + ' ' + x.quem).toLowerCase().includes(t)));
+  el.innerHTML = `
+    <div class="filtros"><input type="date" id="mv-dia" value="${filtroMov.dia === 'todos' ? '' : filtroMov.dia}" title="Dia">
+      <button type="button" class="btn btn-pequeno btn-contorno" id="mv-todos">${filtroMov.dia === 'todos' ? 'Todos os dias ✓' : 'Todos os dias'}</button>
+      <select id="mv-quem"><option value="">Todas as pessoas</option>${pessoas.map(p => `<option ${p === filtroMov.quem ? 'selected' : ''}>${esc(p)}</option>`).join('')}</select>
+      <input type="text" id="mv-txt" placeholder="Buscar (ex.: aprovou, viagem #12)" value="${esc(filtroMov.texto)}"></div>
+    <p class="mini" style="margin:0 0 10px">${lista.length} movimentação(ões). Inclui as ações de todos os usuários (últimas 500) e os status enviados pelos motoristas.</p>
+    ${lista.length ? `<div class="painel-bloco"><ol class="g-feed">${lista.slice(0, 300).map(x => `<li class="g-feed-${x.tipo}"><span class="g-hora">${new Date(x.ts).toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })}${filtroMov.dia === 'todos' ? '<br><span class="mini">' + new Date(x.ts).toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit' }) + '</span>' : ''}</span>
+      <div><strong>${esc(x.quem || '')}</strong> <span class="mini">${esc(ROTULO_PERFIL[x.perfil] || '')}</span><div>${esc(x.texto)}</div>${x.detalhe ? `<div class="mini">${esc(x.detalhe)}</div>` : ''}</div></li>`).join('')}</ol></div>`
+      : '<div class="card vazio">Nenhuma movimentação com esses filtros.</div>'}`;
+  el.querySelector('#mv-dia').addEventListener('change', e => { filtroMov.dia = e.target.value || hojeIso(); irPara('gestor'); });
+  el.querySelector('#mv-todos').addEventListener('click', () => { filtroMov.dia = filtroMov.dia === 'todos' ? hojeIso() : 'todos'; irPara('gestor'); });
+  el.querySelector('#mv-quem').addEventListener('change', e => { filtroMov.quem = e.target.value; irPara('gestor'); });
+  let tm; el.querySelector('#mv-txt').addEventListener('input', e => { clearTimeout(tm); tm = setTimeout(() => { filtroMov.texto = e.target.value; irPara('gestor'); document.getElementById('mv-txt')?.focus(); }, 400); });
+}
+function abaRanking(el){
+  const r = calcularRanking(mesGestor);
+  const ORD = { gastoDia: ['Gasto por dia', (a, b) => b.gastoDia - a.gastoDia], gasto: ['Gasto total', (a, b) => b.gasto - a.gasto], rejeit: ['% rejeitados', (a, b) => b.rejeit - a.rejeit],
+    atraso: ['Atraso para lançar', (a, b) => b.atraso - a.atraso], status: ['Atualizações por viagem', (a, b) => a.status - b.status] };
+  r.sort(ORD[ordemRanking][1]);
+  const medDia = mediana(r.filter(x => x.dias).map(x => x.gastoDia));
+  el.innerHTML = `
+    <div class="filtros"><label class="mini" for="rk-ord" style="align-self:center">Ordenar por</label><select id="rk-ord">${Object.entries(ORD).map(([k, [rot]]) => `<option value="${k}" ${k === ordemRanking ? 'selected' : ''}>${rot}</option>`).join('')}</select></div>
+    <p class="mini" style="margin:0 0 10px">${nomeMes(mesGestor)}. Gasto por dia acima de 1,5× o típico da equipe (${fmtBRL(medDia)}) fica destacado. Use para conversar com o motorista, não só para cobrar.</p>
+    ${r.length ? `<div class="tabela-wrap"><table><thead><tr><th>MOTORISTA</th><th>VIAGENS</th><th>DIAS</th><th>GASTO</th><th>POR DIA</th><th>REJEITADOS</th><th>LANÇA EM</th><th>STATUS/VIAGEM</th><th>OCORRÊNCIAS</th><th>DESCONTOS</th></tr></thead><tbody>
+      ${r.map((x, i) => `<tr><td><strong>${i + 1}. ${esc(x.u.nome)}</strong></td><td class="num">${x.viagens}</td><td class="num">${x.dias}</td><td class="num">${fmtBRL(x.gasto)}</td>
+        <td class="num ${medDia && x.gastoDia > medDia * 1.5 ? 'g-verm' : ''}"><strong>${x.dias ? fmtBRL(x.gastoDia) : '—'}</strong></td>
+        <td class="num ${x.rejeit >= 20 ? 'g-verm' : ''}">${fmtNum(x.rejeit, 0)}%</td><td class="num ${x.atraso > 3 ? 'g-verm' : ''}">${fmtNum(x.atraso, 1)} dia(s)</td>
+        <td class="num ${x.viagens && x.status < 2 ? 'g-verm' : ''}">${fmtNum(x.status, 1)}</td><td class="num">${x.ocs}</td><td class="num">${fmtBRL(x.desconto)}</td></tr>`).join('')}
+    </tbody></table></div>` : '<div class="card vazio">Sem movimentação de motoristas neste mês.</div>'}`;
+  el.querySelector('#rk-ord').addEventListener('change', e => { ordemRanking = e.target.value; irPara('gestor'); });
+}
+function abaFechamento(el){
+  const m = mesGestor;
+  const doMes = despesas.filter(d => mesDe(d.data) === m);
+  const aguard = doMes.filter(d => d.status === 'aguardando');
+  const abertas = viagens.filter(v => v.status === 'em andamento' && mesDe(v.saida) <= m);
+  const orc = solicitacoes.filter(s => s.status === 'pendente');
+  const fin = viagens.filter(v => v.status === 'finalizada' && mesDe(v.chegada || v.saida) === m);
+  const comSaldo = fin.filter(v => Math.abs(saldoViagem(v).saldo) > 0.009);
+  const desc = descontosDoMes(m);
+  const aprov = doMes.filter(d => d.status === 'aprovado');
+  const porCat = CATEGORIAS.map(c => [c, aprov.filter(d => d.categoria === c).reduce((s, d) => s + d.valor, 0)]).filter(x => x[1]);
+  const item = (ok, txt) => `<li class="${ok ? 'ok' : 'pend'}">${ok ? '✔' : '✖'} ${txt}</li>`;
+  const pronto = !aguard.length && !orc.length;
+  el.innerHTML = `
+    <div class="linha-acoes" style="margin-bottom:14px">
+      <button type="button" class="btn btn-primario btn-pequeno" id="fc-csv">${icon('download')}<span>Exportar planilha (CSV)</span></button>
+      <button type="button" class="btn btn-contorno btn-pequeno" id="fc-pdf">${icon('receipt')}<span>Imprimir / salvar PDF</span></button></div>
+    <div id="g-fech">
+      <div class="painel-bloco ${pronto ? 'g-fech-ok' : 'g-fech-pend'}"><h2>${pronto ? 'Mês pronto para fechar' : 'Ainda falta resolver'}</h2>
+        <ul class="g-check">
+          ${item(!aguard.length, aguard.length ? aguard.length + ' registro(s) do mês aguardando análise' : 'Todos os registros do mês analisados')}
+          ${item(!orc.length, orc.length ? orc.length + ' orçamento(s) sem resposta' : 'Nenhum orçamento pendente')}
+          ${item(!abertas.length, abertas.length ? abertas.length + ' viagem(ns) ainda em andamento (entram no próximo fechamento)' : 'Nenhuma viagem aberta')}
+          ${item(!comSaldo.length, comSaldo.length ? comSaldo.length + ' viagem(ns) encerrada(s) com saldo a acertar' : 'Saldos das viagens acertados')}
+        </ul></div>
+      <div class="cards">
+        <div class="card verde"><div class="rotulo">Aprovado no mês</div><div class="valor">${fmtBRL(aprov.reduce((s, d) => s + d.valor, 0))}</div></div>
+        <div class="card"><div class="rotulo">Viagens encerradas</div><div class="valor">${fin.length}</div></div>
+        <div class="card vermelho"><div class="rotulo">Descontos em folha</div><div class="valor">${fmtBRL(desc.reduce((s, o) => s + o.total, 0))}</div></div>
+        <div class="card azul"><div class="rotulo">Registros no mês</div><div class="valor">${doMes.length}</div></div>
+      </div>
+      <div class="painel-bloco"><h2>Aprovado por categoria</h2>${porCat.length ? `<table><tbody>${porCat.map(([c, v]) => `<tr><td>${esc(c)}</td><td class="num">${fmtBRL(v)}</td></tr>`).join('')}</tbody></table>` : '<div class="vazio">Nada aprovado neste mês.</div>'}</div>
+      <div class="painel-bloco"><h2>Saldos das viagens encerradas</h2>${comSaldo.length ? `<table><thead><tr><th>Viagem</th><th>Motorista</th><th>Adiantado</th><th>Aprovado</th><th>Saldo</th></tr></thead><tbody>
+        ${comSaldo.map(v => { const s = saldoViagem(v); return `<tr><td>#${v.id} ${esc(v.origem)} → ${esc(v.destino)}</td><td>${esc(nomeMotorista(v.motoristaId))}</td><td class="num">${fmtBRL(s.adiant)}</td><td class="num">${fmtBRL(s.aprovado)}</td><td class="num"><strong>${fmtBRL(Math.abs(s.saldo))}</strong> ${rotuloSaldo(s.saldo).toLowerCase()}</td></tr>`; }).join('')}</tbody></table>` : '<div class="vazio">Nenhum saldo a acertar.</div>'}</div>
+      <div class="painel-bloco"><h2>Descontos a lançar em folha</h2>${desc.length ? `<table><tbody>${desc.map(o => `<tr><td>${esc(nomeMotorista(o.id))}</td><td class="mini">${o.regs.map(d => '#' + d.id).join(', ')}</td><td class="num"><strong>${fmtBRL(o.total)}</strong></td></tr>`).join('')}</tbody></table>` : '<div class="vazio">Nenhum desconto.</div>'}</div>
+    </div>`;
+  el.querySelector('#fc-csv').addEventListener('click', () => exportarFechamentoCSV(m));
+  el.querySelector('#fc-pdf').addEventListener('click', () => imprimirFechamento(m));
+}
+/* cliques da central (registro, atalho de pendência) */
+document.addEventListener('click', e => {
+  if(!usuarioAtual || !ehDono()) return;
+  const r = e.target.closest('[data-abrir-det]');
+  if(r){ e.stopPropagation(); abrirDetalhe(+r.dataset.abrirDet); return; }
+  const p = e.target.closest('[data-ir-pend]');
+  if(p){
+    const [rota, arg] = p.dataset.irPend.split(':');
+    if(rota === 'registros'){ filtroAdmin = { texto:'', status:'', categoria:'', de:'', ate:'', dup:'' }; if(arg === 'aguardando') filtroAdmin.status = 'aguardando'; if(arg === 'dup') filtroAdmin.dup = '1'; }
+    if(rota === 'gestor' && arg){ abaGestor = arg; }
+    irPara(rota);
+  }
+});
+/* resumo no Painel: atalho para a central */
+function bannerGestor(){
+  if(!ehDono()) return '';
+  const pend = calcularPendencias().filter(p => p.nivel !== 'baixa');
+  const n = pend.reduce((s, p) => s + p.lista.length, 0), alta = pend.filter(p => p.nivel === 'alta').reduce((s, p) => s + p.lista.length, 0);
+  return `<div class="g-banner ${alta ? 'g-banner-alta' : n ? '' : 'g-banner-ok'}" data-ir="gestor">${icon(alta ? 'alert' : n ? 'clock' : 'check')}
+    <span><strong>${n ? n + ' pendência(s) pedem sua atenção' : 'Tudo em dia'}</strong>${alta ? ' · ' + alta + ' urgente(s)' : ''}<span class="mini"> · Abrir Central do gestor</span></span>${icon('chevron')}</div>`;
 }
 
 /* ===== Notificações e auditoria ===== */
@@ -5167,4 +5605,4 @@ async function carregarSessao(user){
 }
 </script>
 </body>
-                        </html>
+</html>
